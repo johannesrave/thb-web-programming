@@ -62,6 +62,7 @@ li label {
     text-decoration: underline;
     font-optical-sizing: auto;
     padding: 1vh 0;
+    margin: 1vh 0;
 }
 
 li label:hover {
