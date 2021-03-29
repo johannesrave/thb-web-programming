@@ -12,6 +12,7 @@
 :root {
     --font-color: dimgray;
     --background-color: white;
+    --background-hover: linear-gradient(22deg, #DDD, #EEE);
     --text-font: 'Exo 2', sans-serif;
     --display-font: 'Fira Code', monospace;
     margin-left: calc(100vw - 100%);
@@ -60,11 +61,15 @@ li label {
     font-weight: 600;
     text-decoration: underline;
     font-optical-sizing: auto;
-    margin: 2vh auto 0;
+    padding: 1vh 0;
+}
+
+li label:hover {
+    background: var(--background-hover);
 }
 
 .resume li ul li{
-    margin: 2vh 2vw;
+    margin: 0vh 2vw;
 }
 
 .resume li ul li b::after {
