@@ -1,14 +1,6 @@
-/* css Zen Garden default style v1.02 */
-/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
-
-/* This file based on 'Tranquille' by Dave Shea */
-/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
-/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
-
-/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
-
-/* basic elements */
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed&display=swap');
+/* FONT AND COLOR FORMATTING */
 
 * {
     box-sizing: border-box;
@@ -16,119 +8,63 @@
     padding: 0;
 }
 
-body {
-    width: 60vw;
-    min-width: 470px;
-    max-width: 840px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 5vw;
-    padding-left: 5vw;
-
-    background: linear-gradient(40deg, #ff8080, #1d42be, #ff8080);
-    /*background: #fff url(http://csszengarden.com/001/blossoms.jpg) no-repeat bottom right;*/
-    /*margin: 0;*/
-    /*padding: 0;*/
-    font: italic normal 18pt 'Fira Sans', sans-serif;
-    line-height: 3.2rem;
-    color: #ffffff;
+html {
+    font-family: "Fira Code", monospace;
 }
 
-p {
-    /*margin-top: 0;*/
-    text-align: justify;
+h1 {
+    font-size: 18vw;
+    writing-mode: vertical-rl;
+    display: flex;
+    height: 0;
+    margin: 0;
+    padding: 5vh 0 0;
+    white-space: nowrap;
+
+    font-family: "Fira Sans Extra Condensed", monospace;
+    letter-spacing: 3vh;
+    font-weight: 600;
 }
 
-header {
-    /*position: relative;*/
+h2 {
+    font-family: "Fira Code", monospace;
+    font-size: 3em;
+    margin: 0;
+    padding: 2vw 2vw 2vw;
 }
 
 .summary {
-    width: 20vw;
-    font: italic normal 1rem 'Fira Sans';
-    line-height: 2rem;
-    text-align: justify;
-
-    position: fixed;
-    left: 2vw;
-    top: 10rem;
-    /*transform: translateX(-100%);*/
-    /*top: -20rem;*/
+    font-family: "Fira Code", monospace;
+    font-size: .8em;
+    margin: 0;
+    padding: 2vw 2vw 2vw;
 }
 
-header h1 {
-    font: bold italic normal 24vw sans-serif;
-
-    min-font-size: 2rem;
-    white-space: nowrap;
-
-    position: absolute;
-    right: 1rem;
-    top: 0;
-    transform-origin: right top;
-    transform: rotate(90deg) translateX(100%);
-
-    /*letter-spacing: 0rem;*/
-    /*mix-blend-mode: screen;*/
+.preamble {
+    font-style: italic;
 }
 
-header h2 {
-    width: 20vw;
-    font: bold italic normal 1.8rem sans-serif;
-    /*white-space: nowrap;*/
-    /*letter-spacing: .2rem;*/
-    text-align: right;
-
-    position: absolute;
-    /*transform-origin: right bottom;*/
-    left: -23.2rem;
-    top: 2rem;
-    /*transform: translateX(-100%);*/
-    /*top: -20rem;*/
+.main, .preamble {
+    font-size: 1.6vw;
+    line-height: 2em;
+    padding: 2vw 2vw 2vw;
+    /*text-align: justify;*/
 }
 
-.main h3 {
-    font: italic normal 1.4em sans-serif;
-    letter-spacing: 1px;
-    padding-top: 6rem;
-    padding-bottom: 1rem;
-    /*margin-bottom: 0;*/
-    /*color: #7D775C;*/
+.sidebar {
+    margin-top: auto;
+    /*border: solid #425a5a;*/
+    padding: 2vw 2vw 2vw;
 }
 
-a:link {
-    font-weight: bold;
-    text-decoration: none;
-    color: #8667a5;
-}
-
-a:visited {
-    font-weight: bold;
-    text-decoration: none;
-    color: #D4CDDC;
-}
-
-a:hover, a:focus, a:active {
-    text-decoration: dashed;
-    color: #8667a5;
-}
-
-abbr {
-    border-bottom: none;
-}
-
-
-/* specific divs */
+/* NAVIGATION STYLING */
+/* list of designs */
 .design-selection ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
-
-    font-size: 1.2rem;
     list-style-type: none;
     text-align: center;
 }
 
+/* styled bubbles for design-links */
 .design-selection li a:first-of-type {
     display: flex;
     align-items: center;
@@ -136,167 +72,63 @@ abbr {
     border-radius: 50%;
     padding: 1rem;
 
+    margin: 2vh;
+
     font-size: 1.4rem;
-    line-height: 1.6;
-    /*font-style: normal;*/
+    line-height: 1.5;
     color: white;
     background: linear-gradient(40deg, #ff8080, #1d42be);
 }
 
-/*pseudo-element to style "planets" circular*/
 .design-selection li a:first-of-type:before {
     content: "";
-    float: left;
+    /*float: left;*/
     padding-top: 100%; /* initial ratio of 1:1*/
 }
 
+
+/* GRID SETUP AND LAYOUT */
 .page-wrapper {
-    /*min-width: 470px;*/
-    /*width: 60%;*/
-    /*background: url(http://csszengarden.com/001/zen-bg.jpg) no-repeat top left;*/
-    /*padding: 0 300px 0 300px;*/
-    /*margin: 0;*/
-    /*position: relative;*/
+    display: grid;
+    grid-template-areas:
+            'header header title'
+            'summary preamble title'
+            'nav main title'
+            'nav main left'
+            'footer footer footer';
+
+    grid-template-columns: 2fr 5fr 2fr;
+    /*grid-gap: 2vw;*/
 }
 
 .intro {
-    /*min-width: 470px;*/
-    /*width: 100%;*/
+    display: contents;
 }
 
-header h1 {
-    /*background: transparent url(http://csszengarden.com/001/h1.gif) no-repeat top left;*/
-    /*margin-top: 10px;*/
-    /*display: block;*/
-    /*width: 219px;*/
-    /*height: 87px;*/
-    /*float: left;*/
-
-    /*text-indent: 100%;*/
-    /*white-space: nowrap;*/
-    /*overflow: hidden;*/
+.intro > header {
+    display: contents;
 }
 
-header h2 {
-    /*background: transparent url(http://csszengarden.com/001/h2.gif) no-repeat top left;*/
-    /*margin-top: 58px;*/
-    /*margin-bottom: 40px;*/
-    /*width: 200px;*/
-    /*height: 18px;*/
-    /*float: right;*/
-
-    /*text-indent: 100%;*/
-    /*white-space: nowrap;*/
-    /*overflow: hidden;*/
+.intro > header > h1 {
+    grid-area: title;
 }
 
-header {
-    /*padding-top: 20px;*/
-    /*height: 87px;*/
+.intro > header > h2 {
+    grid-area: header;
 }
 
-/*.summary {*/
-/*    clear: both;*/
-/*    margin: 20px 20px 20px 10px;*/
-/*    width: 160px;*/
-/*    float: left;*/
-/*}*/
-.summary p {
-    /*font: italic 1.1em/2.2 georgia;*/
-    /*text-align: center;*/
+.intro .summary {
+    grid-area: summary;
 }
 
-.preamble {
-    /*clear: right;*/
-    /*padding: 0px 10px 0 10px;*/
+.intro .preamble {
+    grid-area: preamble;
 }
 
-.supporting {
-    /*padding-left: 10px;*/
-    /*margin-bottom: 40px;*/
+.main {
+    grid-area: main;
 }
-
-footer {
-
-}
-
-/*footer a:link, footer a:visited {*/
-/*    margin-right: 20px;*/
-/*}*/
 
 .sidebar {
-    /*margin-left: 600px;*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*right: 0;*/
+    grid-area: nav;
 }
-
-.sidebar .wrapper {
-    /*font: 10px verdana, sans-serif;*/
-    /*background: transparent url(http://csszengarden.com/001/paper-bg.jpg) top left repeat-y;*/
-    /*padding: 10px;*/
-    /*margin-top: 150px;*/
-    /*width: 130px;*/
-}
-
-.sidebar h3.select {
-    /*background: transparent url(http://csszengarden.com/001/h3.gif) no-repeat top left;*/
-    /*margin: 10px 0 5px 0;*/
-    /*width: 97px;*/
-    /*height: 16px;*/
-    /**/
-    /*text-indent: 100%;*/
-    /*white-space: nowrap;*/
-    /*overflow: hidden;*/
-}
-
-.sidebar h3.archives {
-    /*background: transparent url(http://csszengarden.com/001/h5.gif) no-repeat top left;*/
-    /*margin: 25px 0 5px 0;*/
-    /*width:57px;*/
-    /*height: 14px;*/
-    /**/
-    /*text-indent: 100%;*/
-    /*white-space: nowrap;*/
-    /*overflow: hidden;*/
-}
-
-.sidebar h3.resources {
-    /*background: transparent url(http://csszengarden.com/001/h6.gif) no-repeat top left;*/
-    /*margin: 25px 0 5px 0;*/
-    /*width:63px;*/
-    /*height: 10px;*/
-    /**/
-}
-
-
-.sidebar ul {
-    /*margin: 0;*/
-    /*padding: 0;*/
-}
-
-.sidebar li {
-    /*line-height: 1.3em;*/
-    /*background: transparent url(http://csszengarden.com/001/cr1.gif) no-repeat top center;*/
-    /*display: block;*/
-    /*padding-top: 5px;*/
-    /*margin-bottom: 5px;*/
-    /*list-style-type: none;*/
-}
-
-.sidebar li a:link {
-    /*color: #988F5E;*/
-}
-
-.sidebar li a:visited {
-    /*color: #B3AE94;*/
-}
-
-
-.extra1 {
-}
-
-/*IDEAS: */
-/*text-indent: 100%;*/
-/*white-space: nowrap;*/
-/*overflow: hidden;*/
