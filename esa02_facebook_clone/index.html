@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Fakebook!</title>
+
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1>Facebook Post Preview</h1>
+    </header>
+    <div class="input">
+        <h2>Input</h2>
+        <form class="input-box">
+            <div class="input">
+                <label for="brand-name">Brand Name</label>
+                <input type="text" id="brand-name" required>
+            </div>
+            <div class="input">
+                <label for="brand-image">Brand Image</label>
+                <input type="text" id="brand-image" required>
+            </div>
+            <div class="input">
+                <label for="post-content">Post Content</label>
+                <textarea id="post-content" placeholder="What happened to you today?" required></textarea>
+            </div>
+            <div class="input">
+                <label for="rich-media-content">Rich Media Content</label>
+                <input type="file" id="rich-media-content" required>
+            </div>
+            <div class="input">
+                <label for="reactions">Reactions</label>
+                <input type="number" id="reactions" required>
+            </div>
+            <div class="input">
+                <label for="comments">Comments</label>
+                <input type="number" id="comments" required>
+            </div>
+            <div class="input">
+                <label for="shares">Shares</label>
+                <input type="number" id="shares" required>
+            </div>
+
+            <button class="generate-preview">
+                CREATE PREVIEW
+            </button>
+        </form>
+    </div>
+    <div class="preview">
+        <h2>Preview</h2>
+        <div class="preview-box">
+            <div class="identity-box">
+                <img class="identity preview-avatar" src="" alt="Your uploaded avatar.">
+                <div class="identity preview-name"></div>
+                <div class="identity preview-date"></div>
+            </div>
+            <div class="preview-content"></div>
+            <div class="preview-reactions"></div>
+            <div class="preview-comments"></div>
+            <div class="preview-shares"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
