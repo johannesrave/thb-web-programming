@@ -1,41 +1,157 @@
-h2 {
-    text-align: center;
-    margin: auto;
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&display=swap');
+
+:root {
+    --fakebook-blue: #3b5998;
+    --light-border: #ececec solid 2px;
+    --box-shadow: 0 10px 10px #ececec;
+    --avatar-width: 60px;
+    --avatar-height: 60px;
+    --text-font: "Tahoma", "Lucida Grande", sans-serif;
 }
 
-
-.wrapper {
-    display: grid;
-    grid-template-areas:
-            "header header"
-            "input preview";
-    grid-template-columns: 1fr 1fr;
+html {
+    font-family: var(--text-font);
 }
 
 header {
-    grid-area: header;
-    margin: 0 auto;
-}
-
-.input {
-    grid-area: input;
-    margin: 0 auto;
-}
-
-.preview {
-    grid-area: preview;
-    margin: 0 auto;
-}
-
-label {
-    /*margin: 0 auto;*/
+    font-family: "Titillium Web", Tahoma, "Lucida Grande", sans-serif;
     display: flex;
-    alignment: left;
+    justify-content: center;
+    color: white;
+    background-color: var(--fakebook-blue);
 }
 
-.input-entry, textarea {
-    /*margin: 0 auto;*/
+.wrapper > * > h2 {
+    text-align: center;
+    margin: 2vh auto;
+}
 
-    /*display: ;*/
-    alignment: right;
+.input-box, .preview-box {
+    margin: 0 6vw;
+    padding: 30px;
+    border: var(--light-border);
+    border-radius: 4px;
+    box-shadow: var(--box-shadow);
+}
+
+.input-box > *:nth-child(2n) {
+    background-color: #ececec;
+    display: flex;
+    flex: 1;
+    border-color: var(--fakebook-blue);
+    border-width: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+button {
+    font-family: "Titillium Web", Tahoma, "Lucida Grande", sans-serif;
+    color: white;
+    background-color: var(--fakebook-blue);
+    margin: 15px auto 0;
+    padding: 8px;
+    width: 200px;
+    border: none;
+    border-radius: 4px;
+}
+
+.preview-avatar {
+    width: 60px;
+    height: 60px;
+}
+.preview-name {
+    font: bold 1.2em var(--text-font);
+    display: grid;
+    align-content: end;
+
+}
+
+.preview-date {
+    font: normal .8em var(--text-font);
+}
+.preview-content {
+
+}
+.preview-reactions {
+
+}
+.preview-comments {
+
+}
+.preview-shares {
+
+}
+
+/* GRID LAYOUTS FOR WRAPPER; INPUT; PREVIEW */
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2vw;
+}
+
+.wrapper > header {
+    grid-column: 1 / -1;
+}
+
+.input-box, .preview-box {
+    display: grid;
+    row-gap: 2vh;
+    column-gap: 1vw;
+}
+
+.input-box {
+    grid-template-areas:
+            "label input"
+            "button button";
+}
+
+.preview-box {
+    grid-template-areas:
+            "identity identity identity"
+            "content content content"
+            "reactions comments shares";
+}
+
+.input-box > button {
+    grid-column: 1 / -1;
+}
+
+.identity-box {
+    grid-area: identity;
+    display: grid;
+    grid-template-areas:
+            "avatar name"
+            "avatar date";
+    grid-template-columns: var(--avatar-width) auto;
+    column-gap: 10px;
+    row-gap: 0;
+}
+
+.preview-avatar {
+    grid-area: avatar;
+}
+
+.preview-name {
+    grid-area: name;
+}
+
+.preview-date {
+    grid-area: date;
+}
+
+.preview-content {
+    grid-area: content;
+}
+
+.preview-reactions {
+    grid-area: reactions;
+}
+
+.preview-comments {
+    grid-area: comments;
+}
+
+.preview-shares {
+    grid-area: shares;
 }
