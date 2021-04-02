@@ -5,7 +5,6 @@
     --light-border: #ececec solid 2px;
     --box-shadow: 0 10px 10px #ececec;
     --avatar-width: 60px;
-    --avatar-height: 60px;
     --text-font: "Tahoma", "Lucida Grande", sans-serif;
 }
 
@@ -57,30 +56,16 @@ button {
 }
 
 .preview-avatar {
-    width: 60px;
-    height: 60px;
+    width: var(--avatar-width);
+    height: var(--avatar-width);
 }
 .preview-name {
-    font: bold 1.2em var(--text-font);
-    display: grid;
-    align-content: end;
-
+    font: bold 1.1em var(--text-font);
+    align-self: end;
 }
 
-.preview-date {
+.preview-date, .preview-reactions, .preview-comments, .preview-shares {
     font: normal .8em var(--text-font);
-}
-.preview-content {
-
-}
-.preview-reactions {
-
-}
-.preview-comments {
-
-}
-.preview-shares {
-
 }
 
 /* GRID LAYOUTS FOR WRAPPER; INPUT; PREVIEW */
@@ -96,8 +81,8 @@ button {
 
 .input-box, .preview-box {
     display: grid;
-    row-gap: 2vh;
-    column-gap: 1vw;
+    row-gap: 30px;
+    column-gap: 15px;
 }
 
 .input-box {
@@ -125,7 +110,7 @@ button {
             "avatar date";
     grid-template-columns: var(--avatar-width) auto;
     column-gap: 10px;
-    row-gap: 0;
+    row-gap: 5px;
 }
 
 .preview-avatar {
