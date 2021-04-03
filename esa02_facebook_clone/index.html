@@ -4,38 +4,38 @@
     <title>Welcome to Fakebook!</title>
 
     <link rel="stylesheet" href="style.css" type="text/css">
-    <script src="script.js"></script>
+    <script src="script.js" async></script>
 </head>
 <body>
 <div class="wrapper">
     <header>
-        <h1>Facebook Post Preview</h1>
+        <h1>Fakebook Post Preview</h1>
     </header>
     <div class="input">
         <h2>Input</h2>
         <form class="input-box">
-            <label for="brand-name">Brand Name</label>
-            <input type="text" id="brand-name" required>
+            <label for="input-name">Brand Name</label>
+            <input type="text" id="input-name" required placeholder="Ada Lovelace">
 
-            <label for="brand-image">Brand Image</label>
-            <input type="text" id="brand-image" required>
+            <label for="input-image">Brand Image</label>
+            <input type="file" id="input-image" accept="image/*">
 
-            <label for="post-content">Post Content</label>
-            <textarea id="post-content" placeholder="What happened to you today?" required></textarea>
+            <label for="input-content">Post Content</label>
+            <textarea id="input-content" placeholder="What happened to you today?"></textarea>
 
-            <label for="rich-media-content">Rich Media</label>
-            <input type="file" id="rich-media-content" required>
+            <label for="input-media">Rich Media</label>
+            <input type="file" id="input-media">
 
-            <label for="reactions">Reactions</label>
-            <input type="number" id="reactions" required>
+            <label for="input-reactions">Reactions</label>
+            <input type="number" id="input-reactions">
 
-            <label for="comments">Comments</label>
-            <input type="number" id="comments" required>
+            <label for="input-comments">Comments</label>
+            <input type="number" id="input-comments">
 
-            <label for="shares">Shares</label>
-            <input type="number" id="shares" required>
+            <label for="input-shares">Shares</label>
+            <input type="number" id="input-shares">
 
-            <button class="generate-preview-btn">
+            <button type="button" id="input-btn">
                 CREATE PREVIEW
             </button>
         </form>
@@ -44,14 +44,14 @@
         <h2>Preview</h2>
         <div class="preview-box">
             <div class="identity-box">
-                <img class="preview-avatar" src="" alt="Your uploaded avatar.">
-                <div class="preview-name">Ada Lovelace</div>
-                <div class="preview-date">1. Jan 2022</div>
+                <img id="preview-image" src="" alt="Your uploaded avatar.">
+                <div id="preview-name">Alan Turing</div>
+                <div id="preview-date">1. Jan 2022</div>
             </div>
-            <div class="preview-content">Preview Content</div>
-            <span class="preview-reactions">Preview Reactions</span>
-            <span class="preview-comments">Preview Comments</span>
-            <span class="preview-shares">Preview Shares</span>
+            <div id="preview-content">Preview Content</div>
+            <span id="preview-reactions">0 Reactions</span>
+            <span id="preview-comments">0 Comments</span>
+            <span id="preview-shares">0 Shares</span>
         </div>
     </div>
 </div>
