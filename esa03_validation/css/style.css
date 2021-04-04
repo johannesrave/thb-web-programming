@@ -1,0 +1,68 @@
+:root {
+    --brand-color: #9f0d56;
+    --column-width: 320px;
+    --max-width: calc(var(--column-width) * 3);
+    /*--text-font: "Tahoma", "Lucida Grande", sans-serif;*/
+}
+
+body {
+    font: 1em "Tahoma", sans-serif;
+    background-image: linear-gradient(to top, yellow, red);
+}
+
+#logo {
+    width: calc(var(--column-width) * .6);
+}
+
+#logo, button {
+    justify-self: center;
+    grid-column: span 3;
+}
+
+button {
+    height: calc(var(--column-width) * .4);
+    width:  calc(var(--column-width) * .4);
+
+    background-image: linear-gradient(to top, black, black);
+    border: none;
+    font: bold 1.5em "Tahoma", sans-serif;
+    border-radius: 50%;
+    color: white;
+}
+
+.intro {
+    /*white-space: pre;*/
+}
+
+.container {
+    /*margin: 0 auto;*/
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, var(--column-width));
+    padding: 32px;
+    grid-column-gap: 32px;
+
+}
+
+form {
+    display: contents;
+}
+
+.one-third > div {
+    display: grid;
+    grid-row-gap: 8px;
+}
+
+h2 {
+    text-align: center;
+}
+
+@media (max-width: 959px) {
+    .container {
+        grid-template-columns: repeat(1, var(--column-width));
+    }
+
+    #logo, button {
+        grid-column: span 1;
+    }
+}
