@@ -8,8 +8,10 @@
     --text-font: "Tahoma", "Lucida Grande", sans-serif;
 }
 
-html {
+body {
     font-family: var(--text-font);
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -78,68 +80,36 @@ button {
 }
 
 .wrapper > header {
-    grid-column: 1 / -1;
+    grid-column: span 2;
 }
 
 .input-box, .preview-box {
     display: grid;
-    row-gap: 30px;
-    column-gap: 15px;
-}
-
-.input-box {
-    grid-template-areas:
-            "label input"
-            "button button";
+    row-gap: 32px;
+    column-gap: 16px;
 }
 
 .input-box > button {
-    grid-column: 1 / -1;
+    grid-column: span 2;
 }
 
 .identity-box {
-    grid-area: identity;
+    grid-column: span 3;
+
     display: grid;
-    grid-template-areas:
-            "image name"
-            "image date";
     grid-template-columns: var(--brand-image-width) auto;
-    column-gap: 10px;
-    row-gap: 5px;
+    column-gap: 12px;
+    row-gap: 4px;
 }
 
 #preview-image {
-    grid-area: image;
-}
-
-#preview-name {
-    grid-area: name;
-}
-
-#preview-date {
-    grid-area: date;
+    grid-row: span 2;
 }
 
 .preview-box {
-    grid-template-areas:
-            "identity identity identity"
-            "content content content"
-            "reactions comments shares";
     grid-template-columns: 1fr min-content min-content;
 }
 
 #preview-content {
-    grid-area: content;
-}
-
-#preview-reactions {
-    grid-area: reactions;
-}
-
-#preview-comments {
-    grid-area: comments;
-}
-
-#preview-shares {
-    grid-area: shares;
+    grid-column: span 3;
 }
