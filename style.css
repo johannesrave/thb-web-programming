@@ -1,0 +1,36 @@
+/* CSS VARIABLES */
+:root {
+}
+
+/* GLOBAL RESET */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* RESPONSIVE GRID LAYOUT FOR MAIN ELEMENTS */
+body {
+    display: grid;
+    /*align-content: start;*/
+    justify-content: center;
+    /*width: 100vw;*/
+    height: 100vh;
+}
+
+footer {
+    /*display: grid;*/
+    /*align-content: end;*/
+}
+
+
+/* GENERAL STYLING */
+html {
+    font: 1em "Tahoma", sans-serif;
+    letter-spacing: 1px;
+}
+
+/* INDIVIDUAL STYLING */
+h1,h2,h3,li {
+    line-height: 2em;
+}
