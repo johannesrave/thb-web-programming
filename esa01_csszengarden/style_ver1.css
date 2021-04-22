@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed&display=swap');
+/* FONT AND COLOR FORMATTING */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Fira Code", monospace;
+    font-size: calc(.5em + .5vw);
+}
+
+body {
+    background: linear-gradient(40deg, #ff4141, #4bbaee, #03249e);
+    color: whitesmoke;
+}
+
+h1 {
+    font-size: 18vw;
+    writing-mode: vertical-rl;
+    display: flex;
+    height: 0;
+    margin: 0;
+    padding: 5vh 0 0;
+    white-space: nowrap;
+
+    font-family: "Exo 2", monospace;
+    letter-spacing: 6vh;
+    font-weight: 600;
+    color: #ffffff;
+
+    /*transform: translateY(84vh);*/
+
+    /*background: -webkit-linear-gradient(pink, darkblue);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+}
+
+h2 {
+    font-family: "Exo 2", monospace;
+    font-size: 5vw;
+    white-space: nowrap;
+    margin: 0;
+    padding: 48vh 4vw 16vh;
+}
+
+.summary {
+    font-family: "Exo 2", monospace;
+    font-size: calc(1em + .5vw);
+    margin: 0;
+    padding: 16vh 2vw 0;
+    position: sticky;
+    align-self: start;
+    color: #ffffff;
+    text-align: justify;
+
+}
+
+.summary a:first-of-type:before {
+    content: '\A';
+    white-space: pre;
+}
+
+.preamble {
+    font-style: italic;
+    font-weight: 300;
+}
+
+
+.main, .preamble {
+    font-size: calc(.6em + .5vw);
+    line-height: 2em;
+    padding: 2vw 2vw 2vw;
+    /*text-align: justify;*/
+}
+
+.preamble h3 {
+    margin: 0 0 1em;
+    font-size: calc(1.2em + .6vw);
+    font-weight: 300;
+
+}
+
+.main h3 {
+    font-size: calc(1.2em + .6vw);
+    margin: 2em 0 1em;
+}
+
+.sidebar {
+    margin-top: auto;
+    /*border: solid #425a5a;*/
+    padding: 2vw 2vw 2vw;
+}
+
+.sidebar h3 {
+    padding: 3vw 0 1vw;
+    /*border: solid #425a5a;*/
+    text-align: center;
+}
+
+/* NAVIGATION STYLING */
+
+ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+/* styled bubbles for links */
+ul li a:first-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    padding: 1rem;
+
+    margin: 2vh;
+
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: white;
+    background: linear-gradient(40deg, #ff4d4d, #1d42be);
+}
+
+ul li a:first-of-type:before {
+    content: "";
+    /*float: left;*/
+    padding-top: 100%; /* initial ratio of 1:1*/
+}
+
+a:link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #8667a5;
+}
+
+a:visited {
+    color: #6b5883;
+}
+
+a:hover {
+    color: #6b5883;
+    text-decoration: dotted;
+}
+
+/* GRID SETUP AND LAYOUT */
+.page-wrapper {
+    display: grid;
+    grid-template-areas:
+            'header header header'
+            'summary preamble nav'
+            'title main nav'
+            'title main left'
+            'footer footer footer';
+
+    grid-template-columns:  minmax(auto, 2fr) minmax(240px, 4fr) minmax(auto, 2fr);
+    /*grid-gap: 2vw;*/
+}
+
+.intro {
+    display: contents;
+}
+
+.intro > header {
+    display: contents;
+}
+
+.intro > header > h1 {
+    grid-area: title;
+}
+
+.intro > header > h2 {
+    grid-area: header;
+}
+
+.intro .summary {
+    grid-area: summary;
+}
+
+.intro .preamble {
+    grid-area: preamble;
+}
+
+.main {
+    grid-area: main;
+}
+
+.sidebar {
+    grid-area: nav;
+}
