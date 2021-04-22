@@ -1,6 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
-/*@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed&display=swap');*/
-/* FONT AND COLOR FORMATTING */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900');/* FONT AND COLOR FORMATTING */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,100..900');/* FONT AND COLOR FORMATTING */
+
+/*@font-face {*/
+/*    font-family: 'Exo 2';*/
+/*    src: url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap'); format("truetype-variations");*/
+/*    font-weight: 1 900;*/
+/*    ital*/
+/*}*/
+
 
 * {
     box-sizing: border-box;
@@ -10,27 +17,88 @@
 
 html {
     font-family: "Exo 2", sans-serif;
-    height: 4360px;
-    /*font-size: calc(.5em + .5vw);*/
+
 }
 
+body {
+    background-image: linear-gradient(200deg, #0010a5, #de41fa);
+}
+
+
+p {
+    font-size: 16pt;
+    line-height: 28pt;
+}
+
+h1 {
+    font-size: 29vw;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+
+    font-family: "Exo 2", sans-serif;
+    font-weight: 800;
+
+    transform: translate(0, 120px);
+
+    background: linear-gradient(200deg, #2537dc, #fa41a7 60%);
+    /*background-clip: text;*/
+    -webkit-background-clip: text;
+    /*-moz-background-clip: text;*/
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+h2, .summary {
+    /*margin-left: 12vw;*/
+    color: white;
+    width: 60vw;
+    justify-self: right;
+}
+
+h2 {
+    white-space: nowrap;
+    align-self: end;
+    font-size: 56pt;
+    font-family: "Exo 2", sans-serif;
+    font-weight: 600;
+}
+
+.summary > p {
+    margin-top: 16px;
+    font-size: 14pt;
+    font-family: "Exo 2", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.intro h3, .main h3 {
+    font-size: 32pt;
+    margin: 32px 0;
+    font-weight: 550;
+}
 
 /* GRID SETUP AND LAYOUT */
 .page-wrapper {
     display: grid;
-    grid: repeat(15, 280px) /  repeat(4,1fr);
+    grid: repeat(15, 280px) /  repeat(4, 25vw);
 }
 
-/*.page-wrapper ::before {*/
-/*    grid-row: 4 / span2;*/
-/*    grid-column: 1 / -1;*/
+.page-wrapper ::before, .page-wrapper ::after {
+    z-index: -2;
+    grid-row: 4 / 6;
+    grid-column: 1 / -1;
 
+    content: "";
+    background-color: white;
+}
 
-/*    content: "";*/
-/*    !*width: 100%;*!*/
-/*    !*height: 100%;*!*/
-/*    background-color: #0d87a4;*/
-/*}*/
+.page-wrapper ::before {
+    grid-row: 4 / 6;
+}
+
+.page-wrapper ::after {
+    grid-row: 12 / -1;
+}
 
 .intro, .intro > header {
     display: contents;
@@ -46,7 +114,7 @@ html {
 
 .intro > header > h1 {
     z-index: 10;
-    grid-row: 4 / -1;
+    grid-row: 4 / 15;
     grid-column: 1;
 }
 
@@ -61,48 +129,37 @@ html {
 }
 
 .preamble {
-    z-index: 1;
     grid-row: 4 / 6;
-    grid-column: 1 / -1;
-    display: grid;
-    grid: repeat(4,min-content) / repeat(4,1fr);
-    align-items: start;
-    background-color: #0d87a4;
-}
-.preamble > * {
     grid-column: 2 / 4;
 }
-
 
 .explanation {
-    grid-row: 6 / span2;
+    grid-row: 6 / span 2;
     grid-column: 2 / 4;
 }
 
-
-
 .participation {
-    grid-row: 8 / span2;
+    grid-row: 8 / span 2;
     grid-column: 2 / 4;
 }
 
 .benefits {
-    grid-row: 11 / span2;
+    grid-row: 11 / span 2;
     grid-column: 2 / 4;
 }
 
 .requirements {
-    grid-row: 12 / span2;
+    grid-row: 12 / span 2;
     grid-column: 2 / 4;
 }
 
 .design-selection {
-    grid-row: 6 / span2;
+    grid-row: 6 / span 2;
     grid-column: 4;
 }
 
 .zen-resources {
-    grid-row: 12 / span6;
+    grid-row: 12 / -1;
     grid-column: 4;
 }
 
@@ -112,6 +169,6 @@ html {
 }
 
 footer {
-    grid-row: -1;
+    grid-row: 15;
     grid-column: 2 / 4;
 }
