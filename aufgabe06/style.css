@@ -22,7 +22,7 @@ html, body {
 h1, h2{
     font-size: 2rem;
     font-style: normal;
-
+    font-weight: 500;
 }
 
 p {
@@ -35,8 +35,11 @@ p {
             'img profile'
             'quote quote';
 
-    border: #1e1b1e double;
     background-color: navajowhite;
+    box-shadow:
+            0 0 0  4px hsl(0, 0%, 80%),
+            0 0 0  8px antiquewhite,
+            0 0 0 16px hsl(0, 0%, 80%);
 
     gap: 32px;
     padding: 48px;
@@ -62,6 +65,11 @@ img {
     width:  240px;
     height: 240px;
     border-radius: 50%;
+
+    box-shadow:
+            0 0 0  8px hsl(0, 0%, 80%),
+            0 0 0 12px navajowhite,
+            0 0 0 16px hsl(0, 0%, 80%);
 }
 
 #profile {
