@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap');
+
+/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    background-image: radial-gradient(antiquewhite, white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Monsieur La Doulaise', cursive;
+    font-size: 16pt;
+}
+
+h1, h2{
+    font-size: 2rem;
+    font-style: normal;
+
+}
+
+p {
+    font-size: 2rem;
+}
+
+#wrapper {
+    display: grid;
+    grid-template:
+            'img profile'
+            'quote quote';
+
+    border: #1e1b1e double;
+    background-color: navajowhite;
+
+    gap: 32px;
+    padding: 48px;
+}
+
+@media (max-width: 1200px) {
+
+    #wrapper {
+        grid-template:
+            'img'
+            'profile'
+            'quote';
+
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        text-align: center;
+    }
+}
+
+img {
+    grid-area: img;
+    width:  240px;
+    height: 240px;
+    border-radius: 50%;
+}
+
+#profile {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+
+}
+
+#quote {
+    grid-area: quote;
+    justify-self: center;
+    font-size: 2rem;
+    line-height: 3rem;
+}

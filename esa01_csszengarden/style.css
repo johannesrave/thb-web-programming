@@ -267,7 +267,6 @@ p[role = contentinfo] {
 
 /* GRID SETUP AND LAYOUT */
 .page-wrapper {
-    /*height: 1000px;*/
     display: grid;
     grid-template:
             '.      .         archives'    120px
