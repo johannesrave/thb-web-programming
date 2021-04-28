@@ -1,6 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900');/* FONT AND COLOR FORMATTING */
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,100..900');/* FONT AND COLOR FORMATTING */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,100..900'); /* FONT AND COLOR FORMATTING */
 
+/* VARIABLES */
+:root {
+    --font-on-dark: white;
+    --font-on-bright: #0010a5;
+    --font-contrast: #fa41a7;
+}
 
 /* RESET */
 * {
@@ -9,7 +15,253 @@
     padding: 0;
 }
 
-html, body {
+ul {
+    list-style-type: none;
+}
+
+abbr {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sidebar h3 {
+    display: none;
+}
+
+/* GENERAL STYLING */
+body {
+    font-family: "Exo 2", sans-serif;
+    background-image: linear-gradient(200deg, #0010a5, #de41fa);
+    font-size: 16pt;
+}
+
+h2,
+.summary,
+.main,
+.design-archives,
+.design-selection {
+    color: var(--font-on-dark);
+}
+
+p {
+    margin-top: 3rem;
+    line-height: 3rem;
+    font-weight: 350;
+}
+
+p:last-of-type {
+    margin-bottom: 3rem;
+}
+
+.requirements,
+.zen-resources *,
+.preamble,
+footer * {
+    color: var(--font-on-bright);
+}
+
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+.requirements a:link,
+.zen-resources a:link,
+footer a:link {
+    color: var(--font-contrast);
+}
+
+a:visited {
+    color: var(--font-contrast);
+}
+
+h3 {
+    font-size: 2rem;
+    margin: 4rem 0 0;
+    font-weight: 550;
+}
+
+
+/* SPECIFIC STYLING */
+
+/* HERO STYLING */
+h2 {
+    margin-top: 30vh;
+
+    font-size: calc(2rem + 3vw);
+    font-weight: 600;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.summary > p {
+    font-size: calc(.6rem + .9vw);
+    align-self: end;
+    justify-self: right;
+    margin-bottom: 0rem;
+
+    text-align: right;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.summary > p:last-of-type {
+    margin-bottom: 6rem;
+
+}
+
+/* VERTICAL HEADER */
+h1 {
+    font-size: 32vw;
+    line-height: 0.8;
+    font-weight: 820;
+
+    writing-mode: vertical-rl;
+    padding: 50% 0;
+
+    background: linear-gradient(200deg, #2537dc, #fa41a7 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* DESIGN ARCHIVES MENU */
+.design-archives ul {
+    margin-top: 64px;
+
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: center;
+    gap: 48px;
+
+    text-align: center;
+}
+
+/* bubbles */
+.design-archives a {
+    display: flex;
+    align-items: center;
+
+    height: 120px;
+    width: 120px;
+
+    border-radius: 50%;
+    border: solid white;
+}
+
+.design-archives a:first-of-type:hover {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+}
+
+/* DESIGN SELECTION MENU */
+.design-selection ul {
+    margin-top: 6rem;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    font-style: normal;
+    font-size: 1.3rem;
+    color: var(--font-contrast);
+
+}
+
+.design-selection a {
+    color: inherit;
+}
+
+/* bubbles */
+.design-selection a:first-of-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 64px auto 16px;
+
+    height: 160px;
+    width: 160px;
+
+    border-radius: 50%;
+    border: solid white;
+
+    color: var(--font-on-dark);
+    font-style: italic;
+    font-size: 1.5rem;
+    font-weight: 550;
+}
+
+.design-selection a:first-of-type:hover {
+    /*background-blend-mode: color-burn;*/
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+}
+
+/* RESOURCES MENU */
+.zen-resources ul {
+    margin: 7rem 20%;
+
+    display: flex;
+    flex-flow: column;
+
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: center;
+    font-style: italic;
+}
+
+.zen-resources li {
+    padding: 3rem 0;
+    border-bottom: 2px solid var(--font-on-bright);
+}
+
+.zen-resources a:hover {
+    text-decoration: underline;
+    /*background-image: radial-gradient(var(--font-contrast), white);*/
+}
+
+.zen-resources abbr {
+    color: var(--font-contrast);
+}
+
+/* FOOTER MENU */
+footer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 85px;
+    min-width: 85px;
+    height: 7vw;
+    width: 7vw;
+
+    border-radius: 50%;
+    border: 2px solid var(--font-on-bright);
+
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    font-style: italic;
+}
+
+footer a:link {
+
+}
+
+footer a:hover {
+    background-image: linear-gradient(200deg, #2537dc 40%, #fa41a7);
+
+    color: white;
+    border: none;
+}
+
+/* contentinfo lower right corner */
+p[role = contentinfo] {
 
 }
 
@@ -17,19 +269,18 @@ html, body {
 .page-wrapper {
     /*height: 1000px;*/
     display: grid;
-    grid-template-areas:
-            '.      .           archives'
-            'title  title       .'
-            '.      summary     .'
-            'garden preamble    .'
-            'garden  exp        select'
-            'garden  part       select'
-            'garden  ben        select'
-            'garden  req        resources'
-            'garden footer      .';
-    grid-template-columns: minmax(0, 1fr) minmax(960px, 2fr) minmax(0, 1fr);
-    /*grid-template-rows: repeat(auto-fit, minmax(0, 1fr));*/
-    /*grid-template-rows: auto;*/
+    grid-template:
+            '.      .         archives'    120px
+            '.      title     .'
+            '.      summary   .'
+            'garden preamble  .'
+            'garden exp       select'
+            'garden part      select'
+            'garden ben       select'
+            'garden req       resources'
+            'garden footer    .'           180px
+            / minmax(0, 1fr) minmax(600px, 2fr) minmax(0, 1fr);
+
     grid-gap: 0px 32px;
 }
 
@@ -39,21 +290,20 @@ html, body {
 }
 
 h1 {
-    /*z-index: 10;*/
-    min-height: 10px;
-    min-width: 0;
     grid-area: garden;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
+    overflow: visible;
 }
 
 h2 {
     grid-area: title;
+    justify-self: right;
+    align-self: end;
 }
 
 .summary {
     grid-area: summary;
+    justify-self: right;
 }
 
 .preamble {
@@ -90,88 +340,21 @@ h2 {
 
 footer {
     grid-area: footer;
-    height: 150px;
 }
 
 /* WHITE SECTION BACKGROUNDS */
-
-.page-wrapper ::before, .page-wrapper ::after {
+.page-wrapper::before, .page-wrapper::after {
     z-index: -2;
     grid-column: 1 / -1;
     content: "";
     background-color: white;
 }
 
-.page-wrapper ::before {
+.page-wrapper::before {
     grid-row: 4;
 }
 
-.page-wrapper ::after {
+.page-wrapper::after {
     grid-row: -3 / -1;
-}
-
-/* GENERAL STYLING */
-
-body {
-    font-family: "Exo 2", sans-serif;
-    background-image: linear-gradient(200deg, #0010a5, #de41fa);
-}
-
-h2,
-.summary,
-.main,
-.design-archives,
-.design-selection {
-    color: white;
-}
-
-.requirements, .preamble {
-    color: #0010a5;
-}
-
-h3 {
-    font-size: 48pt;
-    line-height: 144pt;
-    font-weight: 550;
-}
-
-p {
-    font-size: 24pt;
-    line-height: 48pt;
-    font-weight: 350;
-}
-
-.summary > p {
-    font-weight: 300;
-    font-style: italic;
-}
-
-/* INDIVIDUAL STYLING */
-
-h1 {
-    font-size: 29vw;
-    writing-mode: vertical-rl;
-
-    font-family: "Exo 2", sans-serif;
-    font-weight: 800;
-
-    transform: translate(0, 120px);
-
-    background: linear-gradient(200deg, #2537dc, #fa41a7 60%);
-    /*background-clip: text;*/
-    -webkit-background-clip: text;
-    /*-moz-background-clip: text;*/
-    -moz-text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
-}
-
-h2 {
-    margin-top: 640px;
-    justify-self: right;
-    white-space: nowrap;
-    align-self: end;
-    font-size: 96pt;
-    font-family: "Exo 2", sans-serif;
-    font-weight: 600;
 }
 
