@@ -73,16 +73,18 @@ button {
 }
 
 /* GRID LAYOUTS FOR WRAPPER; INPUT; PREVIEW */
+
+/* WRAPPER GRID */
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 2vw;
 }
 
 .wrapper > header {
     grid-column: span 2;
 }
 
+/* INPUT & PREVIEW GRID */
 .input-box, .preview-box {
     display: grid;
     row-gap: 32px;
@@ -98,7 +100,7 @@ button {
 
     display: grid;
     grid-template-columns: var(--brand-image-width) auto;
-    column-gap: 12px;
+    column-gap: 16px;
     row-gap: 4px;
 }
 
