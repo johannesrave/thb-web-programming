@@ -8,12 +8,18 @@
     --text-font: "Tahoma", "Lucida Grande", sans-serif;
 }
 
+/* RESET */
 body {
     font-family: var(--text-font);
     margin: 0;
     padding: 0;
 }
 
+form {
+    margin-block-end: 0;
+}
+
+/* STYLING */
 header {
     font-family: "Titillium Web", Tahoma, "Lucida Grande", sans-serif;
     display: flex;
@@ -22,46 +28,72 @@ header {
     background-color: var(--fakebook-blue);
 }
 
-.wrapper > * > h2 {
-    text-align: center;
-    margin: 2vh auto;
-}
+.card {
+    padding: 48px;
 
-.input-box, .preview-box {
-    margin: 0 6vw;
-    padding: 30px;
     border: var(--light-border);
     border-radius: 4px;
     box-shadow: var(--box-shadow);
 }
 
-.input-box > *:nth-child(2n) {
-    background-color: #ececec;
-    display: flex;
-    flex: 1;
-    border-color: var(--fakebook-blue);
-    border-width: 2px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+.card-header {
+    text-align: center;
+    margin: 2vh auto;
 }
 
-button {
-    font-family: "Titillium Web", Tahoma, "Lucida Grande", sans-serif;
-    color: white;
-    background-color: var(--fakebook-blue);
-    margin: 15px auto 0;
-    padding: 8px;
-    width: 200px;
+.card.input {
+    row-gap: 32px;
+    column-gap: 16px;
+}
+
+.card.preview {
+    row-gap: 32px;
+    column-gap: 16px;
+}
+
+label{
+    align-self: center;
+}
+
+input[type="number"] {
+    text-align: right;
+}
+
+input, textarea {
+    background-color: #ececec;
+    display: flex;
+
     border: none;
+    border-bottom: solid 2px var(--fakebook-blue);
+
+    font-size: 1em;
+    padding: 8px;
     border-radius: 4px;
 }
 
-#preview-image {
+button {
+    grid-column: span 2;
+
+    margin: 0 auto;
+    padding: 8px;
+
+    width: 200px;
+
+    border: none;
+    border-radius: 4px;
+
+    font-family: "Titillium Web", Tahoma, "Lucida Grande", sans-serif;
+    color: white;
+    background-color: var(--fakebook-blue);
+}
+
+
+#preview-avatar {
     width: var(--brand-image-width);
     height: var(--brand-image-width);
     border-radius: 50%;
 }
+
 #preview-name {
     font: bold 1.1em var(--text-font);
     align-self: end;
@@ -72,46 +104,42 @@ button {
     white-space: nowrap;
 }
 
-/* GRID LAYOUTS FOR WRAPPER; INPUT; PREVIEW */
-
-/* WRAPPER GRID */
-.wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+#preview-content * {
+    width: 100%;
 }
 
-.wrapper > header {
-    grid-column: span 2;
+/* GRID LAYOUTS FOR WRAPPER; INPUT; PREVIEW */
+/* MAIN GRID */
+main {
+    display: grid;
+    justify-content: center;
+    grid-column-gap: 32px;
+    grid-template: auto / repeat(auto-fit, minmax(480px, 600px));
 }
 
 /* INPUT & PREVIEW GRID */
-.input-box, .preview-box {
+.card {
     display: grid;
-    row-gap: 32px;
-    column-gap: 16px;
 }
 
-.input-box > button {
-    grid-column: span 2;
-}
-
+/* IDENTITY GRID */
 .identity-box {
-    grid-column: span 3;
-
     display: grid;
-    grid-template-columns: var(--brand-image-width) auto;
+    grid-template: repeat(2, min-content) / var(--brand-image-width) auto;
     column-gap: 16px;
     row-gap: 4px;
 }
 
-#preview-image {
+#preview-avatar {
     grid-row: span 2;
 }
 
-.preview-box {
-    grid-template-columns: 1fr min-content min-content;
+/* ENGAGEMENT FLEX */
+#preview-engagement {
+    display: flex;
+    gap: 16px;
 }
 
-#preview-content {
-    grid-column: span 3;
+#preview-comments {
+    margin-left: auto
 }

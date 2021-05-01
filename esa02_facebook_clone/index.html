@@ -15,49 +15,55 @@
     <header>
         <h1>Fakebook Post Preview</h1>
     </header>
-    <div class="input">
-        <h2>Input</h2>
-        <form class="input-box">
-            <label for="input-name">Brand Name</label>
-            <input type="text" id="input-name" required placeholder="Ada Lovelace">
 
-            <label for="input-image">Brand Image</label>
-            <input type="file" id="input-image" accept="image/*">
+    <main>
+        <div class="card-container">
+            <h2  class="card-header">Input</h2>
+            <form class="card input">
+                <label for="input-name">Brand Name</label>
+                <input type="text" id="input-name" required placeholder="Ada Lovelace">
 
-            <label for="input-content">Post Content</label>
-            <textarea id="input-content" placeholder="What happened to you today?"></textarea>
+                <label for="input-image">Brand Image</label>
+                <input type="file" id="input-image" accept="image/*">
 
-            <label for="input-media">Rich Media</label>
-            <input type="file" id="input-media">
+                <label for="input-content">Post Content</label>
+                <textarea id="input-content" placeholder="What happened to you today?"></textarea>
 
-            <label for="input-reactions">Reactions</label>
-            <input type="number" id="input-reactions">
+                <label for="input-media">Rich Media</label>
+                <input type="file" id="input-media">
 
-            <label for="input-comments">Comments</label>
-            <input type="number" id="input-comments">
+                <label for="input-reactions">Reactions</label>
+                <input type="number" id="input-reactions" placeholder="0">
 
-            <label for="input-shares">Shares</label>
-            <input type="number" id="input-shares">
+                <label for="input-comments">Comments</label>
+                <input type="number" id="input-comments" placeholder="0">
 
-            <button type="button" id="input-btn">
-                CREATE PREVIEW
-            </button>
-        </form>
-    </div>
-    <div class="preview">
-        <h2>Preview</h2>
-        <div class="preview-box">
-            <div class="identity-box">
-                <img id="preview-image" src="" alt="Your uploaded avatar.">
-                <div id="preview-name">Alan Turing</div>
-                <div id="preview-date">1. Jan 2022</div>
-            </div>
-            <div id="preview-content">Preview Content</div>
-            <span id="preview-reactions">0 Reactions</span>
-            <span id="preview-comments">0 Comments</span>
-            <span id="preview-shares">0 Shares</span>
+                <label for="input-shares">Shares</label>
+                <input type="number" id="input-shares" placeholder="0">
+
+                <button type="button" id="input-btn">
+                    CREATE PREVIEW
+                </button>
+            </form>
         </div>
-    </div>
+
+        <div class="card-container">
+            <h2  class="card-header">Preview</h2>
+            <div class="card preview">
+                <div class="identity-box">
+                    <img id="preview-avatar" src="" alt="Your uploaded avatar.">
+                    <div id="preview-name">Alan Turing</div>
+                    <div id="preview-date">1. Jan 2022</div>
+                </div>
+                <div id="preview-content">Preview Content</div>
+                <div id="preview-engagement">
+                    <span id="preview-reactions">0 reactions</span>
+                    <span id="preview-comments">0 comments</span>
+                    <span id="preview-shares">0 shares</span>
+                </div>
+            </div>
+        </div>
+    </main>
 </div>
 </body>
 </html>
