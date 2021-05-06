@@ -2,6 +2,7 @@
     import '../app.css';
     import {base} from '$app/paths';
     import {onMount} from 'svelte';
+    import Nav from "../lib/Nav.svelte";
 
     let host = '';
     onMount(() => {
@@ -10,19 +11,12 @@
 
 </script>
 
-<main class="w-screen h-screen grid justify-center items-start gap-2">
-    <div class="gap"></div>
-    <nav class="grid grid-flow-col gap-8 justify-center">
-        <a href="/">
-            SAUROPETS
-        </a>
-        <a href="/shop">
-            SHOP
-        </a>
-        <a href="/about">
-            ABOUT
-        </a>
-    </nav>
+<main class="w-screen h-screen flex justify-center">
+    <Nav></Nav>
+
+    <div>
+        <h1>Willkommen beim Digitalen Ticketverkauf DTV!</h1>
+    </div>
 
     <slot class="w-full"/>
 
@@ -35,8 +29,8 @@
 
 <style>
     main {
-        grid-template-rows: min-content min-content 1fr min-content min-content;
-        grid-template-columns: 1fr;
-        background-image: url("/static/img/Patagotitan.1K.JPG");
+        /*grid-template-rows: min-content min-content 1fr min-content min-content;*/
+        /*grid-template-columns: 1fr;*/
+        /*background-image: url("/static/img/Patagotitan.1K.JPG");*/
     }
 </style>
