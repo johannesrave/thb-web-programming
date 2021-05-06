@@ -1,4 +1,4 @@
-<nav>
+<nav class="flex">
     <a href="/">
         home
     </a>

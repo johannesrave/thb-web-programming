@@ -11,16 +11,14 @@
 
 </script>
 
-<main class="w-screen h-screen flex justify-center">
-    <Nav></Nav>
+<main class="w-screen h-screen grid grid-cols-1">
+    <Nav>
 
-    <div>
-        <h1>Willkommen beim Digitalen Ticketverkauf DTV!</h1>
-    </div>
+    </Nav>
 
-    <slot class="w-full"/>
+    <slot/>
 
-    <footer class="self-end grid grid-flow-row justify-center">
+    <footer>
         <h1>The path is set to {base}</h1>
         <h1>The location is at {host}</h1>
     </footer>
@@ -30,7 +28,5 @@
 <style>
     main {
         /*grid-template-rows: min-content min-content 1fr min-content min-content;*/
-        /*grid-template-columns: 1fr;*/
-        /*background-image: url("/static/img/Patagotitan.1K.JPG");*/
     }
 </style>
