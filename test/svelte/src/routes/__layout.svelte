@@ -2,7 +2,7 @@
     import '../app.css';
     import {base} from '$app/paths';
     import {onMount} from 'svelte';
-    import Nav from "../lib/Nav.svelte";
+    import Nav from "$lib/Nav.svelte";
 
     let host = '';
     onMount(() => {

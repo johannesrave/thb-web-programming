@@ -1,5 +1,5 @@
 <script lang="ts">
-    import BGMap from "../assets/BGMap.svelte";
+    import BGMap from "./BGMap.svelte";
 </script>
 
 <main>

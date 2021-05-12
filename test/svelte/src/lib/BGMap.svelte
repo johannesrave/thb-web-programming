@@ -1,24 +1,36 @@
 <script lang="ts">
-    import Station from '$lib/Station'
+    import Station from '../lib/Station.svelte'
     import {onMount} from 'svelte';
-    import { stationData } from '$assets/stores'
+    import {planData} from '$lib/stores'
 
-    let plan;
-    let mapData = {};
+    let plan: SVGGElement;
 
     onMount(() => {
+
+        console.log("mounted map")
         const stadtteile: HTMLCollection = plan.children;
 
         for (let stadtteil of stadtteile) {
             const stadtteilName = stadtteil.classList[1];
 
-            for (let station of stationData[stadtteilName].stations.keys){
-                console.log(station)
+
+            for (let [station, coords] of Object.entries(planData[stadtteilName].stations)) {
+                // console.log(station)
+                // console.log(coords)
+
+                const x: string = coords.x;
+                const y: string = coords.y;
+                const options = {
+                    target: stadtteil,
+                    props: {
+                        cx: coords.x.toString(),
+                        cy: coords.y.toString()
+                    }
+                }
+                // console.log(options)
+
+                const newStation = new Station(options);
             }
-
-            let newStations = document.createElementNS("http://www.w3.org/2000/svg", "g");
-
-
         }
     })
 
@@ -38,15 +50,17 @@
     }
 </style>
 
+<main class="p-30">
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1002 558">
-    <g bind:this={plan} class="map_split">
+    <g bind:this={ plan } class="map_split">
         <g class="stadtteil west">
             <path stroke-width="4"
                   d="M429 293L315.5 503.5h-68l-40-109.5L68 415.5l-65-151L225 244l40.5-147.5 148.5 132 15 64.5z"
                   class="west background"/>
         </g>
         <g class="stadtteil nordost">
-            <path stroke-width="4" d="M566.5 171L669 230.078 798.5 205.5l71 44 106.5-21-100-104L716.5 56 577 111l-10.5 60z"
+            <path stroke-width="4"
+                  d="M566.5 171L669 230.078 798.5 205.5l71 44 106.5-21-100-104L716.5 56 577 111l-10.5 60z"
                   class="nordost background"/>
         </g>
         <g class="stadtteil nord">
@@ -71,3 +85,4 @@
         </g>
     </g>
 </svg>
+</main>

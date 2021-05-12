@@ -1,6 +1,6 @@
-import {readable} from 'svelte/store';
+import { readable } from 'svelte/store';
 
-let stationData = {
+export let planData = {
     west: {
         adjacent: ["nord", "sued", "zentrum"],
         stations: {
@@ -120,7 +120,7 @@ let stationData = {
             }
         }
     },
-    zentraum: {
+    zentrum: {
         adjacent: ["west", "nord", "nordost", "ost", "suedost", "sued"],
         stations: {
 
@@ -144,4 +144,4 @@ let stationData = {
     },
 }
 
-export const count = readable(stationData, null);
+export const count = readable(planData, null);
