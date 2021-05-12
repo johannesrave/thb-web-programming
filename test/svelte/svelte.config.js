@@ -53,38 +53,3 @@ const config = {
 };
 
 export default config;
-/*
-const windicss = require("svelte-windicss-preprocess").preprocess;
-import sveltePreprocess from 'svelte-preprocess';
-import pkg from './package.json';
-import adapter_static from '@sveltejs/adapter-static';
-
-
-/** @type {import('@sveltejs/kit').Config} */
-/*
-module.exports = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	preprocess: [
-		windicss({
-			kit: true,
-			config: "windi.config.cjs",
-		}),
-		sveltePreprocess()],
-	kit: {
-		adapter: adapter_static(),
-		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte',
-		paths: {
-			assets: '',
-			base: '/~rave/test/svelte/build/'
-			// base: ''
-		},
-		vite: {
-			ssr: {
-				noExternal: Object.keys(pkg.dependencies || {})
-			}
-		}
-	}
-};
-*/

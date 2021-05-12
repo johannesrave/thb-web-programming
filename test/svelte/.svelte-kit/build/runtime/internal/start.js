@@ -25,12 +25,10 @@ class Router {
 	/** @param {{
 	 *    base: string;
 	 *    routes: import('types/internal').CSRRoute[];
-	 *    trailing_slash: import('types/internal').TrailingSlash;
 	 * }} opts */
-	constructor({ base, routes, trailing_slash }) {
+	constructor({ base, routes }) {
 		this.base = base;
 		this.routes = routes;
-		this.trailing_slash = trailing_slash;
 	}
 
 	/** @param {import('./renderer').Renderer} renderer */
@@ -222,26 +220,15 @@ class Router {
 	async _navigate(url, scroll, chain, hash) {
 		const info = this.parse(url);
 
-		// remove trailing slashes
-		if (info.path !== '/') {
-			const has_trailing_slash = info.path.endsWith('/');
-
-			const incorrect =
-				(has_trailing_slash && this.trailing_slash === 'never') ||
-				(!has_trailing_slash &&
-					this.trailing_slash === 'always' &&
-					!info.path.split('/').pop().includes('.'));
-
-			if (incorrect) {
-				info.path = has_trailing_slash ? info.path.slice(0, -1) : info.path + '/';
-				history.replaceState({}, '', `${info.path}${location.search}`);
-			}
-		}
-
 		this.renderer.notify({
 			path: info.path,
 			query: info.query
 		});
+
+		// remove trailing slashes
+		if (location.pathname.endsWith('/') && location.pathname !== '/') {
+			history.replaceState({}, '', `${location.pathname.slice(0, -1)}${location.search}`);
+		}
 
 		await this.renderer.update(info, chain, false);
 
@@ -259,23 +246,9 @@ class Router {
 	}
 }
 
-/** @param {string | Uint8Array} value */
-function hash(value) {
-	let hash = 5381;
-	let i = value.length;
-
-	if (typeof value === 'string') {
-		while (i) hash = (hash * 33) ^ value.charCodeAt(--i);
-	} else {
-		while (i) hash = (hash * 33) ^ value[--i];
-	}
-
-	return (hash >>> 0).toString(36);
-}
-
 /**
  * @param {import('types/page').LoadOutput} loaded
- * @returns {import('types/internal').NormalizedLoadOutput}
+ * @returns {import('types/page').LoadOutput}
  */
 function normalize(loaded) {
 	// TODO should this behaviour be dev-only?
@@ -319,7 +292,7 @@ function normalize(loaded) {
 		}
 	}
 
-	return /** @type {import('types/internal').NormalizedLoadOutput} */ (loaded);
+	return loaded;
 }
 
 /** @param {any} value */
@@ -358,14 +331,7 @@ function page_store(value) {
  */
 function initial_fetch(resource, opts) {
 	const url = typeof resource === 'string' ? resource : resource.url;
-
-	let selector = `script[type="svelte-data"][url="${url}"]`;
-
-	if (opts && typeof opts.body === 'string') {
-		selector += `[body="${hash(opts.body)}"]`;
-	}
-
-	const script = document.querySelector(selector);
+	const script = document.querySelector(`script[type="svelte-data"][url="${url}"]`);
 	if (script) {
 		const { body, ...init } = JSON.parse(script.textContent);
 		return Promise.resolve(new Response(body, init));
@@ -1048,7 +1014,6 @@ class Renderer {
  *   host: string;
  *   route: boolean;
  *   spa: boolean;
- *   trailing_slash: import('types/internal').TrailingSlash;
  *   hydrate: {
  *     status: number;
  *     error: Error;
@@ -1056,7 +1021,7 @@ class Renderer {
  *     page: import('types/page').Page;
  *   };
  * }} opts */
-async function start({ paths, target, session, host, route, spa, trailing_slash, hydrate }) {
+async function start({ paths, target, session, host, route, spa, hydrate }) {
 	if (import.meta.env.DEV && !target) {
 		throw new Error('Missing target element. See https://kit.svelte.dev/docs#configuration-target');
 	}
@@ -1065,8 +1030,7 @@ async function start({ paths, target, session, host, route, spa, trailing_slash,
 		route &&
 		new Router({
 			base: paths.base,
-			routes,
-			trailing_slash
+			routes
 		});
 
 	const renderer = new Renderer({
@@ -1090,9 +1054,7 @@ async function start({ paths, target, session, host, route, spa, trailing_slash,
 
 if (import.meta.env.VITE_SVELTEKIT_SERVICE_WORKER) {
 	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register(
-			/** @type {string} */ (import.meta.env.VITE_SVELTEKIT_SERVICE_WORKER)
-		);
+		navigator.serviceWorker.register(import.meta.env.VITE_SVELTEKIT_SERVICE_WORKER);
 	}
 }
 

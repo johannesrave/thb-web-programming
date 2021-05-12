@@ -1,5 +1,4 @@
 <script context="module">
-	/** @type {import('@sveltejs/kit').ErrorLoad} */
 	export function load({ error, status }) {
 		return {
 			props: { error, status }
@@ -8,10 +7,7 @@
 </script>
 
 <script>
-	/** @type {number} */
 	export let status;
-
-	/** @type {Error} */
 	export let error;
 </script>
 

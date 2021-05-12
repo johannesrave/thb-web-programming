@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "outFile": "script.js",
+    "module": "amd",
+    "target": "ES5"
+  }
+}

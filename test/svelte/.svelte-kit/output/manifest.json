@@ -1,0 +1,83 @@
+{
+  ".svelte-kit/build/runtime/internal/start.js": {
+    "file": "start-c1aeb12a.js",
+    "src": ".svelte-kit/build/runtime/internal/start.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-0a9c50a4.js",
+      "_paths-45dac81d.js"
+    ],
+    "dynamicImports": [
+      "src/routes/$layout.svelte",
+      ".svelte-kit/build/components/error.svelte",
+      "src/routes/index.svelte",
+      "src/routes/about.svelte"
+    ],
+    "css": [
+      "assets/start-b03585a8.css"
+    ]
+  },
+  "src/routes/$layout.svelte": {
+    "file": "pages/$layout.svelte-6cd08ab9.js",
+    "src": "src/routes/$layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0a9c50a4.js",
+      "_paths-45dac81d.js"
+    ],
+    "css": [
+      "assets/pages/$layout.svelte-a0e0bbb9.css"
+    ]
+  },
+  ".svelte-kit/build/components/error.svelte": {
+    "file": "error.svelte-a02ea909.js",
+    "src": ".svelte-kit/build/components/error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0a9c50a4.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-3d340303.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0a9c50a4.js",
+      "_Map-06f0eb3a.js"
+    ],
+    "css": [
+      "assets/pages/index.svelte-1b8632ae.css"
+    ]
+  },
+  "src/routes/about.svelte": {
+    "file": "pages/about.svelte-d6a6eb93.js",
+    "src": "src/routes/about.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0a9c50a4.js",
+      "_Map-06f0eb3a.js"
+    ],
+    "css": [
+      "assets/pages/index.svelte-1b8632ae.css"
+    ]
+  },
+  "_vendor-0a9c50a4.js": {
+    "file": "chunks/vendor-0a9c50a4.js"
+  },
+  "_paths-45dac81d.js": {
+    "file": "chunks/paths-45dac81d.js"
+  },
+  "_Map-06f0eb3a.js": {
+    "file": "chunks/Map-06f0eb3a.js",
+    "imports": [
+      "_vendor-0a9c50a4.js"
+    ],
+    "css": [
+      "assets/Map-f7f56350.css"
+    ]
+  }
+}

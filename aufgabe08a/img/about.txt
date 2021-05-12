@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Monsieur La Doulaise
+- Font Author: Copyright (c) 2006 Alejandro Paul (sudtipos@sudtipos.com), with Reserved Font Name "MonsieurLaDoulaise"
+- Font Source: http://fonts.gstatic.com/s/monsieurladoulaise/v9/_Xmz-GY4rjmCbQfc-aPRaa4pqV340p7EZl5ewkEU4HTy.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL)

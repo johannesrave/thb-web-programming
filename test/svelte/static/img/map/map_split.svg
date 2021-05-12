@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1002 558">
+  <g class="map_split">
+    <g class="stadtteil_west">
+      <circle cx="48" cy="291" r="9.5" class="Ellipse 19"/>
+      <circle cx="229" cy="264" r="9.5" class="Ellipse 20"/>
+      <circle cx="283" cy="152" r="9.5" class="Ellipse 21"/>
+      <circle cx="369" cy="278" r="9.5" class="Ellipse 23"/>
+      <circle cx="360" cy="377" r="9.5" class="Ellipse 24"/>
+      <circle cx="266" cy="480" r="9.5" class="Ellipse 25"/>
+      <path stroke-width="4" d="M429 293L315.5 503.5h-68l-40-109.5L68 415.5l-65-151L225 244l40.5-147.5 148.5 132 15 64.5z" class="stadtteil_west_2"/>
+    </g>
+    <g class="stadtteil_nordost">
+      <circle cx="594" cy="152" r="9.5" class="Ellipse 26"/>
+      <circle cx="838" cy="152" r="9.5" class="Ellipse 16"/>
+      <circle cx="715" cy="78" r="9.5" class="Ellipse 17"/>
+      <path stroke-width="4" d="M566.5 171L669 230.078 798.5 205.5l71 44 106.5-21-100-104L716.5 56 577 111l-10.5 60z" class="stadtteil_nordost_2"/>
+    </g>
+    <g class="stadtteil_nord">
+      <circle cx="414" cy="197" r="9.5" class="Ellipse 18"/>
+      <circle cx="335" cy="115" r="9.5" class="Ellipse 22"/>
+      <path stroke-width="4" d="M566.5 171l10.5-60-97-25.5-49.5-69-95-13.5-70 93.5 148.5 132L566.5 171z" class="stadtteil_nord_2"/>
+    </g>
+    <g class="stadtteil_ost">
+      <circle cx="715" cy="253" r="9.5" class="Ellipse 6"/>
+      <circle cx="813" cy="244" r="9.5" class="Ellipse 7"/>
+      <circle cx="909" cy="273" r="9.5" class="Ellipse 8"/>
+      <circle cx="900" cy="358" r="9.5" class="Ellipse 9"/>
+      <path stroke-width="4" d="M680 316l-11-85.922L798.5 205.5l71 44 106.5-21 23 96-66.5 34-38 72L680 316z" class="stadtteil_ost_2"/>
+    </g>
+    <g class="stadtteil_suedost">
+      <circle cx="863" cy="434" r="9.5" class="Ellipse 10"/>
+      <circle cx="715" cy="517" r="9.5" class="Ellipse 11"/>
+      <circle cx="661" cy="425" r="9.5" class="Ellipse 14"/>
+      <path stroke-width="4" d="M680 316l-71 42.5 96.5 196 176-42 13-82L680 316z" class="stadtteil_suedost_2"/>
+    </g>
+    <g class="stadtteil_sued">
+      <circle cx="526" cy="460" r="9.5" class="Ellipse 12"/>
+      <circle cx="586" cy="422" r="9.5" class="Ellipse 13"/>
+      <circle cx="569" cy="338" r="9.5" class="Ellipse 15"/>
+      <path stroke-width="4" d="M429 293l102.5-10 77.5 75.5 96.5 196L429 465l-113.5 38.5L429 293z" class="stadtteil_sued_2"/>
+    </g>
+    <g class="stadtteil_zentrum">
+      <circle cx="557" cy="203" r="9.5" class="Ellipse 2"/>
+      <circle cx="565" cy="264" r="9.5" class="Ellipse 5"/>
+      <circle cx="652" cy="273" r="9.5" class="Ellipse 3"/>
+      <circle cx="436" cy="244" r="9.5" class="Ellipse 4"/>
+      <path stroke-width="4" d="M566.5 171L669 230.078 680 316l-71 42.5-77.5-75.5L429 293l-15-64.5L566.5 171z" class="stadtteil_zentrum_2"/>
+    </g>
+  </g>
+</svg>

@@ -1,11 +1,12 @@
 <script lang="ts">
+    import BGMap from "$lib/BGMap.svelte";
 </script>
 
-<main class="w-full h-full grid ">
+<main class="grid w-full">
 
-    <div>
-        <h1>Willkommen beim Digitalen Ticketverkauf DTV!</h1>
-    </div>
+    <h1 class="place-self-center">Willkommen beim Digitalen Ticketverkauf DTV!</h1>
+
+    <BGMap/>
 
 </main>
 

@@ -1,4 +1,4 @@
-<nav class="flex">
+<nav class="flex gap-8">
     <a href="/">
         home
     </a>
