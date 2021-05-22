@@ -1,16 +1,4 @@
-<script lang="ts">
-    import BGMap from "$lib/BGMap.svelte";
-</script>
-
-<main class="grid w-full">
-
-    <h1 class="place-self-center">Willkommen beim Digitalen Ticketverkauf DTV!</h1>
-
-    <BGMap/>
-
-</main>
-
-<style>
-    main {
-    }
-</style>
+<p>
+    Suchst du nach dem idealen Ticket für deinen Bedarf?<br>
+    Klicke SUCHEN -> und wir sagen dir, was du kaufen solltest!
+</p>

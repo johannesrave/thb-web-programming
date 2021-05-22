@@ -29,13 +29,7 @@ const config = {
 		hydrate: true,
 		paths: {
 			assets: '',
-			base: '/~rave/test/svelte/build/'
-		},
-		prerender: {
-			crawl: true,
-			enabled: true,
-			force: false,
-			pages: ['*']
+			base: ''
 		},
 		router: true,
 		ssr: true,

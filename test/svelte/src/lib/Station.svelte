@@ -1,10 +1,24 @@
 <script lang="ts">
     import {onMount} from "svelte";
+    import StationPopup from '../lib/StationPopup.svelte'
 
-    export let cx = "0";
-    export let cy = "0";
+    export let x = "0";
+    export let y = "0";
+    export let name = "Unbekannte Station";
 
     let root;
+
+    function clickHandler() {
+        const options = {
+            target: root,
+            props: {
+                cx: x,
+                cy: y
+            }
+        }
+        const newStation = new StationPopup(options);
+        console.log("clicked station")
+    }
 
     function hoverHandler() {
         root.setAttribute("r", "14");
@@ -22,15 +36,20 @@
 
 </script>
 
-<circle
+<symbol
         bind:this={ root }
         on:mouseover={ hoverHandler }
         on:mouseout={ unhoverHandler }
-        { cx }
-        { cy }
-        r="10"
-        class="station" >
-</circle>
+        { x }
+        { y }
+>
+    <circle
+            on:click={ clickHandler }
+            r="10"
+            class="station">
+    </circle>
+
+</symbol>
 
 <style>
     circle {

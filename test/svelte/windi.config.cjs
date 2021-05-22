@@ -18,7 +18,7 @@ module.exports = {
 			pink: colors.fuchsia,
 		},
 		fontFamily: {
-			sans: ['Fira Code', 'sans-serif'],
+			sans: ['"Exo 2"', 'sans-serif'],
 			serif: ['Merriweather', 'serif'],
 		}
 	},
