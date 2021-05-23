@@ -4,7 +4,7 @@ import { set_paths } from './runtime/paths.js';
 import { set_prerendering } from './runtime/env.js';
 import * as user_hooks from "./hooks.js";
 
-const template = ({ head, body }) => "<!DOCTYPE html>\n<html lang=\"en\" class=\"w-screen\">\n\t<head>\n\t\t<meta charset=\"utf-8\" />\n<!--\t\t<base href=\"informatik.th-brandenburg.de/%7erave/svelte_test/\">-->\n<!--\t\t<link rel=\"icon\" href=\"/favicon.ico\" />-->\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n\t\t<title></title>\n\t\t" + head + "\n\t</head>\n\t<body class=\"w-screen\">\n\t\t<div id=\"svelte\">" + body + "</div>\n\t</body>\n</html>\n";
+const template = ({ head, body }) => "<!DOCTYPE html>\r\n<html lang=\"en\" class=\"w-screen\">\r\n\t<head>\r\n\t\t<meta charset=\"utf-8\" />\r\n<!--\t\t<base href=\"informatik.th-brandenburg.de/%7erave/svelte_test/\">-->\r\n<!--\t\t<link rel=\"icon\" href=\"/favicon.ico\" />-->\r\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n\t\t<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\">\r\n\t\t<link href=\"https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900\" rel=\"stylesheet\">\r\n\t\t<link href=\"https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@100..900\" rel=\"stylesheet\">\r\n\t\t<title></title>\r\n\t\t" + head + "\r\n\t</head>\r\n\t<body class=\"w-screen\">\r\n\t\t<div id=\"svelte\">" + body + "</div>\r\n\t</body>\r\n</html>\r\n";
 
 let options = null;
 
@@ -18,9 +18,9 @@ export function init(settings) {
 		amp: false,
 		dev: false,
 		entry: {
-			file: "/./_app/start-b740f1f0.js",
+			file: "/./_app/start-37bc4709.js",
 			css: ["/./_app/assets/start-b03585a8.css"],
-			js: ["/./_app/start-b740f1f0.js","/./_app/chunks/vendor-d2289a14.js"]
+			js: ["/./_app/start-37bc4709.js","/./_app/chunks/vendor-63b5ff16.js"]
 		},
 		fetched: undefined,
 		floc: false,
@@ -65,14 +65,7 @@ const manifest = {
 						type: 'page',
 						pattern: /^\/search\/?$/,
 						params: empty,
-						a: ["src/routes/__layout.svelte", "src/routes/search/index.svelte"],
-						b: [".svelte-kit/build/components/error.svelte"]
-					},
-		{
-						type: 'page',
-						pattern: /^\/about\/?$/,
-						params: empty,
-						a: ["src/routes/__layout.svelte", "src/routes/about.svelte"],
+						a: ["src/routes/__layout.svelte", "src/routes/search.svelte"],
 						b: [".svelte-kit/build/components/error.svelte"]
 					},
 		{
@@ -93,10 +86,10 @@ const get_hooks = hooks => ({
 });
 
 const module_lookup = {
-	"src/routes/__layout.svelte": () => import("..\\..\\src\\routes\\__layout.svelte"),".svelte-kit/build/components/error.svelte": () => import("./components\\error.svelte"),"src/routes/index.svelte": () => import("..\\..\\src\\routes\\index.svelte"),"src/routes/search/index.svelte": () => import("..\\..\\src\\routes\\search\\index.svelte"),"src/routes/about.svelte": () => import("..\\..\\src\\routes\\about.svelte"),"src/routes/shop.svelte": () => import("..\\..\\src\\routes\\shop.svelte")
+	"src/routes/__layout.svelte": () => import("..\\..\\src\\routes\\__layout.svelte"),".svelte-kit/build/components/error.svelte": () => import("./components\\error.svelte"),"src/routes/index.svelte": () => import("..\\..\\src\\routes\\index.svelte"),"src/routes/search.svelte": () => import("..\\..\\src\\routes\\search.svelte"),"src/routes/shop.svelte": () => import("..\\..\\src\\routes\\shop.svelte")
 };
 
-const metadata_lookup = {"src/routes/__layout.svelte":{"entry":"/./_app/pages/__layout.svelte-6859b4fe.js","css":["/./_app/assets/pages/__layout.svelte-d2ef15dc.css"],"js":["/./_app/pages/__layout.svelte-6859b4fe.js","/./_app/chunks/vendor-d2289a14.js"],"styles":null},".svelte-kit/build/components/error.svelte":{"entry":"/./_app/error.svelte-6a004ed2.js","css":["/./_app/assets/error.svelte-5daa43d5.css"],"js":["/./_app/error.svelte-6a004ed2.js","/./_app/chunks/vendor-d2289a14.js"],"styles":null},"src/routes/index.svelte":{"entry":"/./_app/pages/index.svelte-1d8f7b2b.js","css":["/./_app/assets/pages/index.svelte-12c49848.css"],"js":["/./_app/pages/index.svelte-1d8f7b2b.js","/./_app/chunks/vendor-d2289a14.js"],"styles":null},"src/routes/search/index.svelte":{"entry":"/./_app/pages/search/index.svelte-f82823ac.js","css":["/./_app/assets/BGMap-5f771499.css"],"js":["/./_app/pages/search/index.svelte-f82823ac.js","/./_app/chunks/vendor-d2289a14.js","/./_app/chunks/BGMap-e6746b81.js"],"styles":null},"src/routes/about.svelte":{"entry":"/./_app/pages/about.svelte-d0b5593d.js","css":["/./_app/assets/pages/about.svelte-e651a10f.css","/./_app/assets/BGMap-5f771499.css"],"js":["/./_app/pages/about.svelte-d0b5593d.js","/./_app/chunks/vendor-d2289a14.js","/./_app/chunks/BGMap-e6746b81.js"],"styles":null},"src/routes/shop.svelte":{"entry":"/./_app/pages/shop.svelte-029b039b.js","css":[],"js":["/./_app/pages/shop.svelte-029b039b.js","/./_app/chunks/vendor-d2289a14.js"],"styles":null}};
+const metadata_lookup = {"src/routes/__layout.svelte":{"entry":"/./_app/pages/__layout.svelte-c08a4bd6.js","css":["/./_app/assets/pages/__layout.svelte-100704f5.css"],"js":["/./_app/pages/__layout.svelte-c08a4bd6.js","/./_app/chunks/vendor-63b5ff16.js"],"styles":null},".svelte-kit/build/components/error.svelte":{"entry":"/./_app/error.svelte-5b0296e9.js","css":[],"js":["/./_app/error.svelte-5b0296e9.js","/./_app/chunks/vendor-63b5ff16.js"],"styles":null},"src/routes/index.svelte":{"entry":"/./_app/pages/index.svelte-b044d187.js","css":[],"js":["/./_app/pages/index.svelte-b044d187.js","/./_app/chunks/vendor-63b5ff16.js"],"styles":null},"src/routes/search.svelte":{"entry":"/./_app/pages/search.svelte-abf17c03.js","css":["/./_app/assets/pages/search.svelte-534312bb.css"],"js":["/./_app/pages/search.svelte-abf17c03.js","/./_app/chunks/vendor-63b5ff16.js"],"styles":null},"src/routes/shop.svelte":{"entry":"/./_app/pages/shop.svelte-35b997f9.js","css":[],"js":["/./_app/pages/shop.svelte-35b997f9.js","/./_app/chunks/vendor-63b5ff16.js"],"styles":null}};
 
 async function load_component(file) {
 	return {

@@ -5,31 +5,34 @@
     import { planData } from '$lib/stores';
 
     let plan: SVGGElement;
+    let netzplan: SVGElement;
 
     onMount(() => {
 
+        // console.log(netzplan.id)
+
         console.log("mounted map")
-        const stadtteile: HTMLCollection = plan.children;
-
-        for (let stadtteil of stadtteile) {
-            const stadtteilName = stadtteil.classList[1];
-
-
-            for (let [station, coords] of Object.entries(planData[stadtteilName].stations)) {
-
-                const options = {
-                    target: stadtteil,
-                    props: {
-                        x: coords.x.toString(),
-                        y: coords.y.toString()
-                    }
-                }
-                console.log(options)
-
-                const newStation = new Station(options);
-                // stadtteil.appendChild(newStation);
-            }
-        }
+        // const stadtteile: HTMLCollection = plan.children;
+        //
+        // for (let stadtteil of stadtteile) {
+        //     const stadtteilName = stadtteil.classList[1];
+        //
+        //
+        //     for (let [station, coords] of Object.entries(planData[stadtteilName].stations)) {
+        //
+        //         const options = {
+        //             target: stadtteil,
+        //             props: {
+        //                 x: coords.x.toString(),
+        //                 y: coords.y.toString()
+        //             }
+        //         }
+        //         console.log(options)
+        //
+        //         const newStation = new Station(options);
+        //         // stadtteil.appendChild(newStation);
+        //     }
+        // }
     })
 </script>
 
@@ -56,7 +59,7 @@
     }
 </style>
 
-<Netzplan/>
+<Netzplan bind:this={ netzplan }/>
 <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1002 558">-->
 <!--    <g bind:this={ plan } class="map_split">-->
 <!--        <g class="stadtteil west">-->
