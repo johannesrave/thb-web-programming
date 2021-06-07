@@ -26,6 +26,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"panzoom": "^9.4.2",
 		"tailwindcss": "^2.1.2"
 	}
 }

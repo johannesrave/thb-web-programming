@@ -1,32 +1,37 @@
 <script>
-    import {onMount} from 'svelte';
-    import './svg-pan-zoom';
+    import { onMount, onDestroy } from 'svelte';
+    // import './svg-pan-zoom';
+    import panzoom from 'panzoom';
 
+    let svgString;
+
+    let panzoomInstance;
     let pannableSVGElement;
     let loaded = false;
 
-    window.onload = () => {
-        let svg = svgPanZoom('#pannableSVG',
-            {
-                zoomEnabled: true,
-                panEnabled: true,
-                fit: true
-            })
-
-        // svg.center();
-    }
 
     onMount(() => {
+        console.log("Mounted map. Waiting for svg load.")
+        panzoomInstance = panzoom(pannableSVGElement)
     })
+
+    onDestroy(() => {
+        console.log("Netzplan destroyed.")
+        if(panzoomInstance) {
+            panzoomInstance.dispose()
+        }
+    })
+
 </script>
 
 <style>
     #pannableSVG {
         width: 100vw;
+        height: 100vh;
     }
 </style>
 
-
+{@html svgString}
 <svg id="pannableSVG" fill="none" viewBox="0 0 884 1037" bind:this={pannableSVGElement}>
     <path fill="#E5E5E5" d="M0 0h884v1037H0z"/>
     <g id="liniennetzplan">
