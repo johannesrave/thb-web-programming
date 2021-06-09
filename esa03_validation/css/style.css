@@ -1,8 +1,6 @@
 /* CSS VARIABLES */
 :root {
-    --brand-color: #9f0d56;
-    --column-width: 300px;
-    --max-width: calc(var(--column-width) * 3);
+    --column-width: 320px;
 }
 
 /* GLOBAL RESET */
@@ -12,75 +10,50 @@
     margin: 0;
 }
 
-/* RESPONSIVE GRID LAYOUT FOR MAIN ELEMENTS */
-.container {
-    display: grid;
-    grid-template-columns: repeat(3, var(--column-width));
-    grid-column-gap: 32px;
-    grid-row-gap: 32px;
-
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh;
-}
-
-form {
-    display: contents;
-}
-
-.one-third {
-    align-self: start;
-
+.card {
     display: grid;
     grid-row-gap: 16px;
-    align-content: start;
 }
 
-.one-third > div {
+.card > div {
     display: grid;
     grid-row-gap: 8px;
 }
 
-@media (max-width: 959px) {
-    .container {
-        grid-template-columns: var(--column-width);
-        align-content: start;
-        justify-content: center;
-        width: revert;
-        height: revert;
-    }
-
-    button {
-        /*grid-column: 1;*/
-        grid-column: 1 / 2;
-
-    }
-
-    #logo {
-        grid-column: 1 / 2;
-
-        /*grid-column: 1;*/
-    }
-}
 
 /* GENERAL STYLING */
 html {
-    font: 1em "Tahoma", sans-serif;
+    font: 1.1em "Tahoma", sans-serif;
     color: white;
-    /*overflow: hidden;*/
-    letter-spacing: 1px;
+    background-image: linear-gradient(to top, #035fc2, #e0dd17);
 
-    background-image: linear-gradient(to top, #0d87a4, #ff5454);
-    /*background-size: cover;*/
+}
+
+h2 {
+    text-align: center;
+}
+
+input, textarea {
+    border: none;
+
+    font-size: 1.2em;
+    padding: 16px;
+    border-radius: 4px;
 }
 
 /* INDIVIDUAL STYLING */
+.intro {
+    line-height: 1.8rem;
+    letter-spacing: 1px;
+}
+
 #logo {
-    width: calc(var(--column-width) * .5);
-    justify-self: center;
-    grid-column: 1 / -1;
+    width: calc(var(--column-width) * .7);
+    /*background-image: url(face.jpg);*/
+    /*background-color: red;*/
+    /*background-blend-mode: multiply;*/
+
+    /*justify-self: center;*/
 }
 
 button {
@@ -92,8 +65,40 @@ button {
     font: bold 1em "Tahoma", sans-serif;
     border-radius: 50%;
     color: white;
-
-    justify-self: center;
-    grid-column: 1 / -1;
 }
 
+/* RESPONSIVE GRID LAYOUT FOR MAIN ELEMENTS */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 320px);
+    gap: 64px;
+
+    align-content: center;
+    align-items: start;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+form {
+    display: contents;
+}
+
+#logo, button {
+    grid-column: 1 / span 3;
+    justify-self: center;
+}
+
+
+@media (max-width: 959px) {
+    .container {
+        grid-template-columns: var(--column-width);
+        width: revert;
+        height: revert;
+    }
+
+    #logo, button {
+        grid-column: 1 / span 1;
+    }
+}
