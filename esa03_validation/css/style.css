@@ -1,3 +1,6 @@
+/* FONT IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Economica:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,500;1,400&display=swap');
 /* CSS VARIABLES */
 :root {
     --column-width: 320px;
@@ -10,95 +13,108 @@
     margin: 0;
 }
 
-.card {
-    display: grid;
-    grid-row-gap: 16px;
-}
-
-.card > div {
-    display: grid;
-    grid-row-gap: 8px;
-}
-
-
 /* GENERAL STYLING */
 html {
-    font: 1.1em "Tahoma", sans-serif;
+    font: 16pt "Exo 2", sans-serif;
     color: white;
-    background-image: linear-gradient(to top, #035fc2, #e0dd17);
+    background: radial-gradient(117.38% 117.38% at 34.31% 104.44%, #b01aca 0%, #1F0078 100%);
 
 }
 
-h2 {
-    text-align: center;
+h2, button {
+    font: 24pt "Economica";
 }
 
-input, textarea {
-    border: none;
-
-    font-size: 1.2em;
-    padding: 16px;
-    border-radius: 4px;
-}
 
 /* INDIVIDUAL STYLING */
+
+label {
+    font-size: 12pt;
+}
+
+.entry>input, .entry>textarea {
+    border: none;
+
+    font-size: 12pt;
+    padding: 16px;
+    border-radius: 8px;
+}
+
 .intro {
-    line-height: 1.8rem;
-    letter-spacing: 1px;
+    line-height: 2em;
 }
 
 #logo {
+    padding: 0 0 0 0;
     width: calc(var(--column-width) * .7);
-    /*background-image: url(face.jpg);*/
-    /*background-color: red;*/
-    /*background-blend-mode: multiply;*/
-
-    /*justify-self: center;*/
+    align-self: center;
 }
 
 button {
     height: calc(var(--column-width) * .3);
     width: calc(var(--column-width) * .3);
 
-    background-image: linear-gradient(to top, black, black);
     border: none;
-    font: bold 1em "Tahoma", sans-serif;
     border-radius: 50%;
     color: white;
+    background: radial-gradient(99.15% 190.31% at 10.08% 8.2%, #b01aca 0%, #1F0078 100%);
 }
 
 /* RESPONSIVE GRID LAYOUT FOR MAIN ELEMENTS */
 .container {
     display: grid;
-    grid-template-columns: repeat(3, 320px);
-    gap: 64px;
+    grid-template-columns: 1fr 1fr;
 
     align-content: center;
-    align-items: start;
-    justify-content: center;
 
     width: 100vw;
     height: 100vh;
 }
-
-form {
-    display: contents;
-}
-
-#logo, button {
-    grid-column: 1 / span 3;
+.engagement-container {
     justify-self: center;
+    align-self: center;
+    width: 480px;
+    display: flex;
+    flex-flow: column;
+
+    gap: 32px;
 }
 
+.input-container {
+    display: flex;
+    flex-flow: column;
+    padding: 32px;
+    border-radius: 32px 0px 0px 32px;
 
-@media (max-width: 959px) {
-    .container {
-        grid-template-columns: var(--column-width);
-        width: revert;
-        height: revert;
-    }
+    background: radial-gradient(100% 200% at 10% 8%, #9C1ACA 0%, #1F0078 100%);
+    filter: drop-shadow(0px 32px 32px rgba(0, 0, 0, 0.25))
+}
 
-    #logo, button {
-        grid-column: 1 / span 1;
-    }
+.input-cluster {
+    display: flex;
+    flex-flow: column wrap;
+    height: 480px;
+    gap: 24px;
+    column-gap: 48px;
+}
+
+.entry {
+    display: grid;
+    gap: 4px;
+    width: 300px;
+}
+
+.hide {
+    display: none;
+    /*left: 500px;*/
+}
+
+#consent-container {
+    position: relative;
+    display: inline;
+}
+
+button {
+    align-self: center;
+    justify-self: flex-end;
 }

@@ -8,33 +8,38 @@ const consentContainer = document.getElementById('consent-container');
 const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 const register = document.getElementById('register');
+
 /* Definition aller nötigen Regex-Patterns
 *  Inspiriert und teils modifiziert von
 *  https://www.w3resource.com/javascript/form/javascript-sample-registration-form-validation.php  */
 const alphanumeric = /^[A-Za-z]+[A-Za-z0-9]*$/;
 const validEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+
+
 const checkNameValidity = () => {
-    if (!name.value.match(alphanumeric)) {
+    if (!name.value.match(alphanumeric)){
         name.setCustomValidity('Name can\'t be empty, must start with a letter and be alphanumeric.');
         return false;
     }
     else {
         name.setCustomValidity('');
-        console.log("Name valid");
+        console.log("Name valid")
         return true;
     }
 };
+
 const checkEmailValidity = () => {
-    if (!email.value.match(validEmail)) {
+    if (!email.value.match(validEmail)){
         email.setCustomValidity('Please enter a valid email-address.');
         return false;
     }
     else {
         email.setCustomValidity('');
-        console.log("Email valid");
+        console.log("Email valid")
         return true;
     }
 };
+
 const checkPasswordValidity = () => {
     if (password.value !== password2.value) {
         password2.setCustomValidity('Password and confirmation must match.');
@@ -42,61 +47,74 @@ const checkPasswordValidity = () => {
     }
     else {
         password2.setCustomValidity('');
-        console.log("Password valid");
+        console.log("Password valid")
         return true;
     }
 };
+
 const checkBioValidity = () => {
-    if (bio.value.length > 140) {
+    if (bio.value.length > 140){
         bio.setCustomValidity('Please keep your bio to 140 characters or less.');
         return false;
     }
-    console.log("Bio valid");
+    console.log("Bio valid")
     return true;
 };
+
+
 const checkBirthdayValidity = () => {
     let validity = '';
-    if (birthday.value === '') {
+
+    if (birthday.value === ''){
         validity = 'Please enter your date of birth.';
     }
     else if (!isOldEnough) {
-        if (!parentalConsentGiven) {
-            validity = 'Please have your parents consent to your application.';
+        if(!parentalConsentGiven){
+            validity = 'Please have your parents consent to your application.'
         }
         consentContainer.classList.remove('hide');
     }
     else {
         consentContainer.classList.add('hide');
     }
+
     birthday.setCustomValidity(validity);
-    console.log("Birthday: " + (validity === ''));
+    console.log("Birthday: " + (validity === ''))
     return (validity === '');
 };
+
+
+
 const isOldEnough = () => {
     const date = birthday.value.split('-');
-    const yearOfBirth = Number(date[0]);
-    const monthOfBirth = Number(date[1]);
-    const dayOfBirth = Number(date[2]);
+    const yearOfBirth = date[0]
+    const monthOfBirth = date[1]
+    const dayOfBirth = date[2]
+
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1;
+    const currentMonth = currentDate.getMonth()+1;
     const currentDay = currentDate.getDate();
+
     return !(currentDay < dayOfBirth &&
         currentMonth < monthOfBirth &&
         currentYear - yearOfBirth <= 18);
 };
+
 const parentalConsentGiven = () => parentalConsent.value;
-const checkAllValidity = () => {
-    if (checkNameValidity && checkEmailValidity && checkPasswordValidity &&
-        checkBioValidity && checkBirthdayValidity) {
-        alert("All checks passed!");
+
+const checkAllValidity = () =>
+{
+    if(checkNameValidity && checkEmailValidity && checkPasswordValidity &&
+    checkBioValidity && checkBirthdayValidity) {
+        alert("All checks passed!")
     }
-};
+}
+
 name.addEventListener('change', checkPasswordValidity);
 password.addEventListener('change', checkPasswordValidity);
 password2.addEventListener('change', checkPasswordValidity);
 bio.addEventListener('change', checkBioValidity);
 birthday.addEventListener('change', checkBirthdayValidity);
-register.addEventListener('click', checkAllValidity);
-export {};
-//# sourceMappingURL=form-validation.js.map
+
+register.addEventListener('click', checkAllValidity)
