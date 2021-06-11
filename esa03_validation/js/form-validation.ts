@@ -1,7 +1,8 @@
-const validNamePattern = /^[A-Za-z]+[A-Za-z0-9]{0,100}$/;
-
 (document.getElementById('name')).addEventListener('input', (event) => {
     console.log("Changing name.")
+
+    const validNamePattern = /^[A-Za-z]+[A-Za-z0-9]{0,100}$/;
+
     const name = event.currentTarget as HTMLInputElement;
     if (!name.value.match(validNamePattern)) {
         name.setCustomValidity('Name can\'t be empty, must start with a letter, consist of letters and numbers and be under 100 characters long.');
@@ -40,45 +41,36 @@ const validNamePattern = /^[A-Za-z]+[A-Za-z0-9]{0,100}$/;
     console.log("Changing birthday.")
     const birthday = event.currentTarget as HTMLInputElement;
     const consentContainer = (document.getElementById('consent-container'))
-    const parentalConsent = (document.getElementById('parental-consent') as HTMLInputElement);
+    // const parentalConsent = (document.getElementById('parental-consent') as HTMLInputElement);
+    const age = getAge(new Date(birthday.value));
+    console.log("age: " + age);
+    // console.log(parentalConsent)
+    // console.log(parentalConsent.checked)
 
-    if (!birthday.checkValidity()) {
-        birthday.setCustomValidity('Please enter your date of birth.');
-    }
-    else if (!isOldEnough(birthday) && !parentalConsent.value) {
+    if (age < 18 && !parentalConsentGiven) {
+        birthday.setCustomValidity('Please have your parents consent to your application.');
+        birthday.reportValidity();
+
         consentContainer.classList.remove('hide');
-        parentalConsent.required = true;
-        parentalConsent.setCustomValidity('Please have your parents consent to your application.');
-        parentalConsent.reportValidity();
     }
-    else if (isOldEnough(birthday)) {
-        consentContainer.classList.add('hide');
+    else {
         birthday.setCustomValidity('');
+        birthday.reportValidity();
 
-        parentalConsent.required = false;
-        parentalConsent.setCustomValidity('');
+        consentContainer.classList.add('hide');
+        console.log("Age is valid.")
     }
 });
 
-function isOldEnough(birthday) {
-    const date = birthday.value.split('-');
-    const yearOfBirth = Number(date[0]);
-    const monthOfBirth = Number(date[1]);
-    const dayOfBirth = Number(date[2]);
-
+function getAge(birthDate: Date) : Number {
     const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1;
-    const currentDay = currentDate.getDate();
-
-    console.log("Is old enough: " +
-        !(currentDay < dayOfBirth &&
-        currentMonth < monthOfBirth &&
-        currentYear - yearOfBirth <= 18))
-
-    return !(currentDay < dayOfBirth &&
-        currentMonth < monthOfBirth &&
-        currentYear - yearOfBirth <= 18);
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
+    if (currentDate.getMonth() < birthDate.getMonth()) {
+        age--;
+    } else if (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate()) {
+        age--;
+    }
+    return age;
 }
 
 (document.getElementById('password') as HTMLInputElement)
@@ -97,3 +89,9 @@ function checkPasswordValidity() {
         console.log("Password valid")
     }
 }
+
+(document.getElementById('parental-consent')).addEventListener('input', (e) => {
+    parentalConsentGiven = (<HTMLInputElement>e.currentTarget).checked;
+});
+
+let parentalConsentGiven: Boolean;
