@@ -1,91 +1,66 @@
-/* Initialisieren aller beteiligten DOM-Elemente */
-const name = document.getElementById('name') as HTMLInputElement;
-const email = document.getElementById('email') as HTMLInputElement;
-const bio = document.getElementById('bio') as HTMLInputElement;
-const birthday = document.getElementById('birthday') as HTMLInputElement;
-const parentalConsent = document.getElementById('parents-consent') as HTMLInputElement;
-const consentContainer = document.getElementById('consent-container') as HTMLInputElement;
-const password = document.getElementById('password') as HTMLInputElement;
-const password2 = document.getElementById('password2') as HTMLInputElement;
-const register = document.getElementById('register') as HTMLInputElement;
+const validNamePattern = /^[A-Za-z]+[A-Za-z0-9]{0,100}$/;
 
-/* Definition aller nötigen Regex-Patterns
-*  Inspiriert und teils modifiziert von
-*  https://www.w3resource.com/javascript/form/javascript-sample-registration-form-validation.php  */
-const alphanumeric = /^[A-Za-z]+[A-Za-z0-9]*$/;
-const validEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-
-
-const checkNameValidity = () => {
-    if (!name.value.match(alphanumeric)){
-        name.setCustomValidity('Name can\'t be empty, must start with a letter and be alphanumeric.');
-        return false;
-    }
-    else {
+(document.getElementById('name')).addEventListener('input', (event) => {
+    console.log("Changing name.")
+    const name = event.currentTarget as HTMLInputElement;
+    if (!name.value.match(validNamePattern)) {
+        name.setCustomValidity('Name can\'t be empty, must start with a letter, consist of letters and numbers and be under 100 characters long.');
+        name.reportValidity();
+    } else {
         name.setCustomValidity('');
-        console.log("Name valid")
-        return true;
+        console.log("Name is valid.")
     }
-};
+});
 
-const checkEmailValidity = () => {
-    if (!email.value.match(validEmail)){
-        email.setCustomValidity('Please enter a valid email-address.');
-        return false;
-    }
-    else {
+(document.getElementById('email')).addEventListener('input', (event) => {
+    console.log("Changing email.")
+    const email = event.currentTarget as HTMLInputElement;
+    if (!email.checkValidity()) {
+        email.setCustomValidity('Please enter a valid email address.');
+        email.reportValidity();
+    } else {
         email.setCustomValidity('');
-        console.log("Email valid")
-        return true;
+        console.log("Email is valid.")
     }
-};
+});
 
-const checkPasswordValidity = () => {
-    if (password.value !== password2.value) {
-        password2.setCustomValidity('Password and confirmation must match.');
-        return false;
-    }
-    else {
-        password2.setCustomValidity('');
-        console.log("Password valid")
-        return true;
-    }
-};
-
-const checkBioValidity = () => {
-    if (bio.value.length > 140){
+(document.getElementById('bio')).addEventListener('input', (event) => {
+    const bio = event.currentTarget as HTMLInputElement;
+    if (bio.value.length > 140) {
         bio.setCustomValidity('Please keep your bio to 140 characters or less.');
-        return false;
+        bio.reportValidity();
+    } else {
+        bio.setCustomValidity('');
+        console.log("Bio is valid.")
     }
-    console.log("Bio valid")
-    return true;
-};
+});
 
 
-const checkBirthdayValidity = () => {
-    let validity = '';
+(document.getElementById('birthday')).addEventListener('input', (event) => {
+    console.log("Changing birthday.")
+    const birthday = event.currentTarget as HTMLInputElement;
+    const consentContainer = (document.getElementById('consent-container'))
+    const parentalConsent = (document.getElementById('parental-consent') as HTMLInputElement);
 
-    if (birthday.value === ''){
-        validity = 'Please enter your date of birth.';
+    if (!birthday.checkValidity()) {
+        birthday.setCustomValidity('Please enter your date of birth.');
     }
-    else if (!isOldEnough) {
-        if(!parentalConsentGiven){
-            validity = 'Please have your parents consent to your application.'
-        }
+    else if (!isOldEnough(birthday) && !parentalConsent.value) {
         consentContainer.classList.remove('hide');
+        parentalConsent.required = true;
+        parentalConsent.setCustomValidity('Please have your parents consent to your application.');
+        parentalConsent.reportValidity();
     }
-    else {
+    else if (isOldEnough(birthday)) {
         consentContainer.classList.add('hide');
+        birthday.setCustomValidity('');
+
+        parentalConsent.required = false;
+        parentalConsent.setCustomValidity('');
     }
+});
 
-    birthday.setCustomValidity(validity);
-    console.log("Birthday: " + (validity === ''))
-    return (validity === '');
-};
-
-
-
-const isOldEnough = () => {
+function isOldEnough(birthday) {
     const date = birthday.value.split('-');
     const yearOfBirth = Number(date[0]);
     const monthOfBirth = Number(date[1]);
@@ -93,31 +68,32 @@ const isOldEnough = () => {
 
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth()+1;
+    const currentMonth = currentDate.getMonth() + 1;
     const currentDay = currentDate.getDate();
+
+    console.log("Is old enough: " +
+        !(currentDay < dayOfBirth &&
+        currentMonth < monthOfBirth &&
+        currentYear - yearOfBirth <= 18))
 
     return !(currentDay < dayOfBirth &&
         currentMonth < monthOfBirth &&
         currentYear - yearOfBirth <= 18);
-};
-
-const parentalConsentGiven = () => parentalConsent.value;
-
-const checkAllValidity = () =>
-{
-    if(checkNameValidity && checkEmailValidity && checkPasswordValidity &&
-        checkBioValidity && checkBirthdayValidity) {
-        alert("All checks passed!")
-    }
 }
 
-name.addEventListener('change', checkPasswordValidity);
-password.addEventListener('change', checkPasswordValidity);
-password2.addEventListener('change', checkPasswordValidity);
-bio.addEventListener('change', checkBioValidity);
-birthday.addEventListener('change', checkBirthdayValidity);
+(document.getElementById('password') as HTMLInputElement)
+    .addEventListener('input', checkPasswordValidity);
+(document.getElementById('password-conf') as HTMLInputElement)
+    .addEventListener('input', checkPasswordValidity);
 
-register.addEventListener('click', checkAllValidity)
+function checkPasswordValidity() {
+    const password = (document.getElementById('password') as HTMLInputElement);
+    const password2 = (document.getElementById('password-conf') as HTMLInputElement);
 
-
-export{}
+    if (password.value !== password2.value) {
+        password2.setCustomValidity('Password and confirmation must match.');
+    } else {
+        password2.setCustomValidity('');
+        console.log("Password valid")
+    }
+}
