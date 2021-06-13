@@ -135,6 +135,16 @@ input, textarea {
     grid-column: 2;
     place-self: center;
     width: 12px;
-    /*display: grid;*/
-    /*grid-template-columns: auto;*/
+}
+
+button {
+    place-self: center;
+    font: inherit;
+    font-size: 1.2em;
+
+    padding: 16px 32px;
+    border: none;
+    border-radius: 32px;
+    color: white;
+    background: #b01aca;
 }
