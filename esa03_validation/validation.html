@@ -11,19 +11,20 @@
     <script src="js/form-validation.js" defer></script>
 </head>
 <body>
-<div class="container">
-    <div class="engagement-container">
+<main class="layout">
+    <header>
         <img src="img/logo_super8.png" alt="Super8 Film Society Logo" id="logo"/>
-        <h2>Welcome to the Super8 Film Society.</h2>
+        <h1>Welcome to the Super8 Film Society.</h1>
         <p class="intro">
-            We are a group of film enthusiasts who meet up each month to watch old movies on film,
-            in our own private cinema. We also create our own short film each year,
+            We are a group of film enthusiasts who meet up each month
+            to watch old movies on film, in our own private cinema.<br>
+            We also create our own short film each year,
             which is entered into film competitions worldwide.
         </p>
-    </div>
-    <div class="input-container">
+    </header>
+    <form action="">
         <h2>Become a member</h2>
-        <form class="input-cluster" action="">
+        <div class="input-group">
             <div class="entry">
                 <label for="name" class="required">Name:</label>
                 <input type="text" placeholder="Enter your name" name="name" id="name"
@@ -41,6 +42,9 @@
                 <label for="password-conf" class="required">Confirm password:</label>
                 <input type="password" name="conf-password" id="password-conf" required>
             </div>
+        </div>
+        <div class="input-group">
+
             <div class="entry">
                 <label for="bio">Short Bio (max. 140 characters):</label>
                 <textarea name="bio" id="bio" rows="5" cols="30"></textarea>
@@ -52,14 +56,14 @@
             </div>
             <div class="entry hide" id="consent-container">
                 <label for="parental-consent">
-                    You need a parent's permission to join. <br>
+                    You need a parent's permission to join.
                     Tick here if your child can join:
                 </label>
                 <input type="checkbox" name="parental-consent" id="parental-consent">
             </div>
-            <button id="register">Register</button>
-        </form>
-    </div>
-</div>
+        </div>
+        <button id="register">Register</button>
+    </form>
+</main>
 </body>
 </html>
