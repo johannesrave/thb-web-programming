@@ -1,59 +1,45 @@
-<script context="module" lang="ts">
-	export const prerender = true;
-</script>
-
 <script lang="ts">
-	import Counter from '$lib/Counter/index.svelte';
+    // import Counter from '$lib/Counter/index.svelte';
 </script>
 
 <svelte:head>
-	<title>Home</title>
+    <title>Verstehbank</title>
 </svelte:head>
 
 <section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
+    <h1>Onlinebanking für Menschen.</h1>
 
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
+    <div class="center-cluster">
+        <h2>Willkommen bei der Verstehbank.</h2>
+        <div class="button-bar">
+            <a href="/banking">ONLINE BANKING</a>
+            <a href="/info">INFO</a>
+        </div>
+    </div>
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
+    section {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /*flex: 0;*/
+        flex: 1 1 auto;
+    }
 
-	h1 {
-		width: 100%;
-	}
+    .center-cluster {
+        min-height: 100%;
+        display: flex;
+        flex-flow: column;
+        /*justify-content: space-around;*/
+        flex: 1 1 auto;
+    }
 
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+    .button-bar {
+        display: flex;
+        align-content: space-around;
+        gap: 32px;
+    }
 </style>
