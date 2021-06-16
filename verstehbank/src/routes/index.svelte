@@ -1,45 +1,34 @@
 <script lang="ts">
-    // import Counter from '$lib/Counter/index.svelte';
+    import Title from "../lib/Title.svelte";
+    import RoundButton from "../lib/RoundButton.svelte";
 </script>
 
 <svelte:head>
-    <title>Verstehbank</title>
+    <title>Anmeldung</title>
 </svelte:head>
 
-<section>
-    <h1>Onlinebanking für Menschen.</h1>
 
-    <div class="center-cluster">
-        <h2>Willkommen bei der Verstehbank.</h2>
-        <div class="button-bar">
-            <a href="/banking">ONLINE BANKING</a>
-            <a href="/info">INFO</a>
-        </div>
+<section>
+    <div class="button-bar">
+        <RoundButton link={'/banking'} name={'Online Banking'}/>
+        <RoundButton link={'/info'} name={'Info'}/>
     </div>
 </section>
+
+<Title>Onlinebanking für Menschen.</Title>
 
 <style>
     section {
         min-height: 100%;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        /*flex: 0;*/
-        flex: 1 1 auto;
-    }
-
-    .center-cluster {
-        min-height: 100%;
-        display: flex;
         flex-flow: column;
-        /*justify-content: space-around;*/
+        justify-content: center;
         flex: 1 1 auto;
     }
 
     .button-bar {
         display: flex;
-        align-content: space-around;
-        gap: 32px;
+        gap: 5vw;
+
     }
 </style>

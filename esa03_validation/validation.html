@@ -11,7 +11,7 @@
     <script src="js/form-validation.js" defer></script>
 </head>
 <body>
-<main class="layout">
+<main>
     <header>
         <img src="img/logo_super8.png" alt="Super8 Film Society Logo" id="logo"/>
         <h1>Welcome to the Super8 Film Society.</h1>
@@ -25,36 +25,35 @@
     <form action="">
         <h2>Become a member</h2>
         <div class="input-group">
-            <div class="entry">
+            <div>
                 <label for="name" class="required">Name:</label>
                 <input type="text" placeholder="Enter your name" name="name" id="name"
                        title="Please enter your name" required>
             </div>
-            <div class="entry">
+            <div>
                 <label for="email" class="required">Email:</label>
                 <input type="email" placeholder="you@example.com" name="email" id="email" required>
             </div>
-            <div class="entry">
+            <div>
                 <label for="password" class="required">Password:</label>
                 <input type="password" name="password" id="password" required>
             </div>
-            <div class="entry">
+            <div>
                 <label for="password-conf" class="required">Confirm password:</label>
                 <input type="password" name="conf-password" id="password-conf" required>
             </div>
         </div>
         <div class="input-group">
-
-            <div class="entry">
+            <div>
                 <label for="bio">Short Bio (max. 140 characters):</label>
                 <textarea name="bio" id="bio" rows="5" cols="30"></textarea>
                 <span id="bio-count" class="hide"></span>
             </div>
-            <div class="entry">
+            <div>
                 <label for="birthday" class="required">Birthday:</label>
                 <input type="date" name="birthday" id="birthday" placeholder="yyyy-mm-dd" required>
             </div>
-            <div class="entry hide" id="consent-container">
+            <div class="hide" id="consent-container">
                 <label for="parental-consent">
                     You need a parent's permission to join.
                     Tick here if your child can join:

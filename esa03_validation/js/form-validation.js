@@ -1,3 +1,4 @@
+/* Validierung */
 (document.getElementById('name')).addEventListener('input', function (event) {
     console.log("Changing name.");
     var validNamePattern = /^[A-Za-z]+[A-Za-z0-9]{0,100}$/;
@@ -38,11 +39,8 @@
     console.log("Changing birthday.");
     var birthday = event.currentTarget;
     var consentContainer = (document.getElementById('consent-container'));
-    // const parentalConsent = (document.getElementById('parental-consent') as HTMLInputElement);
     var age = getAge(new Date(birthday.value));
     console.log("age: " + age);
-    // console.log(parentalConsent)
-    // console.log(parentalConsent.checked)
     if (age < 18 && !parentalConsentGiven) {
         birthday.setCustomValidity('Please have your parents consent to your application.');
         birthday.reportValidity();

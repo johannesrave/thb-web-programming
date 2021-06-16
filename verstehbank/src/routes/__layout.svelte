@@ -1,37 +1,35 @@
 <script lang="ts">
-	// import Header from '$lib/Header/index.svelte';
-	import '../app.css';
+    // import Header from '$lib/Header/index.svelte';
+    import '../app.css';
+    import Footer from "../lib/Footer.svelte";
 </script>
 
-<main>
-	<slot />
-</main>
+<section>
+    <main>
+        <slot/>
+    </main>
 
-<footer>
-	<p class="footer-logo">VB</p>
-	<p>Bei Fragen können Sie uns jederzeit <a href="">kontaktieren</a>.</p>
-</footer>
+    <Footer />
+</section>
+
 
 <style>
-	main {
-		min-height: 100%;
-	}
+    section {
+        display: flex;
+        flex-flow: column;
+        flex: 1;
+        height: 100%;
+        border: solid blue;
+        overflow: hidden;
+    }
 
-	footer {
-		position: fixed;
-		bottom: 0;
+    main {
+        display: flex;
+        flex-flow: column;
+        flex: 1;
 
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100vw;
-		height: 64px;
-		gap: 64px;
-
-		background-color: dimgray;
-	}
-
-	p {
-		color: white;
-	}
+        justify-content: center;
+        align-items: center;
+        border: solid #9f0d56;
+    }
 </style>

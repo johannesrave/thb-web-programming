@@ -1,3 +1,6 @@
+
+
+/* Validierung */
 (document.getElementById('name')).addEventListener('input', (event) => {
     console.log("Changing name.")
 
@@ -41,11 +44,8 @@
     console.log("Changing birthday.")
     const birthday = event.currentTarget as HTMLInputElement;
     const consentContainer = (document.getElementById('consent-container'))
-    // const parentalConsent = (document.getElementById('parental-consent') as HTMLInputElement);
     const age = getAge(new Date(birthday.value));
     console.log("age: " + age);
-    // console.log(parentalConsent)
-    // console.log(parentalConsent.checked)
 
     if (age < 18 && !parentalConsentGiven) {
         birthday.setCustomValidity('Please have your parents consent to your application.');
