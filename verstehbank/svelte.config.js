@@ -15,7 +15,9 @@ const config = {
 			fallback: null
 		}),
 		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte'
+		target: '#svelte',
+		ssr: false,
+		hydrate: false
 	}
 };
 

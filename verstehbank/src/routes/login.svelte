@@ -29,7 +29,7 @@
     <title>Anmeldung</title>
 </svelte:head>
 
-<Title>Onlinebanking für Menschen.</Title>
+<Title>Anmeldung</Title>
 <form on:submit={submit}>
     <div>
         <label for="name" class="required">Benutzername:</label>

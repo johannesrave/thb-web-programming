@@ -1,28 +1,26 @@
-<script lang="ts" context="module">
+<script context="module" lang="ts">
     import {authenticated} from './stores';
     import {browser} from '$app/env';
 
     let localAuthenticated: boolean;
     authenticated.subscribe(auth => localAuthenticated = auth);
 
-    export async function load({page, session, fetch, context}) {
+    export async function load() {
         console.log("browser", browser)
 
-        if (true) {
-
-            if (localAuthenticated) {
-                console.log("Authenticated - NOT redirecting.")
-                return {
-                    status: 200
-                };
-            }
-
-            console.log("Not authenticated - redirecting.")
+        if (localAuthenticated) {
+            console.log("Authenticated - NOT redirecting.")
             return {
-                status: 302,
-                redirect: '/login'
+                status: 200
             };
         }
+
+        console.log("Not authenticated - redirecting.")
+        return {
+            status: 302,
+            redirect: '/login'
+        };
+
 
     }
 </script>
@@ -39,9 +37,11 @@
     <title>Anmeldung</title>
 </svelte:head>
 
-<Title>Onlinebanking für Menschen.</Title>
+<Title>Übersicht</Title>
 
 <RoundButton link={'/banking'} name={'Geld senden'}/>
 <RoundButton link={'/contacts'} name={'Kontakte pflegen'}/>
 
-{#if false}<slot/>{/if}
+{#if false}
+    <slot/>
+{/if}
