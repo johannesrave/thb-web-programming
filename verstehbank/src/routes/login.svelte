@@ -14,7 +14,7 @@
         console.log("password:", password.value)
         console.log("$users[name.value]:", $users[name.value])
 
-        auth.set($users[name.value] === password.value);
+        auth.set($users[name.value].toString() === password.value.toString());
         if ($auth) {
             goto('/');
         }
