@@ -1,33 +1,19 @@
 <script lang="ts">
     import { authenticated } from './stores.js';
     import Title from "../lib/Title.svelte";
-    import { onMount } from "svelte";
     import { goto } from '$app/navigation';
-
 
     let name: HTMLInputElement;
     let password: HTMLInputElement;
 
-    let localAuthenticated : boolean;
-
-    authenticated.subscribe(auth => localAuthenticated = auth);
-
-    let changedName = () => {
-    }
-
-    onMount(() => {
-        if (localAuthenticated) {
-
-        }
-    })
-
     let submit = () => {
+        // goto('/');
+
         if (name.value === 'beateweber') {
-            authenticated.update(auth => true);
-            alert("Eingeloggt!")
-
-            goto('/banking');
-
+            authenticated.set(true);
+            console.log("Nutzername", name.value)
+            console.log("authenticated", $authenticated)
+            goto('/');
         }
         else{
             name.setCustomValidity(
@@ -37,8 +23,6 @@
             alert("NICHT eingeloggt!")
         }
     }
-
-
 </script>
 
 <svelte:head>
@@ -49,19 +33,18 @@
 <form on:submit={submit}>
     <div>
         <label for="name" class="required">Benutzername:</label>
-        <input bind:this={name} on:input={changedName} type="text" placeholder="beateweber" name="name" id="name"
+        <input bind:this={name} type="text" placeholder="beateweber" id="name"
                title="Bitte geben Sie Ihren Benutzernamen ein.">
     </div>
     <div>
         <label for="password" class="required">Passwort:</label>
-        <input bind:this={password} type="password" placeholder="********" name="password" id="password"
+        <input bind:this={password} type="password" placeholder="********" id="password"
                title="Bitte geben Sie das Passwort für die Anmeldung beim Online Banking ein.">
     </div>
-
-    <button type="submit">TEST</button>
-
-<!--    <RoundButton link={'/banking'} name={'Anmelden'} on:click={() => console.log("submit clicked")}/>-->
+    <button type="submit">Anmelden</button>
+    <a href="/">Hauptseite</a>
 </form>
+{#if false}<slot />{/if}
 
 
 <style>

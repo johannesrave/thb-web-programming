@@ -7,6 +7,7 @@
 <main>
     <section>
         <slot/>
+        {#if false}<slot />{/if}
     </section>
 
     <Footer />
