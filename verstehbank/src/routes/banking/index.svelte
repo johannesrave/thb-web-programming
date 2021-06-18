@@ -5,9 +5,9 @@
 
 <Title>Onlinebanking</Title>
 
-<RoundButton link={'/'} name={'Weiter'}/>
+<RoundButton link={'/'} name={'Überweisen'}/>
 
-<RoundButton link={'/'} name={'Zurück'}/>
+<RoundButton link={'/'} name={'Kontakte pflegen'}/>
 
 
 <style>

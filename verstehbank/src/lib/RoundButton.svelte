@@ -5,7 +5,6 @@
 
 <div>
     <a href={link}>{name}</a>
-    <!--    <p>{name}</p>-->
 </div>
 
 <style>

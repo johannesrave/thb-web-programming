@@ -4,17 +4,17 @@
     import Footer from "../lib/Footer.svelte";
 </script>
 
-<section>
-    <main>
+<main>
+    <section>
         <slot/>
-    </main>
+    </section>
 
     <Footer />
-</section>
+</main>
 
 
 <style>
-    section {
+    main {
         display: flex;
         flex-flow: column;
         flex: 1;
@@ -23,7 +23,7 @@
         overflow: hidden;
     }
 
-    main {
+    section {
         display: flex;
         flex-flow: column;
         flex: 1;
