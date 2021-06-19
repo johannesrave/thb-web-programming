@@ -1,23 +1,23 @@
 <script lang="ts">
     import Title from "./Title.svelte";
-    import { loggedIn, users } from '$lib/stores.js';
+    import { user, userDB } from '$lib/stores.js';
 
-    let user: HTMLInputElement;
-    let password: HTMLInputElement;
+    let username: String;
+    let password: String;
 
     let attemptLogin = () => {
 
-        const passwordInDB = $users[user]["password"]
+        const passwordInDB = $userDB[username]["password"]
 
         console.log(
-            "username:", user,
+            "username:", username,
             "password:", password,
-            "user exists:", $users[user] !== null,
+            "user exists:", $userDB[username] !== null,
             "password is correct:", passwordInDB === password
         )
 
         if (passwordInDB === password){
-            loggedIn.set(user);
+            user.login(username);
         }
     }
 
@@ -27,7 +27,7 @@
 <form on:submit={attemptLogin}>
     <div>
         <label for="name" class="required">Benutzername</label>
-        <input bind:value={user} type="text" id="name"
+        <input bind:value={username} type="text" id="name"
                title="Bitte geben Sie Ihren Benutzernamen ein.">
     </div>
     <div>
@@ -36,6 +36,6 @@
                title="Bitte geben Sie das Passwort für die Anmeldung beim Online Banking ein.">
     </div>
     <button on:click|preventDefault={attemptLogin}>Anmelden</button>
-    <button on:click|preventDefault={() => loggedIn.set(false)}>Abmelden</button>
+    <button on:click|preventDefault={() => $user.logout()}>Abmelden</button>
 
 </form>

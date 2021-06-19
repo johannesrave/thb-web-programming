@@ -4,17 +4,14 @@
 <!--Andernfalls wird man auf die Login-Seite zurückgeschickt.-->
 
 <script lang="ts">
-    import { loggedIn } from '$lib/stores.js';
+    import { user } from '$lib/stores.js';
     import { goto } from '$app/navigation';
-    import { onMount } from 'svelte';
     import { base } from '$app/paths'
 
-    onMount(() => {
-        console.log($loggedIn)
-        if ($loggedIn === {}) {
-            alert("Bitte melden Sie sich an.")
-            console.log("Not authenticated, going back to login.")
-            goto(base + '/');
-        }
-    })
+    $: if(!$user){
+        alert("Bitte melden Sie sich an.")
+        console.log("Not authenticated, going back to login.")
+        goto(base + '/');
+    }
+
 </script>

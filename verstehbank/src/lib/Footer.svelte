@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { loggedIn } from '$lib/./stores'
+    import { user } from '$lib/./stores'
 </script>
 
 
 <footer>
-    <button on:click|preventDefault={() => $loggedIn.reset()}>Abmelden</button>
+    <button on:click|preventDefault={() => user.logout()}>Abmelden</button>
     <a href="">Fragen?</a>
 </footer>
 

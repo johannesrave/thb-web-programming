@@ -2,15 +2,15 @@
     // import Header from '$lib/Header/index.svelte';
     import '../app.css';
     import Footer from "../lib/Footer.svelte";
-    import { users } from "$lib/stores";
+    import { userDB } from "$lib/stores";
     import { onDestroy, onMount } from "svelte";
 
     onMount(() => {
-        users.restore();
+        userDB.restore();
     })
 
     onDestroy(() => {
-        users.store()
+        userDB.store()
         }
     )
 
