@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Title from "../../lib/Title.svelte";
     import { goto } from '$app/navigation';
-    import Auth from "../../lib/Auth.svelte";
+    import Title from "$lib/Title.svelte";
+    import Auth from "$lib/Auth.svelte";
 
     const enum steps {
         enterRecipient,
@@ -30,21 +30,19 @@
         step = steps.enterRecipient;
     }
 
-
     let selectRecipient = () => {
         name = 'Peter Kopf';
         iban = 'DE6969696969696969'
     }
 
 </script>
-
 <Auth/>
 
-<Title>Überweisung</Title>
+<Title title={"Geld senden"}/>
 
 {#if step === steps.enterRecipient}
     <form on:submit={enterRecipient}>
-        <h2>An wen soll die Überweisung gehen?</h2>
+        <h2>Wem möchten Sie Geld überweisen?</h2>
         <button type="button" on:click={selectRecipient}>Empfänger auswählen</button>
         <div>
             <label for="name" class="required">Empfängername</label>

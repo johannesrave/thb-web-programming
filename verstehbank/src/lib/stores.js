@@ -1,7 +1,7 @@
 import {writable, get} from 'svelte/store';
 import { browser } from '$app/env';
 
-export const auth = writable(false);
+export const loggedIn = writable(false);
 
 /*
 Diese Funktion gibt einen svelte-store zurück,
