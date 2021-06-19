@@ -2,7 +2,7 @@
     import { auth, users } from '../lib/stores.js';
     import Title from "../lib/Title.svelte";
     import { goto } from '$app/navigation';
-
+    import { base } from '$app/paths'
     let name: HTMLInputElement;
     let password: HTMLInputElement;
 
@@ -16,7 +16,8 @@
 
         auth.set($users[name.value].toString() === password.value.toString());
         if ($auth) {
-            goto('/');
+            console.log("going to", base + '/')
+            goto(base + '/');
         }
     }
 </script>
