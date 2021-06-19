@@ -1,7 +1,7 @@
 import {writable, get} from 'svelte/store';
-import { browser } from '$app/env';
+import {browser} from '$app/env';
 
-export const loggedIn = writable(false);
+export const loggedIn = writable({});
 
 /*
 Diese Funktion gibt einen svelte-store zurück,
@@ -13,7 +13,11 @@ um den Umgang mit stores und localStorage zu lernen.
  */
 function createUsers() {
     const {subscribe, set, update} = writable({
-        beateweber: "1955"
+        beateweber: {
+            password: "1955",
+            firstName: "Beate",
+            surName: "Weber"
+        }
     });
 
     return {
@@ -25,12 +29,14 @@ function createUsers() {
         }),
         // Den users-store in den localStorage schreiben
         store: () => {
-            if(!browser) return;
+            if (!browser) return;
             localStorage.users = JSON.stringify(get(users))
         },
         // Den users-store aus localStorage wieder herstellen
         restore: () => {
-            if(browser && localStorage.hasOwnProperty("users")) {
+            if (browser && localStorage.hasOwnProperty("users")) {
+                console.log("restoring from local storage:");
+                console.log(localStorage.users);
                 set(JSON.parse(localStorage.users));
             }
         },

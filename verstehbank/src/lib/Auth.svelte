@@ -10,7 +10,8 @@
     import { base } from '$app/paths'
 
     onMount(() => {
-        if (!$loggedIn) {
+        console.log($loggedIn)
+        if ($loggedIn === {}) {
             alert("Bitte melden Sie sich an.")
             console.log("Not authenticated, going back to login.")
             goto(base + '/');

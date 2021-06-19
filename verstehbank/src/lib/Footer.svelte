@@ -1,5 +1,10 @@
+<script lang="ts">
+    import { loggedIn } from '$lib/./stores'
+</script>
+
+
 <footer>
-    <p class="footer-logo">Die Verstehbank</p>
+    <button on:click|preventDefault={() => $loggedIn.reset()}>Abmelden</button>
     <a href="">Fragen?</a>
 </footer>
 
