@@ -6,12 +6,13 @@
 <script lang="ts">
     import { user } from '$lib/stores.js';
     import { goto } from '$app/navigation';
-    import { base } from '$app/paths'
+    import { base } from '$app/paths';
+    import { browser } from '$app/env';
 
-    $: if(!$user){
-        alert("Bitte melden Sie sich an.")
-        console.log("Not authenticated, going back to login.")
+    $: if(!$user && browser){
+        alert("Bitte melden Sie sich an.");
         goto(base + '/');
+        console.log("Not authenticated, going back to login.");
     }
 
 </script>

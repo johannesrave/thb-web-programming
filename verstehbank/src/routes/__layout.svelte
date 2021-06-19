@@ -4,17 +4,22 @@
     import Footer from "../lib/Footer.svelte";
     import { userDB } from "$lib/stores";
     import { onDestroy, onMount } from "svelte";
+    // import Auth from "$lib/Auth.svelte";
+    import { base } from "$app/paths";
 
     onMount(() => {
+        console.log(base)
         userDB.restore();
     })
 
     onDestroy(() => {
         userDB.store()
-        }
-    )
+    })
 
 </script>
+
+<base href="{base}">
+
 
 <main>
     <section>

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
-    import Title from "$lib/Title.svelte";
-    import Auth from "$lib/Auth.svelte";
+    import Title from '$lib/Title.svelte';
+    import Auth from '$lib/Auth.svelte';
 
     const enum steps {
         enterRecipient,
@@ -34,10 +34,9 @@
         name = 'Peter Kopf';
         iban = 'DE6969696969696969'
     }
-
 </script>
-<Auth/>
 
+<Auth/>
 <Title title={"Geld senden"}/>
 
 {#if step === steps.enterRecipient}
