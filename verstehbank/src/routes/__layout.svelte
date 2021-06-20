@@ -5,20 +5,21 @@
     import { userDB } from "$lib/stores";
     import { onDestroy, onMount } from "svelte";
     // import Auth from "$lib/Auth.svelte";
-    import { base } from "$app/paths";
+    // import { base } from "$app/paths";
 
     onMount(() => {
-        console.log(base)
+        console.log("restoring from localStorage");
         userDB.restore();
     })
 
     onDestroy(() => {
+        console.log("saving to localStorage");
         userDB.store()
     })
 
 </script>
 
-<base href="{base}">
+<!--<base href="{base}">-->
 
 
 <main>
@@ -37,7 +38,7 @@
         flex-flow: column;
         flex: 1;
         height: 100%;
-        border: solid blue;
+        /*border: solid blue;*/
         overflow: hidden;
     }
 
@@ -48,6 +49,6 @@
 
         justify-content: center;
         align-items: center;
-        border: solid #9f0d56;
+        /*border: solid #9f0d56;*/
     }
 </style>

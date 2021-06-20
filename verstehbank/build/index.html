@@ -5,25 +5,25 @@
 		<link rel="icon" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<title>Anmeldung</title>
+		<title>Verstehbank - Anmeldung</title>
 
 		
 
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/start-4fe4492a.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/vendor-bd7143ba.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/paths-7dc55c62.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/pages/__layout.svelte-c1d58a9d.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/stores-57091423.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/pages/index.svelte-aca3e518.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/navigation-566e76ed.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/Auth-1e6bd2c7.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/start-20c552ee.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/vendor-309704d5.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/singletons-bb9012b7.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/paths-45dac81d.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/pages/__layout.svelte-10dd0624.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/stores-b186c207.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/pages/index.svelte-064dbb42.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/Title-09c16435.js">
 		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/start-a8cd1609.css">
-		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/pages/__layout.svelte-39c64673.css">
+		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/pages/__layout.svelte-85d31bae.css">
 		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/pages/index.svelte-abcef325.css">
-		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/navigation-5b43a34d.css">
+		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/Title-f23f9c7a.css">
 
 		<script type="module">
-			import { start } from "/~rave/verstehbank/build/_app/start-4fe4492a.js";
+			import { start } from "/~rave/verstehbank/build/_app/start-20c552ee.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/~rave/verstehbank/build","assets":"/~rave/verstehbank/build"},
@@ -36,8 +36,8 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/~rave/verstehbank/build/_app/pages/__layout.svelte-c1d58a9d.js"),
-						import("/~rave/verstehbank/build/_app/pages/index.svelte-aca3e518.js")
+						import("/~rave/verstehbank/build/_app/pages/__layout.svelte-10dd0624.js"),
+						import("/~rave/verstehbank/build/_app/pages/index.svelte-064dbb42.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -53,24 +53,20 @@
 		<div id="svelte">
 
 
+
+
+
 <main class="svelte-kt05ef"><section class="svelte-kt05ef">
 
+<h1 class="svelte-1pf7q45">Anmeldung</h1>
+<form><div><label for="name" class="required">Benutzername</label>
+        <input type="text" id="name" title="Bitte geben Sie Ihren Benutzernamen ein."></div>
+    <div><label for="password" class="required">Passwort</label>
+        <input type="password" id="password" title="Bitte geben Sie das Passwort für die Anmeldung beim Online Banking ein."></div>
+    <button>Anmelden</button>
+    <button>Abmelden</button></form></section>
 
-
-
-
-
-<h1 class="svelte-1pf7q45">Übersicht</h1>
-
-<div><a href="/~rave/verstehbank/build/banking" class="svelte-1kdjg9l">Geld senden</a>
-</div>
-<div><a href="/~rave/verstehbank/build/contacts" class="svelte-1kdjg9l">Kontakte pflegen</a>
-</div>
-
-
-        </section>
-
-    <footer class="svelte-1kn8e4e"><p class="footer-logo svelte-1kn8e4e">Die Verstehbank</p>
+    <footer class="svelte-1kn8e4e"><button>Abmelden</button>
     <a href="">Fragen?</a>
 </footer>
 </main>

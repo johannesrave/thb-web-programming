@@ -75,7 +75,8 @@
     <form on:submit={success}>
         <h2>Ihre Überweisung wurde erfolgreich abgeschickt.</h2>
         <button>Weitere Überweisung</button>
-        <button type="button" on:click={goto('/')}>Zurück zur Übersicht</button>
+        <a href="/">Zurück zur Übersicht</a>
+<!--        <button type="button" on:click={goto('/')}>Zurück zur Übersicht</button>-->
     </form>
 {/if}
 
