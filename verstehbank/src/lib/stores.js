@@ -9,8 +9,21 @@ function setUpUser() {
 
     return {
         subscribe,
-        login: (username) => set(username),
-        logout: () => set(null)
+        login: (username) => {
+            if (!browser) return;
+
+            localStorage.user = JSON.stringify(get(user))
+            set(username);
+        },
+        logout: () => {
+            set(null)
+            localStorage.setItem("user", null);
+        },
+        sync: () => {
+            if (!browser || localStorage.getItem("user") === null) return;
+
+            set(localStorage.user);
+        }
     };
 }
 
@@ -59,6 +72,12 @@ function createUserDB() {
 export const contacts = writable(
     [
         {
+            name: "Neuen Empfänger anlegen",
+            iban: "",
+            bank: "",
+            createNewContact: true
+        },
+        {
             name: "Thomas Friedrich",
             iban: "DE26500105173512514936",
             bank: "BLT Bank Nauen"
@@ -76,4 +95,10 @@ export const contacts = writable(
     ]
 )
 
-export const selectedContact = writable({})
+export const selectedContact = writable({
+        name: "Neuen Empfänger anlegen",
+        iban: "",
+        bank: "",
+        createNewContact: true
+    }
+)

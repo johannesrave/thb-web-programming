@@ -2,7 +2,7 @@
     // import Header from '$lib/Header/index.svelte';
     import '../app.css';
     import Footer from "../lib/Footer.svelte";
-    import { userDB } from "$lib/stores";
+    import { user, userDB } from "$lib/stores";
     import { onDestroy, onMount } from "svelte";
     // import Auth from "$lib/Auth.svelte";
     // import { base } from "$app/paths";
@@ -10,6 +10,7 @@
     onMount(() => {
         console.log("restoring from localStorage");
         userDB.restore();
+        user.sync();
     })
 
     onDestroy(() => {

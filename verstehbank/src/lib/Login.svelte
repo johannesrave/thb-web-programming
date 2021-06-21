@@ -28,19 +28,7 @@
 <form on:submit={attemptLogin}>
     <Input id="newUser" bind:value={username}>Benutzername</Input>
     <Input id="newUser" type="password" bind:value={password}>Passwort</Input>
-<!--    <div>-->
-<!--        <label for="name" class="required">Benutzername</label>-->
-<!--        <input bind:value={username} type="text" id="name"-->
-<!--               title="Bitte geben Sie Ihren Benutzernamen ein.">-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <label for="password" class="required">Passwort</label>-->
-<!--        <input bind:value={password} type="password" id="password"-->
-<!--               title="Bitte geben Sie das Passwort für die Anmeldung beim Online Banking ein.">-->
-<!--    </div>-->
     <button on:click|preventDefault={attemptLogin}>Anmelden</button>
-<!--    <button on:click|preventDefault={() => $user.logout()}>Abmelden</button>-->
-
 </form>
 
 <style>

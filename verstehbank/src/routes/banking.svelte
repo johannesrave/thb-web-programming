@@ -20,7 +20,6 @@
     let amount: number;
     let tan: number;
 
-    let createNewContact: boolean = false;
 
     const enterRecipient = () => {
         if (name && iban) step = steps.enterAmount;
@@ -36,11 +35,15 @@
     }
 
     let selectRecipient = () => {
-        step = steps.enterRecipient;
-        if (!createNewContact) {
-            name = $selectedContact.name;
-            iban = $selectedContact.iban;
+        if ($selectedContact.createNewContact) {
+            step = steps.enterRecipient;
+            name = '';
+            iban = '';
+            return;
         }
+        step = steps.enterAmount;
+        name = $selectedContact.name;
+        iban = $selectedContact.iban;
     }
 
     function makeSelected(element) {
@@ -51,7 +54,7 @@
     }
 
     const selectContact = (event, contact) => {
-        createNewContact = false;
+
         $selectedContact = contact;
 
         makeSelected(event.currentTarget);
@@ -68,14 +71,17 @@
     <form on:submit={selectRecipient}>
         <h2>Wem möchten Sie Geld überweisen?</h2>
         <ScrollableList>
-            <div on:click={createNewContact = true} class="option selected">
-                >> Neuer Überweisungsempfänger
-            </div>
+            <!--            <div on:click={createNewContact = true} class="option selected">-->
+            <!--                >> Neuer Überweisungsempfänger-->
+            <!--            </div>-->
             {#each $contacts as contact}
-                <div on:click={(e) => selectContact(e,contact)} class="option">
-                    {contact.name}<br>
-                    {contact.bank}<br>
-                    {contact.iban}
+                <div on:click={(e) => selectContact(e,contact)}
+                     class="option {contact.createNewContact ? 'selected' : ''}">
+                    {contact.name}
+                    {#if !contact.createNewContact}
+                        <br>{contact.bank}
+                        <br>{contact.iban}
+                    {/if}
                 </div>
             {/each}
         </ScrollableList>
@@ -95,6 +101,11 @@
 {:else if step === steps.enterAmount}
 
     <form on:submit={enterAmount}>
+        <div>
+            <p>{$selectedContact.name}</p>
+            <p>{$selectedContact.iban}</p>
+            <p>{$selectedContact.bank}</p>
+        </div>
         <h2>Welchen Betrag möchten Sie überweisen?</h2>
         <Input bind:value={amount}>Betrag</Input>
         <button>Zur Freigabe</button>

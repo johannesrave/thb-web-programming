@@ -97,7 +97,7 @@ pre {
 }
 
 input,
-button {
+button, button:focus {
 	font-size: inherit;
 	font-family: inherit;
 }
