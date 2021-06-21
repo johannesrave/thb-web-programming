@@ -4,7 +4,7 @@ import {browser} from '$app/env';
 export const user = setUpUser()
 export const userDB = createUserDB();
 
-function setUpUser(){
+function setUpUser() {
     const {subscribe, set} = writable(null);
 
     return {
@@ -54,3 +54,26 @@ function createUserDB() {
         },
     };
 }
+
+
+export const contacts = writable(
+    [
+        {
+            name: "Thomas Friedrich",
+            iban: "DE26500105173512514936",
+            bank: "BLT Bank Nauen"
+        },
+        {
+            name: "REWE Rosenheim",
+            iban: "DE16500105177715898372",
+            bank: "Sparkasse Rosenheim"
+        },
+        {
+            name: "BetterLife GmbH",
+            iban: "DE57500105176332758532",
+            bank: "Int. Ltd. WorldWide"
+        },
+    ]
+)
+
+export const selectedContact = writable({})

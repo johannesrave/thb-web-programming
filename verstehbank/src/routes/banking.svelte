@@ -2,8 +2,10 @@
     import { goto } from '$app/navigation';
     import Title from '$lib/Title.svelte';
     import Auth from '$lib/Auth.svelte';
+    import ScrollableList from "$lib/ScrollableList.svelte";
 
     const enum steps {
+        selectRecipient,
         enterRecipient,
         enterAmount,
         enterTAN,
@@ -11,7 +13,7 @@
         failure
     }
 
-    let step = steps.enterRecipient;
+    let step = steps.selectRecipient;
     let name: string;
     let iban: string;
     let amount: number;
@@ -39,10 +41,12 @@
 <Auth/>
 <Title title={"Geld senden"}/>
 
-{#if step === steps.enterRecipient}
+{#if step === steps.selectRecipient}
+
     <form on:submit={enterRecipient}>
         <h2>Wem möchten Sie Geld überweisen?</h2>
-        <button type="button" on:click={selectRecipient}>Empfänger auswählen</button>
+        <ScrollableList/>
+<!--        <button type="button" on:click={selectRecipient}>Empfänger auswählen</button>-->
         <div>
             <label for="name" class="required">Empfängername</label>
             <input bind:value={name} type="text" id="name">
@@ -53,7 +57,26 @@
         </div>
         <button>Zum Betrag</button>
     </form>
+
+{:else if step === steps.enterRecipient}
+
+    <form on:submit={enterRecipient}>
+        <h2>Wem möchten Sie Geld überweisen?</h2>
+        <ScrollableList/>
+<!--        <button type="button" on:click={selectRecipient}>Empfänger auswählen</button>-->
+        <div>
+            <label for="name" class="required">Empfängername</label>
+            <input bind:value={name} type="text" id="name">
+        </div>
+        <div>
+            <label for="iban" class="required">IBAN</label>
+            <input bind:value={iban} type="text" id="iban">
+        </div>
+        <button>Zum Betrag</button>
+    </form>
+
 {:else if step === steps.enterAmount}
+
     <form on:submit={enterAmount}>
         <h2>Welchen Betrag möchten Sie überweisen?</h2>
         <div>
@@ -62,7 +85,9 @@
         </div>
         <button>Zur Freigabe</button>
     </form>
+
 {:else if step === steps.enterTAN}
+
     <form on:submit={enterTAN}>
         <h2>Wie lautet der Zahlencode aus der SMS?</h2>
         <div>
@@ -72,12 +97,13 @@
         <button>Überweisung abschicken</button>
     </form>
 {:else if step === steps.success}
+
     <form on:submit={success}>
         <h2>Ihre Überweisung wurde erfolgreich abgeschickt.</h2>
         <button>Weitere Überweisung</button>
         <a href="/">Zurück zur Übersicht</a>
-<!--        <button type="button" on:click={goto('/')}>Zurück zur Übersicht</button>-->
     </form>
+
 {/if}
 
 
