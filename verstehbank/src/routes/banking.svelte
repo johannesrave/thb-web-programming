@@ -1,8 +1,9 @@
 <script lang="ts">
-    import { goto } from '$app/navigation';
     import Title from '$lib/Title.svelte';
     import Auth from '$lib/Auth.svelte';
     import ScrollableList from "$lib/ScrollableList.svelte";
+    import { contacts, selectedContact } from '$lib/./stores'
+    import Input from "../lib/Input.svelte";
 
     const enum steps {
         selectRecipient,
@@ -19,6 +20,8 @@
     let amount: number;
     let tan: number;
 
+    let createNewContact: boolean = false;
+
     const enterRecipient = () => {
         if (name && iban) step = steps.enterAmount;
     }
@@ -29,12 +32,31 @@
         if (tan) step = steps.success;
     }
     const success = () => {
-        step = steps.enterRecipient;
+        step = steps.selectRecipient;
     }
 
     let selectRecipient = () => {
-        name = 'Peter Kopf';
-        iban = 'DE6969696969696969'
+        step = steps.enterRecipient;
+        if (!createNewContact) {
+            name = $selectedContact.name;
+            iban = $selectedContact.iban;
+        }
+    }
+
+    function makeSelected(element) {
+        for (let el of document.getElementsByClassName("selected")) {
+            el.classList.remove("selected")
+        }
+        element.classList.add("selected")
+    }
+
+    const selectContact = (event, contact) => {
+        createNewContact = false;
+        $selectedContact = contact;
+
+        makeSelected(event.currentTarget);
+        console.log(event.currentTarget)
+        console.log($selectedContact);
     }
 </script>
 
@@ -43,35 +65,30 @@
 
 {#if step === steps.selectRecipient}
 
-    <form on:submit={enterRecipient}>
+    <form on:submit={selectRecipient}>
         <h2>Wem möchten Sie Geld überweisen?</h2>
-        <ScrollableList/>
-<!--        <button type="button" on:click={selectRecipient}>Empfänger auswählen</button>-->
-        <div>
-            <label for="name" class="required">Empfängername</label>
-            <input bind:value={name} type="text" id="name">
-        </div>
-        <div>
-            <label for="iban" class="required">IBAN</label>
-            <input bind:value={iban} type="text" id="iban">
-        </div>
-        <button>Zum Betrag</button>
+        <ScrollableList>
+            <div on:click={createNewContact = true} class="option selected">
+                >> Neuer Überweisungsempfänger
+            </div>
+            {#each $contacts as contact}
+                <div on:click={(e) => selectContact(e,contact)} class="option">
+                    {contact.name}<br>
+                    {contact.bank}<br>
+                    {contact.iban}
+                </div>
+            {/each}
+        </ScrollableList>
+        <button>Weiter</button>
     </form>
 
 {:else if step === steps.enterRecipient}
 
     <form on:submit={enterRecipient}>
         <h2>Wem möchten Sie Geld überweisen?</h2>
-        <ScrollableList/>
-<!--        <button type="button" on:click={selectRecipient}>Empfänger auswählen</button>-->
-        <div>
-            <label for="name" class="required">Empfängername</label>
-            <input bind:value={name} type="text" id="name">
-        </div>
-        <div>
-            <label for="iban" class="required">IBAN</label>
-            <input bind:value={iban} type="text" id="iban">
-        </div>
+        <Input bind:value={name}>Empfängername</Input>
+        <Input bind:value={iban}>IBAN</Input>
+        <button type="button" on:click={step = steps.selectRecipient}>Zurück</button>
         <button>Zum Betrag</button>
     </form>
 
@@ -79,21 +96,15 @@
 
     <form on:submit={enterAmount}>
         <h2>Welchen Betrag möchten Sie überweisen?</h2>
-        <div>
-            <label for="amount" class="required">Betrag</label>
-            <input bind:value={amount} type="number" id="amount">
-        </div>
+        <Input bind:value={amount}>Betrag</Input>
         <button>Zur Freigabe</button>
     </form>
 
 {:else if step === steps.enterTAN}
 
     <form on:submit={enterTAN}>
-        <h2>Wie lautet der Zahlencode aus der SMS?</h2>
-        <div>
-            <label for="tan" class="required">Betrag</label>
-            <input bind:value={tan} type="number" id="tan">
-        </div>
+        <h2>Wie lautet die TAN (Zahlencode) aus der SMS?</h2>
+        <Input bind:value={tan}>TAN</Input>
         <button>Überweisung abschicken</button>
     </form>
 {:else if step === steps.success}
@@ -116,5 +127,19 @@
     form {
         gap: 16px;
         align-items: center;
+    }
+
+    .option {
+        height: 4em;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+
+        border: 1px dotted var(--primary-color);
+    }
+
+    .selected {
+        color: white;
+        background-color: var(--primary-color);
     }
 </style>

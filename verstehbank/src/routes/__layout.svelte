@@ -49,6 +49,7 @@
 
         justify-content: center;
         align-items: center;
+        padding: 0 10%;
         /*border: solid #9f0d56;*/
     }
 </style>
