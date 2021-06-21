@@ -1,32 +1,27 @@
 <script lang="ts">
-    // import Header from '$lib/Header/index.svelte';
     import '../app.css';
     import Footer from "../lib/Footer.svelte";
-    import { user, userDB } from "$lib/stores";
-    import { onDestroy, onMount } from "svelte";
-    // import Auth from "$lib/Auth.svelte";
-    // import { base } from "$app/paths";
+    import { userDB } from "$lib/stores";
+    import { onMount } from "svelte";
+    import { user } from '$lib/authStore.js';
+    import { browser } from "$app/env";
+    import { loggedIn } from '$lib/authStore.js';
+    import Login from "../lib/Login.svelte";
 
     onMount(() => {
-        console.log("restoring from localStorage");
-        userDB.restore();
-        user.sync();
-    })
-
-    onDestroy(() => {
-        console.log("saving to localStorage");
-        userDB.store()
+        userDB.retrieve();
+        user.retrieve();
     })
 
 </script>
 
-<!--<base href="{base}">-->
-
-
 <main>
     <section>
-        <slot/>
-
+        {#if (!$loggedIn && browser)}
+            <Login/>
+        {:else}
+            <slot/>
+        {/if}
     </section>
 
     <Footer/>
@@ -51,6 +46,5 @@
         justify-content: center;
         align-items: center;
         padding: 0 10%;
-        /*border: solid #9f0d56;*/
     }
 </style>

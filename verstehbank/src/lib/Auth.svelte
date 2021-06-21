@@ -4,14 +4,15 @@
 <!--Andernfalls wird man auf die Login-Seite zurückgeschickt.-->
 
 <script lang="ts">
-    import { user } from '$lib/stores.js';
+    import { loggedIn } from '$lib/authStore.js';
     import { goto } from '$app/navigation';
+    import { page } from '$app/stores';
     import { base } from '$app/paths';
     import { browser } from '$app/env';
 
-    $: if(!$user && browser){
+    $: if((!loggedIn) && ($page.path !== '/login') && browser){
         alert("Bitte melden Sie sich an.");
-        goto(base + '/');
+        goto(base + '/login');
         console.log("Not authenticated, going back to login.");
     }
 

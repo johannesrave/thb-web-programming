@@ -1,32 +1,7 @@
-import {writable, get} from 'svelte/store';
+import {writable} from 'svelte/store';
 import {browser} from '$app/env';
 
-export const user = setUpUser()
 export const userDB = createUserDB();
-
-function setUpUser() {
-    const {subscribe, set} = writable(null);
-
-    return {
-        subscribe,
-        login: (username) => {
-            if (!browser) return;
-
-            localStorage.user = JSON.stringify(get(user))
-            set(username);
-        },
-        logout: () => {
-            set(null)
-            localStorage.setItem("user", null);
-        },
-        sync: () => {
-            if (!browser || localStorage.getItem("user") === null) return;
-
-            set(localStorage.user);
-        }
-    };
-}
-
 
 /*
 Diese Funktion gibt einen svelte-store zurück,
@@ -49,24 +24,29 @@ function createUserDB() {
         subscribe,
         // Einen user zum users-store hinzufügen.
         addUser: (name, password) => update(userDB => {
-            userDB[name] = password;
-            return userDB;
-        }),
-        // Den users-store in den localStorage schreiben
-        store: () => {
-            if (!browser) return;
-            localStorage.users = JSON.stringify(get(userDB))
-        },
-        // Den users-store aus localStorage wieder herstellen
-        restore: () => {
-            if (browser && localStorage.hasOwnProperty("userDB")) {
-                console.log("restoring from local storage:");
-                console.log(localStorage.users);
-                set(JSON.parse(localStorage.users));
+                userDB[name] = password;
+                return userDB;
             }
+        ),
+        // Den users-store aus localStorage wieder herstellen
+        // passiert nur einmal am Anfang in __layout
+        retrieve: () => {
+            if (!browser) return;
+
+            const storedUserDB = JSON.parse(localStorage.getItem("userDB"));
+            console.log(storedUserDB);
+
+            set(storedUserDB);
         },
     };
 }
+
+userDB.subscribe(updatedUserDB => {
+    if (!browser) return;
+    localStorage.setItem("userDB", JSON.stringify(updatedUserDB));
+
+    console.log("saving userDB to localStorage")
+})
 
 
 export const contacts = writable(
