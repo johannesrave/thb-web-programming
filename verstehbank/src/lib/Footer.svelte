@@ -1,11 +1,18 @@
 <script lang="ts">
-    import { user } from '$lib/authStore'
+    import { goto } from "$app/navigation";
+    import { user, userName } from '$lib/authStore'
+    // import { userDB } from '$lib/authStore'
 </script>
 
 
 <footer>
-    <button on:click|preventDefault={() => user.logout()}>Abmelden</button>
-    <a href="">Fragen?</a>
+    {$userName}
+    <button on:click|preventDefault={() =>{
+        user.logout();
+        goto('/');
+    }}>Abmelden
+    </button>
+    <a href="/">Zurück zur Übersicht</a>
 </footer>
 
 <style>
@@ -16,7 +23,7 @@
         justify-content: space-around;
         align-items: center;
         /*gap: 16px;*/
-        /*padding: 16px;*/
+        padding: 8px;
 
         background-color: dimgray;
     }
