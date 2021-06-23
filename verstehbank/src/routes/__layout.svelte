@@ -16,15 +16,16 @@
 </script>
 
 <main>
+    <Footer/>
+
     <section>
-        {#if (!$loggedIn && browser)}
+        {#if (!$loggedIn)}
             <Login/>
         {:else}
             <slot/>
         {/if}
     </section>
 
-    <Footer/>
 </main>
 
 

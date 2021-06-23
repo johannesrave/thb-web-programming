@@ -4,6 +4,7 @@
     import ScrollableList from "$lib/ScrollableList.svelte";
     import { contacts, selectedContact } from '$lib/./stores'
     import Input from "../lib/Input.svelte";
+    import ButtonGroup from "../lib/ButtonGroup.svelte";
 
     const enum steps {
         selectRecipient,
@@ -71,9 +72,6 @@
     <form on:submit={selectRecipient}>
         <h2>Wem möchten Sie Geld überweisen?</h2>
         <ScrollableList>
-            <!--            <div on:click={createNewContact = true} class="option selected">-->
-            <!--                >> Neuer Überweisungsempfänger-->
-            <!--            </div>-->
             {#each $contacts as contact}
                 <div on:click={(e) => selectContact(e,contact)}
                      class="option {contact.createNewContact ? 'selected' : ''}">
@@ -94,8 +92,10 @@
         <h2>Wem möchten Sie Geld überweisen?</h2>
         <Input bind:value={name}>Empfängername</Input>
         <Input bind:value={iban}>IBAN</Input>
-        <button type="button" on:click={step = steps.selectRecipient}>Zurück</button>
-        <button>Zum Betrag</button>
+        <ButtonGroup>
+            <button type="button" on:click={() => step = steps.selectRecipient}>Zurück</button>
+            <button>Zum Betrag</button>
+        </ButtonGroup>
     </form>
 
 {:else if step === steps.enterAmount}

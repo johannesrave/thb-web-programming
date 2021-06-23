@@ -16,7 +16,7 @@
         height: 120px;
         width: 120px;
 
-        border-radius: 50%;
+        /*border-radius: 50%;*/
         background-color: dimgrey;
 
         color: white;

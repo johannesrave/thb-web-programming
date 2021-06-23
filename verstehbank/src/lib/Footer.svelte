@@ -1,18 +1,24 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import { user, userName } from '$lib/authStore'
+    import { user, userName, loggedIn } from '$lib/authStore'
     // import { userDB } from '$lib/authStore'
+
+    const logout = () => {
+        user.logout();
+        goto('/');
+    }
 </script>
 
 
 <footer>
-    {$userName}
-    <button on:click|preventDefault={() =>{
-        user.logout();
-        goto('/');
-    }}>Abmelden
-    </button>
-    <a href="/">Zurück zur Übersicht</a>
+
+    <a href="/">Übersicht</a>
+    <p>{$userName}</p>
+    {#if $loggedIn}
+        <button on:click|preventDefault={logout}>
+            Abmelden
+        </button>
+    {/if}
 </footer>
 
 <style>
