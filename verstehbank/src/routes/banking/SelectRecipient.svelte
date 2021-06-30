@@ -1,24 +1,33 @@
 <script lang="ts">
-import ScrollableList from "../../lib/ScrollableList.svelte";
+    import ScrollableList from "../../lib/ScrollableList.svelte";
     import { contacts, activeContact } from './contacts'
+    import { bankingState } from "./bankingState";
+    import { transactionForm } from "./bankingForm";
 
     let goToAmount = () => {
+        if ($activeContact.createNewContact) {
+            $bankingState = 'enterRecipient';
+        }
+
+        $bankingState = 'enterAmount';
+        $transactionForm.recipient = $activeContact.name;
     }
 
-    function selectContact(e, contact) {}
 </script>
 
 <h2>Empfänger</h2>
 <form>
     <ScrollableList>
         {#each $contacts as contact}
-            <div on:click={(e) => selectContact(e,contact)}
-                 class="option {contact.createNewContact ? 'selected' : ''}">
+            <div on:click={() => $activeContact = contact}
+                 class="option" class:selected={contact.name === $activeContact.name}>
+
                 {contact.name}
                 {#if !contact.createNewContact}
                     <br>{contact.bank}
                     <br>{contact.iban}
                 {/if}
+
             </div>
         {/each}
     </ScrollableList>

@@ -2,10 +2,16 @@
     import Title from '../../lib/Title.svelte';
     import Auth from '../../lib/Auth.svelte';
     import ScrollableList from "../../lib/ScrollableList.svelte";
-    import { contacts, selectedContact } from '../../lib/stores'
+    import { contacts, activeContact } from './contacts'
     import Input from "../../lib/Input.svelte";
     import ButtonGroup from "../../lib/ButtonGroup.svelte";
     import { steps} from "./bankingState";
+    import SelectRecipient from "./SelectRecipient.svelte";
+    import EnterRecipient from "./EnterRecipient.svelte";
+    import EnterAmount from "./EnterAmount.svelte";
+    import EnterTAN from "./EnterTAN.svelte";
+    import Check from "./Check.svelte";
+    import {bankingState} from "./bankingState";
 
 
     let step = steps.selectRecipient;
@@ -14,6 +20,13 @@
     let amount: number;
     let tan: number;
 
+    const bankingStates = [
+        {selectRecipient : SelectRecipient},
+        {enterRecipient : EnterRecipient},
+        {enterAmount : EnterAmount},
+        {enterTAN : EnterTAN},
+        {check : Check},
+    ];
 
     const enterRecipient = () => {
         if (name && iban) step = steps.enterAmount;
@@ -29,15 +42,15 @@
     }
 
     let selectRecipient = () => {
-        if ($selectedContact.createNewContact) {
+        if ($activeContact.createNewContact) {
             step = steps.enterRecipient;
             name = '';
             iban = '';
             return;
         }
         step = steps.enterAmount;
-        name = $selectedContact.name;
-        iban = $selectedContact.iban;
+        name = $activeContact.name;
+        iban = $activeContact.iban;
     }
 
     function makeSelected(element) {
@@ -49,16 +62,19 @@
 
     const selectContact = (event, contact) => {
 
-        $selectedContact = contact;
+        $activeContact = contact;
 
         makeSelected(event.currentTarget);
         console.log(event.currentTarget)
-        console.log($selectedContact);
+        console.log($activeContact);
     }
 </script>
 
 <Auth/>
 <Title Empfängertitle={"Überweisung"}/>
+
+<svelte:component this={bankingStates[$bankingState]}/>
+
 
 {#if step === steps.selectRecipient}
 
@@ -95,9 +111,9 @@
 
     <form on:submit={enterAmount}>
         <div>
-            <p>{$selectedContact.name}</p>
-            <p>{$selectedContact.iban}</p>
-            <p>{$selectedContact.bank}</p>
+            <p>{$activeContact.name}</p>
+            <p>{$activeContact.iban}</p>
+            <p>{$activeContact.bank}</p>
         </div>
         <h2>Welchen Betrag möchten Sie überweisen?</h2>
         <Input bind:value={amount}>Betrag</Input>

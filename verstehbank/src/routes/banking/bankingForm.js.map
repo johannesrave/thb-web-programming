@@ -1,1 +1,1 @@
-{"version":3,"file":"bankingForm.js","sourceRoot":"","sources":["bankingForm.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,cAAc,CAAC;AASxC,MAAM,CAAC,MAAM,eAAe,GAAG,QAAQ,CAAC,EAAE,CAAC,CAAC"}
+{"version":3,"file":"bankingForm.js","sourceRoot":"","sources":["bankingForm.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,cAAc,CAAC;AASxC,MAAM,gBAAgB,GAAgB;IAClC,MAAM,EAAG,CAAC;IACV,IAAI,EAAG,EAAE;IACT,SAAS,EAAG,EAAE;IACd,GAAG,EAAG,CAAC;CAAC,CAAC;AAEb,MAAM,CAAC,MAAM,eAAe,GAAG,QAAQ,CAAC,gBAAgB,CAAC,CAAC"}

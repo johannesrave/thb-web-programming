@@ -7,4 +7,10 @@ type transaction = {
     tan: number
 }
 
-export const transactionForm = writable({});
+const emptyTransaction: transaction = {
+    amount : 0,
+    iban : "",
+    recipient : "",
+    tan : 0};
+
+export const transactionForm = writable(emptyTransaction);

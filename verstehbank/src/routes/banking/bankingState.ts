@@ -1,11 +1,6 @@
 import { writable } from 'svelte/store';
-import SelectRecipient from './SelectRecipient.svelte';
-import EnterRecipient from './EnterRecipient.svelte';
-import EnterAmount from './EnterAmount.svelte';
-import EnterTAN from './EnterTAN.svelte';
-import Check from './Check.svelte';
 
-export const bankingState = writable({});
+export const bankingState = writable("selectRecipient");
 
 export const enum steps {
     selectRecipient,
@@ -16,10 +11,9 @@ export const enum steps {
     failure
 }
 
-const options = [
-    {selectRecipient : SelectRecipient},
-    {enterRecipient : EnterRecipient},
-    {enterAmount : EnterAmount},
-    {enterTAN : EnterTAN},
-    {check : Check},
-];
+type bankingStates =
+    "selectRecipient" |
+    "enterRecipient" |
+    "enterAmount" |
+    "enterTAN" |
+    "check"
