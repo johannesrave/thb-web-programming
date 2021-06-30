@@ -1,18 +1,24 @@
 <script lang="ts">
-    import Button from "$lib/RoundButton.svelte";
     import Title from "$lib/Title.svelte";
-    import { base } from '$app/paths'
     import ButtonGroup from "../lib/ButtonGroup.svelte";
-    import {user} from "../lib/auth";
+    import { user } from "../lib/auth";
+    import { base } from '$app/paths'
+    import { goto } from '$app/navigation';
+
+
+    const gotoBanking = () => {
+        goto(base + '/banking');
+    }
 </script>
 
 <Title title={"Übersicht"}/>
-<h2>Ihr Kontostand</h2>
-<h3>
 
+<form>
+    <h2>Ihr Kontostand</h2>
+    <h3>{$user}</h3>
 
-            {$user}
-</h3>
-<ButtonGroup>
-    <Button link={base + '/banking'} name={'Geld senden'}/>
-</ButtonGroup>
+    <ButtonGroup>
+        <button on:click|preventDefault={gotoBanking}>Überweisung</button>
+    </ButtonGroup>
+</form>
+

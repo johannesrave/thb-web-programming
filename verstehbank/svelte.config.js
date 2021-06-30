@@ -26,7 +26,8 @@ const config = {
         vite: {
             resolve: {
                 alias: {
-                    $root: path.resolve(base)
+                    // $root: path.resolve(base),
+                    // $base: base,
                 }
             }
         }

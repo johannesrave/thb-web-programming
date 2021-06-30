@@ -1,5 +1,5 @@
 <script lang="ts">
-import ButtonGroup from "../ButtonGroup.svelte";
+    import ButtonGroup from "../ButtonGroup.svelte";
     import { bankingState } from "../../routes/banking/bankingState";
     import { transactionForm } from "../../routes/banking/bankingForm";
 

@@ -1,7 +1,6 @@
 <script lang="ts">
     import ButtonGroup from "../ButtonGroup.svelte";
     import { bankingState } from "../../routes/banking/bankingState";
-    import { transactionForm } from "../../routes/banking/bankingForm";
     import { base } from '$app/paths';
     import { goto } from '$app/navigation';
 

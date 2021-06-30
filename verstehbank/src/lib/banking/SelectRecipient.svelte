@@ -5,6 +5,7 @@
     import { transactionForm } from "../../routes/banking/bankingForm";
     import { base } from '$app/paths';
     import { goto } from '$app/navigation';
+    import ButtonGroup from "../ButtonGroup.svelte";
 
     let goToAmount = () => {
         if ($activeContact.createNewContact) {
@@ -40,8 +41,10 @@
             </div>
         {/each}
     </ScrollableList>
-    <button on:click|preventDefault={toDashboard}>Abbruch</button>
-    <button on:click|preventDefault={goToAmount}>Weiter</button>
+    <ButtonGroup>
+        <button on:click|preventDefault={toDashboard}>Abbruch</button>
+        <button on:click|preventDefault={goToAmount}>Weiter</button>
+    </ButtonGroup>
 </form>
 
 <style>
