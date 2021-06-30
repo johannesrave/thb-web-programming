@@ -1,6 +1,6 @@
 <script lang="ts">
     import '../app.css';
-    import Footer from "../lib/Footer.svelte";
+    import Header from "../lib/Header.svelte";
     import { onMount } from "svelte";
     import { loggedIn } from '$lib/auth';
     import { initialize } from "$lib/persistence"
@@ -15,15 +15,13 @@
 </script>
 
 <main>
-    <Footer/>
 
-    <section>
-        {#if (!$loggedIn)}
-            <Login/>
-        {:else}
-            <slot/>
-        {/if}
-    </section>
+    {#if (!$loggedIn)}
+        <Login/>
+    {:else}
+        <Header/>
+        <slot/>
+    {/if}
 
 </main>
 
@@ -34,17 +32,14 @@
         flex-flow: column;
         flex: 1;
         height: 100%;
-        /*border: solid blue;*/
-        overflow: hidden;
-    }
+        width: 100%;
+        border: solid blue;
 
-    section {
-        display: flex;
-        flex-flow: column;
-        flex: 1;
+        overflow: hidden;
 
         justify-content: center;
         align-items: center;
-        padding: 0 10%;
+
+        /*padding: 0 10%;*/
     }
 </style>

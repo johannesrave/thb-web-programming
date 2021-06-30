@@ -1,19 +1,12 @@
 <script lang="ts">
-    import Title from '$lib/Title.svelte';
-    import Auth from '$lib/Auth.svelte';
-    import ScrollableList from "$lib/ScrollableList.svelte";
-    import { contacts, selectedContact } from '$lib/./stores'
-    import Input from "../lib/Input.svelte";
-    import ButtonGroup from "../lib/ButtonGroup.svelte";
+    import Title from '../../lib/Title.svelte';
+    import Auth from '../../lib/Auth.svelte';
+    import ScrollableList from "../../lib/ScrollableList.svelte";
+    import { contacts, selectedContact } from '../../lib/stores'
+    import Input from "../../lib/Input.svelte";
+    import ButtonGroup from "../../lib/ButtonGroup.svelte";
+    import { steps} from "./bankingState";
 
-    const enum steps {
-        selectRecipient,
-        enterRecipient,
-        enterAmount,
-        enterTAN,
-        success,
-        failure
-    }
 
     let step = steps.selectRecipient;
     let name: string;
