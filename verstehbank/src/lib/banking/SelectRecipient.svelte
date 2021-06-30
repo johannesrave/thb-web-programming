@@ -3,15 +3,24 @@
     import { contacts, activeContact } from '../../routes/banking/contacts'
     import { bankingState } from "../../routes/banking/bankingState";
     import { transactionForm } from "../../routes/banking/bankingForm";
+    import { base } from '$app/paths';
+    import { goto } from '$app/navigation';
 
     let goToAmount = () => {
         if ($activeContact.createNewContact) {
             $bankingState = 'enterRecipient';
+            return;
         }
 
         $bankingState = 'enterAmount';
         $transactionForm.recipient = $activeContact.name;
+        $transactionForm.iban = $activeContact.iban;
     }
+
+
+    let toDashboard = () => {
+        goto(base + '/')
+    };
 
 </script>
 
@@ -31,6 +40,29 @@
             </div>
         {/each}
     </ScrollableList>
-    <button on:click|preventDefault>Abbruch</button>
+    <button on:click|preventDefault={toDashboard}>Abbruch</button>
     <button on:click|preventDefault={goToAmount}>Weiter</button>
 </form>
+
+<style>
+    form {
+        display: flex;
+        flex-flow: column;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .option {
+        height: 4em;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+
+        border: 1px dotted var(--primary-color);
+    }
+
+    .selected {
+        color: white;
+        background-color: var(--primary-color);
+    }
+</style>

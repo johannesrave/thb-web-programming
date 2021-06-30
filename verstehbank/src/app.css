@@ -109,7 +109,7 @@ button:focus:not(:focus-visible) {
 /* reset von fontsize wenn passwort automatisch asugefüllt wird, übernommen von: */
 /* https://stackoverflow.com/questions/57242841/input-text-very-small-when-hovering-on-autofill-suggestion */
 input:-webkit-autofill::first-line {
-	font-size: inherit;
+	font-size: 16px;
 }
 
 /*input:-webkit-autofill,*/

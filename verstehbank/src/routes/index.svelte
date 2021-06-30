@@ -3,16 +3,16 @@
     import Title from "$lib/Title.svelte";
     import { base } from '$app/paths'
     import ButtonGroup from "../lib/ButtonGroup.svelte";
+    import {user} from "../lib/auth";
 </script>
 
 <Title title={"Übersicht"}/>
 <h2>Ihr Kontostand</h2>
 <h3>
 
-    53,00 Euro
 
+            {$user}
 </h3>
 <ButtonGroup>
     <Button link={base + '/banking'} name={'Geld senden'}/>
-<!--    <RoundButton link={base + '/contacts'} name={'Kontakte pflegen'}/>-->
 </ButtonGroup>
