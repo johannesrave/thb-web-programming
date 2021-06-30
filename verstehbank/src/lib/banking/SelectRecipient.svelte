@@ -1,8 +1,8 @@
 <script lang="ts">
-    import ScrollableList from "../../lib/ScrollableList.svelte";
-    import { contacts, activeContact } from './contacts'
-    import { bankingState } from "./bankingState";
-    import { transactionForm } from "./bankingForm";
+    import ScrollableList from "../ScrollableList.svelte";
+    import { contacts, activeContact } from '../../routes/banking/contacts'
+    import { bankingState } from "../../routes/banking/bankingState";
+    import { transactionForm } from "../../routes/banking/bankingForm";
 
     let goToAmount = () => {
         if ($activeContact.createNewContact) {

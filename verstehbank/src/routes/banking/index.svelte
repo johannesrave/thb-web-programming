@@ -1,16 +1,16 @@
 <script lang="ts">
-    import Title from '../../lib/Title.svelte';
-    import Auth from '../../lib/Auth.svelte';
-    import ScrollableList from "../../lib/ScrollableList.svelte";
+    import Title from '$lib/Title.svelte';
+    import Auth from '$lib/Auth.svelte';
+    import ScrollableList from "$lib/ScrollableList.svelte";
     import { contacts, activeContact } from './contacts'
-    import Input from "../../lib/Input.svelte";
-    import ButtonGroup from "../../lib/ButtonGroup.svelte";
+    import Input from "$lib/Input.svelte";
+    import ButtonGroup from "$lib/ButtonGroup.svelte";
     import { steps} from "./bankingState";
-    import SelectRecipient from "./SelectRecipient.svelte";
-    import EnterRecipient from "./EnterRecipient.svelte";
-    import EnterAmount from "./EnterAmount.svelte";
-    import EnterTAN from "./EnterTAN.svelte";
-    import Check from "./Check.svelte";
+    import SelectRecipient from "$lib/banking/SelectRecipient.svelte";
+    import EnterRecipient from "$lib/banking/EnterRecipient.svelte";
+    import EnterAmount from "$lib/banking/EnterAmount.svelte";
+    import EnterTAN from "$lib/banking/EnterTAN.svelte";
+    import Check from "$lib/banking/Check.svelte";
     import {bankingState} from "./bankingState";
 
 
@@ -20,13 +20,13 @@
     let amount: number;
     let tan: number;
 
-    const bankingStates = [
-        {selectRecipient : SelectRecipient},
-        {enterRecipient : EnterRecipient},
-        {enterAmount : EnterAmount},
-        {enterTAN : EnterTAN},
-        {check : Check},
-    ];
+    const bankingStates = {
+        selectRecipient : SelectRecipient,
+        enterRecipient : EnterRecipient,
+        enterAmount : EnterAmount,
+        enterTAN : EnterTAN,
+        check : Check
+    };
 
     const enterRecipient = () => {
         if (name && iban) step = steps.enterAmount;
@@ -75,25 +75,24 @@
 
 <svelte:component this={bankingStates[$bankingState]}/>
 
-
 {#if step === steps.selectRecipient}
 
-    <form on:submit={selectRecipient}>
-        <h2>Wem möchten Sie Geld überweisen?</h2>
-        <ScrollableList>
-            {#each $contacts as contact}
-                <div on:click={(e) => selectContact(e,contact)}
-                     class="option {contact.createNewContact ? 'selected' : ''}">
-                    {contact.name}
-                    {#if !contact.createNewContact}
-                        <br>{contact.bank}
-                        <br>{contact.iban}
-                    {/if}
-                </div>
-            {/each}
-        </ScrollableList>
-        <button>Weiter</button>
-    </form>
+<!--    <form on:submit={selectRecipient}>-->
+<!--        <h2>Wem möchten Sie Geld überweisen?</h2>-->
+<!--        <ScrollableList>-->
+<!--            {#each $contacts as contact}-->
+<!--                <div on:click={(e) => selectContact(e,contact)}-->
+<!--                     class="option {contact.createNewContact ? 'selected' : ''}">-->
+<!--                    {contact.name}-->
+<!--                    {#if !contact.createNewContact}-->
+<!--                        <br>{contact.bank}-->
+<!--                        <br>{contact.iban}-->
+<!--                    {/if}-->
+<!--                </div>-->
+<!--            {/each}-->
+<!--        </ScrollableList>-->
+<!--        <button>Weiter</button>-->
+<!--    </form>-->
 
 {:else if step === steps.enterRecipient}
 
