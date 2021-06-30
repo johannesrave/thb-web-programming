@@ -58,7 +58,7 @@
 </script>
 
 <Auth/>
-<Title title={"Geld senden"}/>
+<Title Empfängertitle={"Überweisung"}/>
 
 {#if step === steps.selectRecipient}
 

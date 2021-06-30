@@ -76,7 +76,7 @@ export const contacts = writable(
     ]
 )
 
-export const selectedContact = writable({
+export const activeContact = writable({
         name: "Neuen Empfänger anlegen",
         iban: "",
         bank: "",
