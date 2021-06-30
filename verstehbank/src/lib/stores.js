@@ -38,15 +38,16 @@ function createUserDB() {
 
             set(storedUserDB);
         },
+        set: (content) => {set(content)}
     };
 }
-
-userDB.subscribe(updatedUserDB => {
-    if (!browser) return;
-    localStorage.setItem("userDB", JSON.stringify(updatedUserDB));
-
-    console.log("saving userDB to localStorage")
-})
+//
+// userDB.subscribe(updatedUserDB => {
+//     if (!browser) return;
+//     localStorage.setItem("userDB", JSON.stringify(updatedUserDB));
+//
+//     console.log("saving userDB to localStorage")
+// })
 
 
 export const contacts = writable(

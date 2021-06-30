@@ -4,7 +4,7 @@
 <!--Andernfalls wird man auf die Login-Seite zurückgeschickt.-->
 
 <script lang="ts">
-    import { loggedIn } from '$lib/authStore.js';
+    import { loggedIn } from '$lib/auth';
     import { goto } from '$app/navigation';
     import { page } from '$app/stores';
     import { base } from '$app/paths';

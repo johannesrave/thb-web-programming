@@ -1,7 +1,7 @@
 <script lang="ts">
     import Title from "./Title.svelte";
     import { userDB } from '$lib/stores.js';
-    import { user } from '$lib/authStore.js';
+    import { user } from '$lib/auth';
     import Input from "$lib/Input.svelte";
 
     let username: String;

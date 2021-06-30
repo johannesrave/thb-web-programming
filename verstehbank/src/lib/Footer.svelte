@@ -1,6 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import { user, userName, loggedIn } from '$lib/authStore'
+    import { user, userName, loggedIn } from '$lib/auth'
     // import { userDB } from '$lib/authStore'
 
     const logout = () => {
