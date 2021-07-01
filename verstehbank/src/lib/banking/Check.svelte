@@ -16,7 +16,7 @@
 <h2>Kontrolle</h2>
 
 
-<form>
+<form on:submit|preventDefault>
     <div>
         <p>{$bankingState}</p>
         <p>{$transactionForm.recipient}</p>

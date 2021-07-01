@@ -15,7 +15,7 @@
 
 <h2>Empfänger</h2>
 
-<form on:submit={goToAmount}>
+<form on:submit|preventDefault={goToAmount}>
     <Input bind:value={$transactionForm.recipient}>Empfängername</Input>
     <Input bind:value={$transactionForm.iban}>IBAN</Input>
     <ButtonGroup>

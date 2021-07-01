@@ -26,7 +26,7 @@
 </script>
 
 <h2>Empfänger</h2>
-<form>
+<form on:submit|preventDefault>
     <ScrollableList>
         {#each $contacts as contact}
             <div on:click={() => $activeContact = contact}

@@ -13,9 +13,9 @@
     }
 </script>
 
-<h2>Kontrolle</h2>
+<h2>Erfolg</h2>
 
-<form>
+<form on:submit|preventDefault>
     <div>
         Ihre Überweisung wurde abgeschickt.<br>
         Möchten Sie eine weitere Überweisung tätigen?

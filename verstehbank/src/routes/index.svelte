@@ -13,7 +13,7 @@
 
 <Title title={"Übersicht"}/>
 
-<form>
+<form on:submit|preventDefault>
     <h2>Ihr Kontostand</h2>
     <h3>{$user}</h3>
 

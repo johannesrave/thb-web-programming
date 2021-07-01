@@ -20,16 +20,20 @@
 
         alert(generatedTAN);
     }
+
+    let goBack = () => {
+        $bankingState = 'enterAmount';
+    }
 </script>
 
 <h2>Freigabe</h2>
-<form on:submit={goToCheck}>
+<form on:submit|preventDefault={goToCheck}>
     <ButtonGroup>
         <button on:click|preventDefault={generateTAN}>SMS mit Zahlencode schicken</button>
     </ButtonGroup>
     <Input bind:value={$transactionForm.tan}>TAN</Input>
     <ButtonGroup>
-        <button on:click|preventDefault>Zurück</button>
+        <button on:click|preventDefault={goBack}>Zurück</button>
         <button on:click|preventDefault={goToCheck}>Weiter</button>
     </ButtonGroup>
 </form>
