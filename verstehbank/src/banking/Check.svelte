@@ -26,7 +26,7 @@
         <p>{$transactionForm.tan}</p>
     </div>
     <ButtonGroup>
-        <button on:click|preventDefault={goBack}>Zurück</button>
+        <button type="button" on:click|preventDefault={goBack}>Zurück</button>
         <button on:click|preventDefault={toSuccess}>Abschicken</button>
     </ButtonGroup>
 </form>

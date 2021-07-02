@@ -42,7 +42,7 @@
         {/each}
     </ScrollableList>
     <ButtonGroup>
-        <button on:click|preventDefault={toDashboard}>Abbruch</button>
+        <button type="button" on:click|preventDefault={toDashboard}>Abbruch</button>
         <button on:click|preventDefault={goToAmount}>Weiter</button>
     </ButtonGroup>
 </form>

@@ -22,7 +22,7 @@
         Möchten Sie eine weitere Überweisung tätigen?
     </div>
     <ButtonGroup>
-        <button on:click|preventDefault={goBack}>Weitere Überweisung</button>
+        <button type="button" on:click|preventDefault={goBack}>Weitere Überweisung</button>
         <button on:click|preventDefault={toDashboard}>Zurück zur Übersicht</button>
     </ButtonGroup>
 </form>

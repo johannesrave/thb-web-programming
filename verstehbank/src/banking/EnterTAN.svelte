@@ -34,7 +34,7 @@
     </ButtonGroup>
     <Input bind:value={$transactionForm.tan}>TAN</Input>
     <ButtonGroup>
-        <button on:click|preventDefault={goBack}>Zurück</button>
+        <button type="button" on:click|preventDefault={goBack}>Zurück</button>
         <button on:click|preventDefault={goToCheck}>Weiter</button>
     </ButtonGroup>
 </form>

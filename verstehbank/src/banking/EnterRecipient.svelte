@@ -20,7 +20,7 @@
     <Input bind:value={$transactionForm.recipient}>Empfängername</Input>
     <Input bind:value={$transactionForm.iban}>IBAN</Input>
     <ButtonGroup>
-        <button on:click|preventDefault={goBack}>Zurück</button>
+        <button type="button" on:click|preventDefault={goBack}>Zurück</button>
         <button on:click|preventDefault={goToAmount}>Weiter</button>
     </ButtonGroup>
 </form>
