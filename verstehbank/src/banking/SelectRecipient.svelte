@@ -48,13 +48,6 @@
 </form>
 
 <style>
-    form {
-        display: flex;
-        flex-flow: column;
-        gap: 16px;
-        align-items: center;
-    }
-
     .option {
         height: 4em;
         display: flex;

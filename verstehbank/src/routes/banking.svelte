@@ -4,7 +4,7 @@
     import { bankingStates, bankingState } from "$banking/bankingComponents"
 </script>
 
-<Auth/>
+<!--<Auth/>-->
 <Title title={"Überweisung"}/>
 
 <svelte:component this={bankingStates[$bankingState]}/>
