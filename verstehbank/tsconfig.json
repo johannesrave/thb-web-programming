@@ -27,6 +27,7 @@
 		"checkJs": true,
 		"paths": {
 			"$lib/*": ["src/lib/*"],
+			"$util/*": ["src/util/*"],
 			"$banking/*": ["src/banking/*"],
 			"$login/*": ["src/login/*"]
 		}

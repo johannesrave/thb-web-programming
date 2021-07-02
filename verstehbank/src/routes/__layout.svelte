@@ -3,7 +3,7 @@
     import Header from '$lib/Header.svelte';
     import { onMount } from 'svelte';
     import { loggedIn } from '$login/auth';
-    import { initialize } from '../persistence'
+    import { initialize } from '$util/persistence'
     import Login from '$login/Login.svelte';
 
     onMount(() => {
