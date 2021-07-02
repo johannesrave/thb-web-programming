@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Auth from '$lib/Auth.svelte';
+    import Auth from '$login/Auth.svelte';
     import Title from '$lib/Title.svelte';
     import { bankingStates, bankingState } from "$banking/bankingComponents"
 </script>

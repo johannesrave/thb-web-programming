@@ -1,11 +1,11 @@
-import {writable, derived} from 'svelte/store';
-import {browser} from '$app/env';
-import {userDB} from "$lib/stores";
+import { writable, derived } from 'svelte/store';
+import { browser } from '$app/env';
+import { userDB } from '$login/userDB';
 
 export const user = setUpUser();
 
 export let loggedIn = derived(user, ($user) => {
-    console.log($user + " logged " + ($user !== null ?  "in" : "out"))
+    console.log($user + " logged " + ($user !== null ? "in" : "out"))
     return $user !== null;
 });
 
@@ -20,15 +20,15 @@ function setUpUser() {
 
     return {
         subscribe,
-        login: (username) => {
+        login : (username) => {
             if (!browser) return;
             set(username);
         },
-        logout: () => {
+        logout : () => {
             if (!browser) return;
             set(null)
         },
-        retrieve: () => {
+        retrieve : () => {
             if (!browser) return;
 
             const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -36,7 +36,9 @@ function setUpUser() {
 
             set(storedUser);
         },
-        set: (content) => {set(content)}
+        set : (content) => {
+            set(content)
+        }
     };
 }
 

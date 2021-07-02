@@ -16,4 +16,5 @@ type bankingStates =
     "enterRecipient" |
     "enterAmount" |
     "enterTAN" |
-    "check"
+    "check" |
+    "success"

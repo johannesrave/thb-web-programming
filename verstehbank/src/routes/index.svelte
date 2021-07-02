@@ -1,10 +1,9 @@
 <script lang="ts">
-    import Title from "$lib/Title.svelte";
-    import ButtonGroup from "../lib/ButtonGroup.svelte";
-    import { user } from "../lib/auth";
+    import Title from '$lib/Title.svelte';
+    import ButtonGroup from '$lib/ButtonGroup.svelte';
+    import { user } from '$login/auth';
     import { base } from '$app/paths'
     import { goto } from '$app/navigation';
-
 
     const gotoBanking = () => {
         goto(base + '/banking');

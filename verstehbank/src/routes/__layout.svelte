@@ -1,15 +1,13 @@
 <script lang="ts">
     import '../app.css';
-    import Header from "../lib/Header.svelte";
-    import { onMount } from "svelte";
-    import { loggedIn } from '$lib/auth';
-    import { initialize } from "$lib/persistence"
-    import Login from "$lib/Login.svelte";
+    import Header from '$lib/Header.svelte';
+    import { onMount } from 'svelte';
+    import { loggedIn } from '$login/auth';
+    import { initialize } from '../persistence'
+    import Login from '$login/Login.svelte';
 
     onMount(() => {
         initialize();
-        // userDB.retrieve();
-        // user.retrieve();
     })
 
 </script>

@@ -1,6 +1,6 @@
 import { writable, derived } from 'svelte/store';
 import { browser } from '$app/env';
-import { userDB } from "$lib/stores";
+import { userDB } from '$login/userDB';
 export const user = setUpUser();
 export let loggedIn = derived(user, ($user) => {
     console.log($user + " logged " + ($user !== null ? "in" : "out"));
@@ -33,7 +33,9 @@ function setUpUser() {
             console.log((storedUser ? storedUser : "noone") + " is logged in.");
             set(storedUser);
         },
-        set: (content) => { set(content); }
+        set: (content) => {
+            set(content);
+        }
     };
 }
 user.subscribe(updatedUser => {

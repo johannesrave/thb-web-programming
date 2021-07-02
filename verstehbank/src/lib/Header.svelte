@@ -1,6 +1,6 @@
 <script lang="ts">
     import { goto } from "$app/navigation";
-    import { user, userName, loggedIn } from '$lib/auth'
+    import { user, userName, loggedIn } from '$login/auth'
     import { emptyTransaction, transactionForm } from "$banking/bankingForm";
     import { bankingState } from "$banking/bankingState";
 

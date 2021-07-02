@@ -1,5 +1,5 @@
-import { userDB } from "$lib/stores";
-import { user } from "$lib/auth";
+import { userDB } from "$login/userDB";
+import { user } from "$login/auth";
 import { browser } from "$app/env";
 const persistentData = {
     "userDB": userDB,
