@@ -7,8 +7,6 @@
     import Login from '$login/Login.svelte';
     import { pageTitle } from '$util/pageTitle';
 
-
-
     onMount(() => {
         initialize();
     })
