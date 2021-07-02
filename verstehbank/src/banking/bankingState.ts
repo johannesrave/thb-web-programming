@@ -2,6 +2,7 @@ import { writable } from 'svelte/store';
 
 export const bankingState = writable("selectRecipient");
 
+/*
 export const enum steps {
     selectRecipient,
     enterRecipient,
@@ -18,3 +19,5 @@ type bankingStates =
     "enterTAN" |
     "check" |
     "success"
+
+ */

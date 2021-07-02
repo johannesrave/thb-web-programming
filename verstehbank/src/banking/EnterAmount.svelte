@@ -18,7 +18,7 @@
 <form on:submit|preventDefault={goToTAN}>
     <Input bind:value={$transactionForm.amount}>Betrag</Input>
     <ButtonGroup>
-        <button on:click|preventDefault={goBack}>Zurück</button>
+        <button type="button" on:click|preventDefault={goBack}>Zurück</button>
         <button on:click|preventDefault={goToTAN}>Weiter</button>
     </ButtonGroup>
 </form>

@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { goto } from "$app/navigation";
+    import { goto } from '$app/navigation';
     import { user, userName, loggedIn } from '$login/auth'
-    import { emptyTransaction, transactionForm } from "$banking/bankingForm";
-    import { bankingState } from "$banking/bankingState";
+    import { emptyTransaction, transactionForm } from '$banking/bankingForm';
+    import { bankingState } from '$banking/bankingState';
 
     const logout = () => {
         user.logout();

@@ -12,12 +12,12 @@
 
 </script>
 
-<main>
+<Header/>
 
+<main>
     {#if (!$loggedIn)}
         <Login/>
     {:else}
-        <Header/>
         <slot/>
     {/if}
 
@@ -34,7 +34,7 @@
         max-width: 480px;
 
         margin: auto;
-        border: solid blue;
+        /*border: solid blue;*/
 
         overflow: hidden;
 

@@ -3,6 +3,7 @@
     import Input from '$lib/Input.svelte';
     import { userDB } from '$login/userDB';
     import { user } from '$login/auth';
+    import ButtonGroup from '$lib/ButtonGroup.svelte';
 
     let username: String;
     let password: String;
@@ -28,11 +29,14 @@
 <form on:submit={attemptLogin}>
     <Input id="newUser" bind:value={username}>Benutzername</Input>
     <Input id="password" type="password" bind:value={password}>Passwort</Input>
-    <button on:click|preventDefault={attemptLogin}>Anmelden</button>
+
+    <ButtonGroup>
+        <button on:click|preventDefault={attemptLogin}>Anmelden</button>
+    </ButtonGroup>
 </form>
 
 <style>
     form {
-        width: 100%;
+        /*width: 100%;*/
     }
 </style>

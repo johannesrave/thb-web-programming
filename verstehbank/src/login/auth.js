@@ -26,13 +26,14 @@ function setUpUser() {
                 return;
             set(null);
         },
-        retrieve: () => {
-            if (!browser)
-                return;
-            const storedUser = JSON.parse(localStorage.getItem("user"));
-            console.log((storedUser ? storedUser : "noone") + " is logged in.");
-            set(storedUser);
-        },
+        // retrieve : () => {
+        //     if (!browser) return;
+        //
+        //     const storedUser = JSON.parse(localStorage.getItem("user"));
+        //     console.log((storedUser ? storedUser : "noone") + " is logged in.");
+        //
+        //     set(storedUser);
+        // },
         set: (content) => {
             set(content);
         }
