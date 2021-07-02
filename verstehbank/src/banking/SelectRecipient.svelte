@@ -1,12 +1,11 @@
-<!--suppress JSUndeclaredVariable, JSUndeclaredVariable -->UndeclaredVariable -->
 <script lang="ts">
-    import ScrollableList from "../ScrollableList.svelte";
-    import { contacts, activeContact } from '../../routes/banking/contacts'
-    import { bankingState } from "../../routes/banking/bankingState";
-    import { transactionForm } from "../../routes/banking/bankingForm";
+    import ScrollableList from "$lib/ScrollableList.svelte";
+    import { contacts, activeContact } from '$banking/contacts'
+    import { bankingState } from "$banking/bankingState";
+    import { transactionForm } from "$banking/bankingForm";
     import { base } from '$app/paths';
     import { goto } from '$app/navigation';
-    import ButtonGroup from "../ButtonGroup.svelte";
+    import ButtonGroup from "$lib/ButtonGroup.svelte";
 
     let goToAmount = () => {
         if ($activeContact.createNewContact) {

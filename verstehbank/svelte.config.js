@@ -1,6 +1,6 @@
 import adapter_static from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
-import path from 'path';
+import {resolve} from 'path';
 
 const dev = process.env.NODE_ENV == 'development';
 const base = dev ? '' : '/~rave/verstehbank/build';
@@ -26,7 +26,8 @@ const config = {
         vite: {
             resolve: {
                 alias: {
-                    // $root: path.resolve(base),
+                    $banking: resolve('./src/banking'),
+                    $login: resolve('./src/login'),
                     // $base: base,
                 }
             }

@@ -1,8 +1,8 @@
 <!--suppress JSUndeclaredVariable, JSUndeclaredVariable -->
 <script lang="ts">
-    import ButtonGroup from "../ButtonGroup.svelte";
-    import { bankingState } from "../../routes/banking/bankingState";
-    import { transactionForm } from "../../routes/banking/bankingForm";
+    import ButtonGroup from "$lib/ButtonGroup.svelte";
+    import { bankingState } from "$banking/bankingState";
+    import { transactionForm } from "$banking/bankingForm";
 
     let toSuccess = () => {
         $bankingState = 'success';

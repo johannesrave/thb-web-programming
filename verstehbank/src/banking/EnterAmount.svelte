@@ -1,9 +1,8 @@
-<!--suppress JSUndeclaredVariable, JSUndeclaredVariable -->
 <script lang="ts">
-    import { bankingState } from "../../routes/banking/bankingState";
-    import { transactionForm } from "../../routes/banking/bankingForm";
-    import Input from "../Input.svelte";
-    import ButtonGroup from "../ButtonGroup.svelte";
+    import { bankingState } from "$banking/bankingState";
+    import { transactionForm } from "$banking/bankingForm";
+    import Input from "$lib/Input.svelte";
+    import ButtonGroup from "$lib/ButtonGroup.svelte";
 
     let goToTAN = () => {
         $bankingState = 'enterTAN';

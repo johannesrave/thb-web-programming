@@ -1,7 +1,7 @@
 <script lang="ts">
     import Auth from '$lib/Auth.svelte';
     import Title from '$lib/Title.svelte';
-    import { bankingStates, bankingState } from "$lib/banking/bankingComponents"
+    import { bankingStates, bankingState } from "$banking/bankingComponents"
 </script>
 
 <Auth/>

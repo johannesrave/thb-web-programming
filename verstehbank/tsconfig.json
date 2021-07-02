@@ -2,7 +2,10 @@
 	"compilerOptions": {
 		"moduleResolution": "node",
 		"module": "es2020",
-		"lib": ["es2020"],
+		"lib": [
+			"es2020",
+			"dom"
+		],
 		"target": "es2019",
 		/**
 			svelte-preprocess cannot figure out whether you have a value or a type, so tell TypeScript
@@ -24,6 +27,8 @@
 		"checkJs": true,
 		"paths": {
 			"$lib/*": ["src/lib/*"],
+			"$banking/*": ["src/banking/*"],
+			"$login/*": ["src/login/*"]
 		}
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]

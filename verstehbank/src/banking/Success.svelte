@@ -1,7 +1,7 @@
 <!--suppress JSUndeclaredVariable -->
 <script lang="ts">
-    import ButtonGroup from "../ButtonGroup.svelte";
-    import { bankingState } from "../../routes/banking/bankingState";
+    import ButtonGroup from "$lib/ButtonGroup.svelte";
+    import { bankingState } from "$banking/bankingState";
     import { base } from '$app/paths';
     import { goto } from '$app/navigation';
 
