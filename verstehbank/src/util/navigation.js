@@ -4,4 +4,4 @@ function rootRelative(path) {
     return base + path;
 }
 export { rootRelative, goto };
-//# sourceMappingURL=navgiation.js.map
+//# sourceMappingURL=navigation.js.map

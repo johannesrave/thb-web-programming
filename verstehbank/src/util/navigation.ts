@@ -1,7 +1,7 @@
 import { goto } from '$app/navigation';
 import { base } from '$app/paths';
 
-function rootRelative(path) {
+function rootRelative(path) : string {
     return  base + path;
 }
 

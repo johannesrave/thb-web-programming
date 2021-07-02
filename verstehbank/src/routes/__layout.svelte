@@ -20,7 +20,6 @@
     {:else}
         <slot/>
     {/if}
-
 </main>
 
 

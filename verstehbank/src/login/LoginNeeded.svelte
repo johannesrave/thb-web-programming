@@ -4,15 +4,13 @@
 <!--Andernfalls wird man auf die Login-Seite zurückgeschickt.-->
 
 <script lang="ts">
+    import { goto, rootRelative } from '$util/navigation';
     import { loggedIn } from '$login/auth';
-    import { goto } from '$app/navigation';
     import { page } from '$app/stores';
-    import { base } from '$app/paths';
     import { browser } from '$app/env';
 
     $: if((!loggedIn) && ($page.path !== '/login') && browser){
-        alert("Bitte melden Sie sich an.");
-        goto(base + '/login');
+        goto(rootRelative('/login'));
         console.log("Not authenticated, going back to login.");
     }
 

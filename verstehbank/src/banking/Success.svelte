@@ -2,11 +2,11 @@
 <script lang="ts">
     import ButtonGroup from "$lib/ButtonGroup.svelte";
     import { bankingState } from "$banking/bankingState";
-    import { base } from '$app/paths';
-    import { goto } from '$app/navigation';
+    // import { base } from '$app/paths';
+    import { goto, rootRelative } from "$util/navigation";
 
     let toDashboard = () => {
-        goto(base + '/')
+        goto(rootRelative('/'));
     };
 
     let goBack = () => {

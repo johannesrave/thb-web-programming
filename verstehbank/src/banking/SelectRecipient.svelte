@@ -3,8 +3,7 @@
     import { contacts, activeContact } from '$banking/contacts'
     import { bankingState } from "$banking/bankingState";
     import { transactionForm } from "$banking/bankingForm";
-    import { base } from '$app/paths';
-    import { goto } from '$app/navigation';
+    import { goto, rootRelative } from "$util/navigation";
     import ButtonGroup from "$lib/ButtonGroup.svelte";
 
     let goToAmount = () => {
@@ -20,7 +19,7 @@
 
 
     let toDashboard = () => {
-        goto(base + '/')
+        goto(rootRelative('/'));
     };
 
 </script>

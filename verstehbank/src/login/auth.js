@@ -26,23 +26,15 @@ function setUpUser() {
                 return;
             set(null);
         },
-        // retrieve : () => {
-        //     if (!browser) return;
-        //
-        //     const storedUser = JSON.parse(localStorage.getItem("user"));
-        //     console.log((storedUser ? storedUser : "noone") + " is logged in.");
-        //
-        //     set(storedUser);
-        // },
         set: (content) => {
             set(content);
         }
     };
 }
-user.subscribe(updatedUser => {
-    if (!browser)
-        return;
-    localStorage.setItem("user", JSON.stringify(updatedUser));
-    console.log("saving user " + updatedUser + " to localStorage");
-});
+// user.subscribe(updatedUser => {
+//     if (!browser) return;
+//     localStorage.setItem("user", JSON.stringify(updatedUser));
+//
+//     console.log("saving user " + updatedUser + " to localStorage")
+// })
 //# sourceMappingURL=auth.js.map
