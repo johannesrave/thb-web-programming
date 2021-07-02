@@ -1,30 +1,17 @@
 import { writable } from 'svelte/store';
 
-type transaction = {
+type Transaction = {
     recipient: string,
     iban: string,
     amount: number,
     tan: number
 }
 
-export const emptyTransaction: transaction = {
+export const emptyTransaction: Transaction = {
     amount : 0,
     iban : "",
     recipient : "",
     tan : 0
 };
 
-export const transactionForm = writable(emptyTransaction);
-
-/*
-export const transactionForm = setupTransactionForm();
-
-function setupTransactionForm() {
-    const {subscribe, set} = writable(emptyTransaction);
-
-    return {
-        subscribe,
-        unset: () => set(emptyTransaction),
-    };
-}
-*/
+export const transactionForm = writable<Transaction>(emptyTransaction);

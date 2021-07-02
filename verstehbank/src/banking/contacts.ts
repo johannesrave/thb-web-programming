@@ -1,13 +1,13 @@
 import { writable } from "svelte/store";
 
-export const contacts = writable(
+export type Contact = {
+    name: string,
+    iban: string,
+    bank: string
+}
+
+export const contacts = writable<Contact[]>(
     [
-        {
-            name: "Neuen Empfänger anlegen",
-            iban: "",
-            bank: "",
-            createNewContact: true
-        },
         {
             name: "Thomas Friedrich",
             iban: "DE26500105173512514936",
@@ -24,12 +24,4 @@ export const contacts = writable(
             bank: "Int. Ltd. WorldWide"
         },
     ]
-)
-
-export const activeContact = writable({
-        name: "Neuen Empfänger anlegen",
-        iban: "",
-        bank: "",
-        createNewContact: true
-    }
 )

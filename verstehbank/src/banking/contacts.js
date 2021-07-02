@@ -1,12 +1,6 @@
 import { writable } from "svelte/store";
 export const contacts = writable([
     {
-        name: "Neuen Empfänger anlegen",
-        iban: "",
-        bank: "",
-        createNewContact: true
-    },
-    {
         name: "Thomas Friedrich",
         iban: "DE26500105173512514936",
         bank: "BLT Bank Nauen"
@@ -22,10 +16,4 @@ export const contacts = writable([
         bank: "Int. Ltd. WorldWide"
     },
 ]);
-export const activeContact = writable({
-    name: "Neuen Empfänger anlegen",
-    iban: "",
-    bank: "",
-    createNewContact: true
-});
 //# sourceMappingURL=contacts.js.map
