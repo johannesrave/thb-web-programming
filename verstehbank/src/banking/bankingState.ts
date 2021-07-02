@@ -17,19 +17,6 @@ export function back(){
     bankingState.update((oldState) => bankingNav[oldState].back);
 }
 
-/*
-export const bankingState = (): Writable<BankingState> => {
-    const {subscribe, set}: Writable<BankingState> = writable<BankingState>("selectRecipient")
-
-    return {
-        subscribe,
-        set,
-        next : (oldState) => bankingNav[oldState].next,
-        last : (oldState) => bankingNav[oldState].last
-    };
-};
-*/
-
 export type BankingState = keyof typeof bankingStates;
 
 export const bankingStates = {
