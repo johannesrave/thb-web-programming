@@ -1,4 +1,4 @@
-import { Writable, writable } from 'svelte/store';
+import { writable } from 'svelte/store';
 import SelectRecipient from "$banking/SelectRecipient.svelte";
 import EnterRecipient from "$banking/EnterRecipient.svelte";
 import EnterAmount from "$banking/EnterAmount.svelte";
@@ -9,11 +9,11 @@ import Success from "$banking/Success.svelte";
 
 export const bankingState = writable<BankingState>("selectRecipient");
 
-export function next(){
+export function next() {
     bankingState.update((oldState) => bankingNav[oldState].next);
 }
 
-export function back(){
+export function back() {
     bankingState.update((oldState) => bankingNav[oldState].back);
 }
 

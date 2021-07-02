@@ -1,17 +1,13 @@
 <!--suppress JSUndeclaredVariable -->
 <script lang="ts">
     import ButtonGroup from "$lib/ButtonGroup.svelte";
-    import { bankingState } from "$banking/bankingState";
-    // import { base } from '$app/paths';
+    import { back } from "$banking/bankingState";
     import { goto, rootRelative } from "$util/navigation";
 
     let toDashboard = () => {
         goto(rootRelative('/'));
     };
 
-    let goBack = () => {
-        $bankingState = 'selectRecipient';
-    }
 </script>
 
 <h2>Erfolg</h2>
@@ -22,7 +18,7 @@
         Möchten Sie eine weitere Überweisung tätigen?
     </div>
     <ButtonGroup>
-        <button type="button" on:click|preventDefault={goBack}>Weitere Überweisung</button>
+        <button type="button" on:click|preventDefault={back}>Weitere Überweisung</button>
         <button on:click|preventDefault={toDashboard}>Zurück zur Übersicht</button>
     </ButtonGroup>
 </form>

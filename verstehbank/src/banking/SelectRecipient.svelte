@@ -1,22 +1,25 @@
 <script lang="ts">
     import ScrollableList from "$lib/ScrollableList.svelte";
     import { contacts, activeContact } from '$banking/contacts'
-    import { bankingState } from "$banking/bankingState";
+    import { bankingState, next, back } from "$banking/bankingState";
     import { transactionForm } from "$banking/bankingForm";
     import { goto, rootRelative } from "$util/navigation";
     import ButtonGroup from "$lib/ButtonGroup.svelte";
 
+    let selectedContact;
+    let createNew : boolean = true;
+
     let goToAmount = () => {
         if ($activeContact.createNewContact) {
-            $bankingState = 'enterRecipient';
+            console.log("Creating new contact, proceeding.");
+            $transactionForm.recipient = '';
+            next();
             return;
         }
-
+        console.log(`Using ${selectedContact.name}, proceeding.`)
+        // console.log('bankingState set to ' + $bankingState);
         $bankingState = 'enterAmount';
-        $transactionForm.recipient = $activeContact.name;
-        $transactionForm.iban = $activeContact.iban;
     }
-
 
     let toDashboard = () => {
         goto(rootRelative('/'));
@@ -27,15 +30,24 @@
 <h2>Empfänger</h2>
 <form on:submit|preventDefault>
     <ScrollableList>
+        <div on:click={() => {selectedContact = false}} class="option" class:selected={!selectedContact}>
+            <p>NeuerEmpfänger</p>
+        </div>
+
         {#each $contacts as contact}
-            <div on:click={() => $activeContact = contact}
-                 class="option" class:selected={contact.name === $activeContact.name}>
+            <div on:click={() => {
+                $activeContact = contact;
+                selectedContact = contact;
+                $transactionForm.recipient = $activeContact.name;
+                $transactionForm.iban = $activeContact.iban;
+
+            }} class="option" class:selected={contact.name === $activeContact.name}>
 
                 {contact.name}
-                {#if !contact.createNewContact}
+                <!--{#if !contact.createNewContact}-->
                     <br>{contact.bank}
                     <br>{contact.iban}
-                {/if}
+                <!--{/if}-->
 
             </div>
         {/each}
