@@ -1,16 +1,21 @@
 <script lang="ts">
-    import Title from '$lib/Title.svelte';
+    import { goto, rootRelative } from '$util/navigation';
+    // import Title from '$lib/Title.svelte';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import { user } from '$login/auth';
-    import { base } from '$app/paths'
-    import { goto } from '$app/navigation';
+    import { onMount } from "svelte";
+    import { pageTitle } from "../util/pageTitle";
+
+    onMount(() => {
+        $pageTitle = 'Übersicht';
+    })
 
     const gotoBanking = () => {
-        goto(base + '/banking');
+        goto(rootRelative('/banking'));
     }
 </script>
 
-<Title title={"Übersicht"}/>
+<!--<Title title={"Übersicht"}/>-->
 
 <form on:submit|preventDefault>
     <h2>Ihr Kontostand</h2>
