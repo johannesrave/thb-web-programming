@@ -18,6 +18,7 @@
         const passwordInDB = $userDB[username]["password"]
 
         if (passwordInDB === password) {
+            password = null;
             user.login(username);
         }
     }

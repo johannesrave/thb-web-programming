@@ -31,10 +31,4 @@ function setUpUser() {
         }
     };
 }
-// user.subscribe(updatedUser => {
-//     if (!browser) return;
-//     localStorage.setItem("user", JSON.stringify(updatedUser));
-//
-//     console.log("saving user " + updatedUser + " to localStorage")
-// })
 //# sourceMappingURL=auth.js.map

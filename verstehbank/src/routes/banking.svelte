@@ -7,6 +7,8 @@
     onMount(() => {
         $pageTitle = 'Überweisung';
     })
+
+    $:console.log("bankingState changed to:" + $bankingState);
 </script>
 
 <svelte:component this={bankingStates[$bankingState]}/>
