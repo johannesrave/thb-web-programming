@@ -3,15 +3,17 @@
     import Header from '$lib/Header.svelte';
     import { onMount } from 'svelte';
     import { loggedIn } from '$login/auth';
-    import { initialize } from '$util/persistence'
     import Login from '$login/Login.svelte';
+    import { initialize } from '$util/persistence'
     import { pageTitle } from '$util/pageTitle';
+    import LoginNeeded from '$login/LoginNeeded.svelte';
 
     onMount(() => {
         initialize();
     })
 
 </script>
+<LoginNeeded/>
 
 <Header/>
 
@@ -29,20 +31,14 @@
 <style>
     main {
         display: grid;
-        /*flex-flow: column;*/
-        /*flex: 1;*/
         height: 100%;
         width: 100%;
-        /*max-width: 480px;*/
-
-        /*margin: auto;*/
         padding: 0 10%;
 
         justify-content: center;
         align-items: center;
         align-content: center;
         justify-items: center;
-        /*overflow: hidden;*/
     }
     h1 {
         width: 100%;

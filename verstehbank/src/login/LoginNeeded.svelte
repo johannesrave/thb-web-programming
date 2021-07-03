@@ -1,8 +1,3 @@
-<!--Auth.svelte-->
-<!--Diese Komponente setze ich auf allen Seiten ein, für die man eingeloggt sein muss.-->
-<!--Wenn sie gemountet wird, prüft sie ob der Nutzer bereits authentifiziert ist.-->
-<!--Andernfalls wird man auf die Login-Seite zurückgeschickt.-->
-
 <script lang="ts">
     import { goto, rootRelative } from '$util/navigation';
     import { loggedIn } from '$login/auth';

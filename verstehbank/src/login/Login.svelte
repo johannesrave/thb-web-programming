@@ -1,3 +1,23 @@
+<script context="module">
+    export async function load({ page, fetch, session, context }) {
+        const url = `https://swapi.dev/api/people/1/`;
+        const res = await fetch(url);
+
+        if (res.ok) {
+            return {
+                props: {
+                    character: await res.json()
+                }
+            };
+        }
+
+        return {
+            status: res.status,
+            error: new Error(`Could not load ${url}`)
+        };
+    }</script>
+
+
 <script lang="ts">
     import Title from '$lib/Title.svelte';
     import Input from '$lib/Input.svelte';
