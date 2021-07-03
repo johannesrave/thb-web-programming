@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { goto } from '$app/navigation';
+    import { goto, rootRelative } from '$util/navigation';
     import { user, userName, loggedIn } from '$login/auth'
     import { emptyTransaction, transactionForm } from '$banking/bankingForm';
     import { bankingState } from '$banking/bankingState';
@@ -8,7 +8,7 @@
         user.logout();
         transactionForm.set(emptyTransaction);
         $bankingState = 'selectRecipient';
-        goto(base + '/');
+        goto(rootRelative('/'));
     }
 </script>
 

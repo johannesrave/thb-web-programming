@@ -1,25 +1,29 @@
 <script lang="ts">
     import { userDB } from '$login/userDB';
-    import { user } from '$login/auth';
+    import { loggedIn, user } from '$login/auth';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import Input from '$lib/Input.svelte';
+    import { goto, rootRelative } from "../util/navigation";
+    import { onMount } from "svelte";
+    import { pageTitle } from "../util/pageTitle";
+
+    onMount(() => {
+        $pageTitle = 'Anmeldung';
+    })
 
     let username: String;
     let password: String;
 
     let attemptLogin = () => {
-        const passwordInDB = $userDB[username]["password"];
-
-        console.log(
-            "username:", username,
-            "password:", password,
-            "user exists:", $userDB[username] !== null,
-            "password is correct:", passwordInDB === password
-        )
+        const passwordInDB = $userDB[username]["password"]
 
         if (passwordInDB === password) {
             user.login(username);
         }
+    }
+
+    $: if($loggedIn){
+        goto(rootRelative('/'));
     }
 
 </script>

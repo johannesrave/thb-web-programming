@@ -2,29 +2,27 @@
     import '../app.css';
     import Header from '$lib/Header.svelte';
     import { onMount } from 'svelte';
-    import { loggedIn } from '$login/auth';
-    import Login from '$login/Login.svelte';
     import { initialize } from '$util/persistence'
     import { pageTitle } from '$util/pageTitle';
-    import LoginNeeded from '$login/LoginNeeded.svelte';
+    import { goto, rootRelative } from '$util/navigation';
+    import { loggedIn } from '$login/auth';
+    import { page } from '$app/stores';
+    import { browser } from '$app/env';
 
     onMount(() => {
         initialize();
     })
 
+    $: if ((!$loggedIn) && ($page.path !== '/login') && browser) {
+        goto(rootRelative('/login'));
+        console.log("Not authenticated, going back to login.");
+    }
 </script>
-<LoginNeeded/>
 
 <Header/>
-
-
 <main>
     <h1>{$pageTitle}</h1>
-    {#if (!$loggedIn)}
-        <Login/>
-    {:else}
-        <slot/>
-    {/if}
+    <slot/>
 </main>
 
 
@@ -40,6 +38,7 @@
         align-content: center;
         justify-items: center;
     }
+
     h1 {
         width: 100%;
         text-align: center;

@@ -4,7 +4,7 @@
     import { page } from '$app/stores';
     import { browser } from '$app/env';
 
-    $: if((!loggedIn) && ($page.path !== '/login') && browser){
+    $: if((!$loggedIn) && ($page.path !== '/login') && browser){
         goto(rootRelative('/login'));
         console.log("Not authenticated, going back to login.");
     }

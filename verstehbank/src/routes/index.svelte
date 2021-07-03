@@ -1,6 +1,5 @@
 <script lang="ts">
     import { goto, rootRelative } from '$util/navigation';
-    // import Title from '$lib/Title.svelte';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import { user } from '$login/auth';
     import { onMount } from "svelte";
@@ -15,10 +14,9 @@
     }
 </script>
 
-<!--<Title title={"Übersicht"}/>-->
+<h2>Ihr Kontostand</h2>
 
 <form on:submit|preventDefault>
-    <h2>Ihr Kontostand</h2>
     <h3>{$user}</h3>
 
     <ButtonGroup>
