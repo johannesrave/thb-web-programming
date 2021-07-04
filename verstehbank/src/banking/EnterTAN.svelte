@@ -1,18 +1,18 @@
 <!--suppress JSUndeclaredVariable, JSUndeclaredVariable -->
 <script lang="ts">
-    import { bankingState } from "$banking/bankingState";
+    import { next } from "$banking/bankingState";
     import { transactionForm } from "$banking/bankingForm";
     import Input from "$lib/Input.svelte";
     import ButtonGroup from "$lib/ButtonGroup.svelte";
 
     import { back } from "$banking/bankingState";
 
-    let generatedTAN: number;
+    let generatedTAN: number = null;
 
     let goToCheck = () => {
-        if ($transactionForm.tan === generatedTAN) {
+        if ($transactionForm.tan.toString() === generatedTAN.toString()) {
             console.log("TANs match, proceeding.")
-            $bankingState = 'check';
+            next();
         }
     }
 

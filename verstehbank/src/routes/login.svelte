@@ -3,9 +3,10 @@
     import { loggedIn, user } from '$login/auth';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import Input from '$lib/Input.svelte';
-    import { goto, rootRelative } from "../util/navigation";
-    import { onMount } from "svelte";
-    import { pageTitle } from "../util/pageTitle";
+    import { goto, rootRelative } from '../util/navigation';
+    import { onMount } from 'svelte';
+    import { pageTitle } from '../util/pageTitle';
+    import { browser } from '$app/env';
 
     onMount(() => {
         $pageTitle = 'Anmeldung';
@@ -15,7 +16,8 @@
     let password: String;
 
     let attemptLogin = () => {
-        const passwordInDB = $userDB[username]["password"]
+        console.log("Trying to log in using " + password)
+        const passwordInDB = $userDB[username]['password']
 
         if (passwordInDB === password) {
             password = null;
@@ -23,7 +25,7 @@
         }
     }
 
-    $: if($loggedIn){
+    $: if ($loggedIn && browser) {
         goto(rootRelative('/'));
     }
 

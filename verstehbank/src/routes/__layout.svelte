@@ -9,11 +9,14 @@
     import { page } from '$app/stores';
     import { browser } from '$app/env';
 
+    let finishedMounting:boolean = false;
+
     onMount(() => {
         initialize();
+        finishedMounting = true;
     })
 
-    $: if ((!$loggedIn) && ($page.path !== '/login') && browser) {
+    $: if (!$loggedIn && $page.path !== '/login' && browser && finishedMounting) {
         goto(rootRelative('/login'));
         console.log("Not authenticated, going back to login.");
     }

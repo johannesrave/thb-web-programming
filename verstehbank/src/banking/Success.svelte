@@ -1,10 +1,11 @@
 <!--suppress JSUndeclaredVariable -->
 <script lang="ts">
     import ButtonGroup from "$lib/ButtonGroup.svelte";
-    import { back } from "$banking/bankingState";
+    import { bankingState, back } from "$banking/bankingState";
     import { goto, rootRelative } from "$util/navigation";
 
     let toDashboard = () => {
+        $bankingState = 'selectRecipient';
         goto(rootRelative('/'));
     };
 
