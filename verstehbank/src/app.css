@@ -7,14 +7,16 @@
 	--pure-white: #ffffff;
 	--primary-color: #b9c6d2;
 	--secondary-color: #d0dde9;
-	--tertiary-color: #edf0f8;
+	--tertiary-color: #424053;
 	--accent-color: #11d954;
 	--heading-color: rgba(0, 0, 0, 0.7);
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
-
+	--radius-small: 8px;
+	--radius-medium: 16px;
+	--radius-big: 32px;
 
 }
 
@@ -30,29 +32,6 @@ html {
 body {
 	min-height: 100vh;
 	margin: 0;
-	background-color: var(--primary-color);
-	background:
-		linear-gradient(180deg,
-		var(--primary-color) 0%,
-		var(--secondary-color) 10.45%,
-		var(--tertiary-color) 41.35%
-	);
-}
-
-body::before {
-	content: '';
-	width: 80vw;
-	height: 100vh;
-	position: absolute;
-	top: 0;
-	left: 10vw;
-	z-index: -1;
-	background: radial-gradient(
-		50% 50% at 50% 50%,
-		var(--pure-white) 0%,
-		rgba(255, 255, 255, 0) 100%
-	);
-	opacity: 0.05;
 }
 
 #svelte {
@@ -82,18 +61,7 @@ a:hover {
 }
 
 h2 {
-	font-size: 1rem;
-}
-
-pre {
-	font-size: 16px;
-	font-family: var(--font-mono);
-	background-color: rgba(255, 255, 255, 0.45);
-	border-radius: 3px;
-	box-shadow: 2px 2px 6px rgba(255, 255, 255, .25);
-	padding: 0.5em;
-	overflow-x: auto;
-	color: var(--text-color);
+	font-size: 2rem;
 }
 
 input,
@@ -106,36 +74,6 @@ button:focus:not(:focus-visible) {
 	outline: none;
 }
 
-/* reset von fontsize wenn passwort automatisch asugefüllt wird, übernommen von: */
-/* https://stackoverflow.com/questions/57242841/input-text-very-small-when-hovering-on-autofill-suggestion */
-input:-webkit-autofill::first-line {
-	font-size: 16px;
-}
-
-/*input:-webkit-autofill,*/
-/*input:-webkit-autofill:hover,*/
-/*input:-webkit-autofill:focus {*/
-
-/*	font: inherit;*/
-/*}*/
-/*
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-	border: 1px solid green;
-	-webkit-text-size-adjust: inherit;
-	-webkit-text-fill-color: green;
-	-webkit-box-shadow: 0 0 0px 1000px #000 inset;
-	transition: background-color 5000s ease-in-out 0s;
-}
-*/
-
 form {
 	display: flex;
 	flex-flow: column;
@@ -143,4 +81,17 @@ form {
 	gap: 16px;
 	width: 100%;
 	height: 100%;
+}
+
+button {
+	width: 100%;
+	/*height: 100%;*/
+	color: white;
+	background-color: var(--tertiary-color);
+
+	font-size: 24px;
+	height: 64px;
+
+	border: none;
+	border-radius: var(--radius-small);
 }

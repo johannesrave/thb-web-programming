@@ -8,7 +8,7 @@
     import { loggedIn } from '$login/auth';
     import { page } from '$app/stores';
 
-    let finishedMounting:boolean = false;
+    let finishedMounting: boolean = false;
 
     onMount(() => {
         initialize();
@@ -17,7 +17,7 @@
 
     $: if (finishedMounting && !$loggedIn && $page.path !== '/login') {
         goto(rootRelative('/login'));
-        console.log("Not authenticated, going back to login.");
+        console.log('Not authenticated, going back to login.');
     }
 </script>
 
@@ -41,6 +41,7 @@
         align-items: center;
         align-content: center;
         justify-items: center;
+
     }
 
     h1 {
@@ -48,15 +49,13 @@
         text-align: center;
     }
 
-    section{
+    section {
         min-width: 320px;
         min-height: 480px;
 
         display: grid;
-
-        /*justify-content: center;*/
-        /*align-items: center;*/
-        /*align-content: center;*/
         justify-items: center;
+
+        border: blue;
     }
 </style>
