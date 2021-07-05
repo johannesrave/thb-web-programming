@@ -5,6 +5,8 @@
     import { transactionForm } from '$banking/bankingForm';
     import { goto, rootRelative } from '$util/navigation';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
+    import FormLayout from '../lib/FormLayout.svelte';
+    import Button from '../lib/Button.svelte';
 
     let selectedContact = false;
 
@@ -19,38 +21,39 @@
     }
 </script>
 
-<form on:submit|preventDefault>
-    <h2>Empfänger</h2>
-    <ScrollableList>
-        <div on:click={() => {
+<FormLayout>
+    <h2 slot="subheader">Empfänger</h2>
+    <form slot="input" on:submit|preventDefault>
+        <ScrollableList>
+            <div on:click={() => {
             selectedContact = false;
             $transactionForm.recipient = '';
             $transactionForm.iban = '';
 
         }} class="option" class:selected={!selectedContact}>
-            Neuer Empfänger
-        </div>
+                Neuer Empfänger
+            </div>
 
-        {#each $contacts as contact}
-            <div on:click={() => {
+            {#each $contacts as contact}
+                <div on:click={() => {
                 selectedContact = contact;
                 $transactionForm.recipient = selectedContact.name;
                 $transactionForm.iban = selectedContact.iban;
 
             }} class="option" class:selected={contact.name === selectedContact.name}>
 
-                {contact.name}<br>
-                {contact.bank}<br>
-                {contact.iban}
-            </div>
-        {/each}
-    </ScrollableList>
-    <ButtonGroup>
+                    {contact.name}<br>
+                    {contact.bank}<br>
+                    {contact.iban}
+                </div>
+            {/each}
+        </ScrollableList>
+    </form>
+    <ButtonGroup slot="button-group">
         <button type="button" on:click|preventDefault={() => goto(rootRelative('/'))}>Abbruch</button>
         <button on:click|preventDefault={goToAmount}>Weiter</button>
     </ButtonGroup>
-</form>
-
+</FormLayout>
 <style>
     .option {
         height: 4em;

@@ -4,6 +4,9 @@
     import { emptyTransaction, transactionForm } from '$banking/bankingForm';
     import { bankingState } from '$banking/bankingState';
 
+    // TODO make elements consistent by styling link and button the same way (or turn both into buttons)
+    // TODO add icons to  buttons (where from?)
+
     const logout = () => {
         user.logout();
         transactionForm.set(emptyTransaction);
@@ -14,7 +17,6 @@
 
 
 <header>
-
     <a href="/">Übersicht</a>
     <p>{$userName}</p>
     {#if $loggedIn}
@@ -45,5 +47,10 @@
 
     p {
         color: white;
+    }
+
+
+    button {
+        background-color: unset;
     }
 </style>

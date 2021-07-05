@@ -1,7 +1,7 @@
 <script lang="ts">
     // import Title from '$lib/Title.svelte';
-    import { bankingStates, bankingState } from "$banking/bankingState"
-    import { onMount } from "svelte";
+    import { bankingStates, bankingState } from '$banking/bankingState'
+    import { onMount } from 'svelte';
     import { pageTitle } from '$util/pageTitle';
 
     onMount(() => {
@@ -9,7 +9,7 @@
         $bankingState = 'selectRecipient';
     })
 
-    $:console.log("bankingState changed to:" + $bankingState);
+    $:console.log('bankingState changed to:' + $bankingState);
 </script>
 
 <svelte:component this={bankingStates[$bankingState]}/>

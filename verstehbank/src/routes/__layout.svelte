@@ -24,9 +24,9 @@
 <Header/>
 <main>
     <h1>{$pageTitle}</h1>
-    <section>
-        <slot/>
-    </section>
+
+    <slot/>
+
 </main>
 
 
@@ -35,11 +35,11 @@
         display: grid;
         height: 100%;
         width: 100%;
-        padding: 0 10%;
+        /*padding: 0 10%;*/
 
-        justify-content: center;
-        align-items: center;
-        align-content: center;
+        /*justify-content: center;*/
+        /*align-items: center;*/
+        /*align-content: center;*/
         justify-items: center;
 
     }
@@ -47,6 +47,10 @@
     h1 {
         width: 100%;
         text-align: center;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     section {

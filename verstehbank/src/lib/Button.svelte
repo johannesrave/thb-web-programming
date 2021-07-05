@@ -1,27 +1,27 @@
 <script lang="ts">
-    export let link: string;
-    export let name: string;
+    export let label: string;
+    export let muted: boolean = false;
 </script>
 
-<div>
-    <a href={link}>{name}</a>
-</div>
+<button type="button" on:click|preventDefault class:muted={muted}>
+    {label}
+</button>
 
 <style>
-    a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    button {
+        width: 100%;
 
-        height: 120px;
-        width: 120px;
-
-        /*border-radius: 50%;*/
-        background-color: dimgrey;
+        font-size: var(--font-large);
+        height: 4rem;
 
         color: white;
-        font-size: 24px;
-        text-align: center;
-        filter: drop-shadow(12px 12px 12px rgba(0 0 0 .25));
+        background-color: var(--primary-color);
+        border: none;
+        border-radius: var(--radius-small);
     }
+
+    .muted {
+        background-color: var(--muted-color);
+    }
+
 </style>

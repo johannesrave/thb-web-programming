@@ -1,17 +1,18 @@
 <!--suppress JSUndeclaredVariable, JSUndeclaredVariable -->
 <script lang="ts">
-    import { next } from "$banking/bankingState";
-    import { transactionForm } from "$banking/bankingForm";
-    import Input from "$lib/Input.svelte";
-    import ButtonGroup from "$lib/ButtonGroup.svelte";
+    import { next } from '$banking/bankingState';
+    import { transactionForm } from '$banking/bankingForm';
+    import Input from '$lib/Input.svelte';
+    import ButtonGroup from '$lib/ButtonGroup.svelte';
 
-    import { back } from "$banking/bankingState";
+    import { back } from '$banking/bankingState';
+    import FormLayout from '../lib/FormLayout.svelte';
 
     let generatedTAN: number = null;
 
     let goToCheck = () => {
         if ($transactionForm.tan.toString() === generatedTAN.toString()) {
-            console.log("TANs match, proceeding.")
+            console.log('TANs match, proceeding.')
             next();
         }
     }
@@ -25,15 +26,16 @@
     }
 </script>
 
-<h2>Freigabe</h2>
-<form on:submit|preventDefault={goToCheck}>
-    <ButtonGroup>
-        <button on:click|preventDefault={generateTAN}>SMS mit Zahlencode schicken</button>
-    </ButtonGroup>
-    <Input bind:value={$transactionForm.tan} id="tan" type="number" label="TAN"/>
-    <ButtonGroup>
+<FormLayout>
+    <h2 slot="subheader">Freigabe</h2>
+    <form slot="input" on:submit|preventDefault={goToCheck}>
+        <ButtonGroup>
+            <button on:click|preventDefault={generateTAN}>SMS mit Zahlencode schicken</button>
+        </ButtonGroup>
+        <Input bind:value={$transactionForm.tan} id="tan" type="number" label="TAN"/>
+    </form>
+    <ButtonGroup slot="button-group">
         <button type="button" on:click|preventDefault={back}>Zurück</button>
         <button on:click|preventDefault={goToCheck}>Weiter</button>
     </ButtonGroup>
-</form>
-
+</FormLayout>
