@@ -1,20 +1,21 @@
 <script lang="ts">
-    import ScrollableList from "$lib/ScrollableList.svelte";
+    import ScrollableList from '$lib/ScrollableList.svelte';
     import { contacts } from '$banking/contacts'
-    import { bankingState, next, back } from "$banking/bankingState";
-    import { transactionForm } from "$banking/bankingForm";
-    import { goto, rootRelative } from "$util/navigation";
-    import ButtonGroup from "$lib/ButtonGroup.svelte";
+    import { bankingState, next, back } from '$banking/bankingState';
+    import { transactionForm } from '$banking/bankingForm';
+    import { goto, rootRelative } from '$util/navigation';
+    import ButtonGroup from '$lib/ButtonGroup.svelte';
 
     let selectedContact = false;
 
     let goToAmount = () => {
+
         if (!selectedContact) {
-            console.log("Creating new contact, proceeding.");
+            console.log('Creating new contact, proceeding.');
             next();
             return;
         }
-        $bankingState = 'enterAmount';
+        bankingState.set('enterAmount');
     }
 </script>
 

@@ -1,11 +1,11 @@
 import { writable } from 'svelte/store';
-import SelectRecipient from "$banking/SelectRecipient.svelte";
-import EnterRecipient from "$banking/EnterRecipient.svelte";
-import EnterAmount from "$banking/EnterAmount.svelte";
-import EnterTAN from "$banking/EnterTAN.svelte";
-import Check from "$banking/Check.svelte";
-import Success from "$banking/Success.svelte";
-export const bankingState = writable("selectRecipient");
+import SelectRecipient from '$banking/SelectRecipient.svelte';
+import EnterRecipient from '$banking/EnterRecipient.svelte';
+import EnterAmount from '$banking/EnterAmount.svelte';
+import EnterTAN from '$banking/EnterTAN.svelte';
+import Check from '$banking/Check.svelte';
+import Success from '$banking/Success.svelte';
+export const bankingState = writable('selectRecipient');
 export function next() {
     bankingState.update((oldState) => bankingNav[oldState].next);
 }
@@ -22,26 +22,26 @@ export const bankingStates = {
 };
 const bankingNav = {
     selectRecipient: {
-        next: "enterRecipient",
+        next: 'enterRecipient',
     },
     enterRecipient: {
-        back: "selectRecipient",
-        next: "enterAmount",
+        back: 'selectRecipient',
+        next: 'enterAmount',
     },
     enterAmount: {
-        back: "enterRecipient",
-        next: "enterTAN",
+        back: 'enterRecipient',
+        next: 'enterTAN',
     },
     enterTAN: {
-        back: "enterAmount",
-        next: "check",
+        back: 'enterAmount',
+        next: 'check',
     },
     check: {
-        back: "enterTAN",
-        next: "success",
+        back: 'enterTAN',
+        next: 'success',
     },
     success: {
-        back: "selectRecipient"
+        back: 'selectRecipient'
     },
 };
 //# sourceMappingURL=bankingState.js.map
