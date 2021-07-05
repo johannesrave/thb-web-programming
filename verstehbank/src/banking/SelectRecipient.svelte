@@ -18,8 +18,8 @@
     }
 </script>
 
-<h2>Empfänger</h2>
 <form on:submit|preventDefault>
+    <h2>Empfänger</h2>
     <ScrollableList>
         <div on:click={() => {
             selectedContact = false;

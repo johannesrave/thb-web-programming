@@ -7,7 +7,6 @@
     import { goto, rootRelative } from '$util/navigation';
     import { loggedIn } from '$login/auth';
     import { page } from '$app/stores';
-    import { browser } from '$app/env';
 
     let finishedMounting:boolean = false;
 
@@ -16,7 +15,7 @@
         finishedMounting = true;
     })
 
-    $: if (!$loggedIn && $page.path !== '/login' && browser && finishedMounting) {
+    $: if (finishedMounting && !$loggedIn && $page.path !== '/login') {
         goto(rootRelative('/login'));
         console.log("Not authenticated, going back to login.");
     }
@@ -25,7 +24,9 @@
 <Header/>
 <main>
     <h1>{$pageTitle}</h1>
-    <slot/>
+    <section>
+        <slot/>
+    </section>
 </main>
 
 
@@ -45,5 +46,17 @@
     h1 {
         width: 100%;
         text-align: center;
+    }
+
+    section{
+        min-width: 320px;
+        min-height: 480px;
+
+        display: grid;
+
+        /*justify-content: center;*/
+        /*align-items: center;*/
+        /*align-content: center;*/
+        justify-items: center;
     }
 </style>

@@ -6,6 +6,7 @@
 
     onMount(() => {
         $pageTitle = 'Überweisung';
+        $bankingState = 'selectRecipient';
     })
 
     $:console.log("bankingState changed to:" + $bankingState);

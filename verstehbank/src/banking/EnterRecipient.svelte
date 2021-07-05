@@ -9,8 +9,10 @@
 <h2>Empfänger</h2>
 
 <form on:submit|preventDefault={() => next()}>
-    <Input bind:value={$transactionForm.recipient}>Empfängername</Input>
-    <Input bind:value={$transactionForm.iban}>IBAN</Input>
+<!--    <Input bind:value={$transactionForm.recipient}>Empfängername</Input>-->
+    <Input bind:value={$transactionForm.recipient} id="recipient" label="Empfänger"/>
+    <Input bind:value={$transactionForm.iban} id="iban" label="IBAN"/>
+<!--    <Input bind:value={$transactionForm.iban}>IBAN</Input>-->
     <ButtonGroup>
         <button type="button" on:click|preventDefault={() => back()}>Zurück</button>
         <button on:click|preventDefault={() => next()}>Weiter</button>

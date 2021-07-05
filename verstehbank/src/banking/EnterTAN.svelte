@@ -30,7 +30,7 @@
     <ButtonGroup>
         <button on:click|preventDefault={generateTAN}>SMS mit Zahlencode schicken</button>
     </ButtonGroup>
-    <Input bind:value={$transactionForm.tan} id="tan">TAN</Input>
+    <Input bind:value={$transactionForm.tan} id="tan" type="number" label="TAN"/>
     <ButtonGroup>
         <button type="button" on:click|preventDefault={back}>Zurück</button>
         <button on:click|preventDefault={goToCheck}>Weiter</button>
