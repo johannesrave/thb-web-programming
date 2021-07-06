@@ -36,7 +36,7 @@
         padding: 8px;
         border: solid var(--primary-color);
         border-width: 0 1px 1px;
-        border-radius: 4px;
+        border-radius: var(--radius-small);
     }
 
     * {

@@ -16,19 +16,19 @@ export const contacts = writable([
         bank: "Int. Ltd. WorldWide"
     },
     {
-        name: "Thomas Friedrich",
-        iban: "DE26500105173512514936",
+        name: "Alexandra Mehlich",
+        iban: "DE26500105173512514931",
         bank: "BLT Bank Nauen"
     },
     {
-        name: "REWE Rosenheim",
-        iban: "DE16500105177715898372",
-        bank: "Sparkasse Rosenheim"
+        name: "Lidl Düsseldorf",
+        iban: "DE16500105177715898373",
+        bank: "Sparkasse Düsseldorf"
     },
     {
-        name: "BetterLife GmbH",
-        iban: "DE57500105176332758532",
-        bank: "Int. Ltd. WorldWide"
+        name: "BrownBag Inc.",
+        iban: "DE57500105176332758534",
+        bank: "Tom Hemp's Bank"
     },
 ]);
 //# sourceMappingURL=contacts.js.map
