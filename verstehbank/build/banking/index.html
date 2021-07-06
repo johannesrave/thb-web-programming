@@ -6,26 +6,27 @@
 		<link rel="icon" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<title>Verstehbank - Anmeldung</title>
+		
 
 		
 
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/start-0a359884.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/vendor-284847b1.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/singletons-bb9012b7.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/paths-45dac81d.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/pages/__layout.svelte-bb789d7c.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/ButtonGroup-55f09542.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/Input-fb7ecd67.js">
-		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/pages/banking.svelte-7aa5adbd.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/start-e4ff7b7f.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/vendor-7fe1ce12.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/paths-7dc55c62.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/pages/__layout.svelte-a672bbdc.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/pageTitle-78ad2975.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/auth-3fd78c0e.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/bankingState-88972ec4.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/Input-28c0b348.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/pages/banking.svelte-f2926231.js">
 		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/start-a8cd1609.css">
-		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/pages/__layout.svelte-c8ad5e6c.css">
-		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/ButtonGroup-e45b5fb4.css">
+		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/pages/__layout.svelte-6dd45888.css">
+		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/pageTitle-3562e5d9.css">
+		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/bankingState-56f3c6f1.css">
 		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/Input-f64d9dd2.css">
-		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/pages/banking.svelte-f1884b6c.css">
 
 		<script type="module">
-			import { start } from "/~rave/verstehbank/build/_app/start-0a359884.js";
+			import { start } from "/~rave/verstehbank/build/_app/start-e4ff7b7f.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/~rave/verstehbank/build","assets":"/~rave/verstehbank/build"},
@@ -38,8 +39,8 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/~rave/verstehbank/build/_app/pages/__layout.svelte-bb789d7c.js"),
-						import("/~rave/verstehbank/build/_app/pages/banking.svelte-7aa5adbd.js")
+						import("/~rave/verstehbank/build/_app/pages/__layout.svelte-a672bbdc.js"),
+						import("/~rave/verstehbank/build/_app/pages/banking.svelte-f2926231.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -55,22 +56,44 @@
 		<div id="svelte">
 
 
-<header class="svelte-dygzik"><a href="/">Übersicht</a>
-    <p class="svelte-dygzik">Bitte anmelden.</p>
-    
+<header class="svelte-1h1eugn"><nav class="svelte-1h1eugn"><a href="/" class="svelte-1h1eugn">Übersicht</a>
+    </nav>
 </header>
+<main class="svelte-93cfnb"><h1 class="svelte-93cfnb">Seitentitel</h1>
 
-<main class="svelte-ne672q">
+    <section class="svelte-ek76cf"><h2 slot="subheader">Empfänger</h2>
+    <form slot="input"><div class="container svelte-1xawc0y"><div class="scroll-box svelte-1xawc0y"><div class="option svelte-1296n6q selected">Neuer Empfänger
+            </div>
 
-<h1 class="svelte-17pvooi">Anmeldung</h1>
-<form class="svelte-rhk86"><div class="svelte-1vavznu"><label for="newUser" class="svelte-1vavznu">Benutzername</label>
-    <input type="text" id="newUser" title="Bitte füllen Sie dieses Feld aus." class="svelte-1vavznu"></div>
-    <div class="svelte-1vavznu"><label for="password" class="svelte-1vavznu">Passwort</label>
-    <input type="password" id="password" title="Bitte füllen Sie dieses Feld aus." class="svelte-1vavznu"></div>
+            <div class="option svelte-1296n6q">Thomas Friedrich<br>
+                    BLT Bank Nauen<br>
+                    DE26500105173512514936
+                </div><div class="option svelte-1296n6q">REWE Rosenheim<br>
+                    Sparkasse Rosenheim<br>
+                    DE16500105177715898372
+                </div><div class="option svelte-1296n6q">BetterLife GmbH<br>
+                    Int. Ltd. WorldWide<br>
+                    DE57500105176332758532
+                </div><div class="option svelte-1296n6q">Thomas Friedrich<br>
+                    BLT Bank Nauen<br>
+                    DE26500105173512514936
+                </div><div class="option svelte-1296n6q">REWE Rosenheim<br>
+                    Sparkasse Rosenheim<br>
+                    DE16500105177715898372
+                </div><div class="option svelte-1296n6q">BetterLife GmbH<br>
+                    Int. Ltd. WorldWide<br>
+                    DE57500105176332758532
+                </div></div>
+</div></form>
+    <div class="svelte-pio5zw row"><button type="button" class="svelte-1bvboa7">Abbrechen
+</button>
+        <button type="button" class="svelte-1bvboa7">Weiter
+</button>
 
-    <div class="svelte-iwxg26"><button>Anmelden</button>
+
 </div>
-</form>
+    
+</section>
 
 </main>
 

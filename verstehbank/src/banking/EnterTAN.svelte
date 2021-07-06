@@ -30,17 +30,17 @@
 <FormLayout>
     <h2 slot="subheader">Freigabe</h2>
     <form slot="input" on:submit|preventDefault={validate}>
+        <div class="explanation">
+            Info:
+            Eine TAN ist ein Einmal-Passwort, das nur aus Zahlen besteht.
+        </div>
         <ButtonGroup>
-            <Button label="SMS mit Zahlencode schicken" on:click={generateTAN}/>
-
-<!--            <button on:click|preventDefault={generateTAN}>SMS mit Zahlencode schicken</button>-->
+            <Button label="TAN anfordern" on:click={generateTAN} />
         </ButtonGroup>
-        <Input bind:value={$transactionForm.tan} id="tan" type="number" label="TAN"/>
+        <Input bind:value={$transactionForm.tan} id="tan" type="text" label="TAN" rightJust="true"/>
     </form>
     <ButtonGroup slot="button-group">
         <Button label="Zurück" on:click={back}/>
         <Button label="Weiter" on:click={validate}/>
-<!--        <button type="button" on:click|preventDefault={back}>Zurück</button>-->
-<!--        <button on:click|preventDefault={validate}>Weiter</button>-->
     </ButtonGroup>
 </FormLayout>

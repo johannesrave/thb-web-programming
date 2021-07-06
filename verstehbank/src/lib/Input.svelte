@@ -11,7 +11,10 @@
     export let id: string = 'input_' + idCounter++;
     export let type: string = 'text';
     export let value: string = '';
+    export let placeholder: string = '';
     export let title: string = 'Bitte füllen Sie dieses Feld aus.';
+
+    export let rightJust: boolean = false;
 
     const handleInput = (event) => {
         value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
@@ -21,7 +24,8 @@
 
 <div>
     <label for={id}>{label}</label>
-    <input {id} {type} {title} {value} on:input={handleInput} on:change={handleInput}>
+    <input {id} {type} {title} {value} {placeholder} class:right-just={rightJust}
+           on:input={handleInput} on:change={handleInput}>
 </div>
 
 
@@ -45,5 +49,9 @@
         background: transparent;
         border: none;
         outline-width: 0;
+    }
+
+    .right-just {
+        text-align: right;
     }
 </style>

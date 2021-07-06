@@ -10,8 +10,9 @@
     section {
         min-width: 320px;
         min-height: 480px;
-
         width:360px;
+
+        /*margin: 10px;*/
 
         grid-template-rows:
                 [header] 4rem

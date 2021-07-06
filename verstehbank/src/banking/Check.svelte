@@ -19,8 +19,8 @@
         </div>
     </form>
     <ButtonGroup slot="button-group">
-        <Button label="Weitere Überweisung" on:click={back}/>
-        <Button label="Zurück zur Übersicht" on:click={next}/>
+        <Button label="Zurück" on:click={back}/>
+        <Button label="Absenden" on:click={next}/>
 <!--        <button type="button" on:click|preventDefault={back}>Zurück</button>-->
 <!--        <button on:click|preventDefault={next}>Abschicken</button>-->
     </ButtonGroup>
