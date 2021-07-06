@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { userDB } from '$login/userDB';
+    import { userDB } from '../login/users';
     import { loggedIn, user } from '$login/auth';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import Input from '$lib/Input.svelte';

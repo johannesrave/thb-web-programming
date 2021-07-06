@@ -1,6 +1,6 @@
 import { writable, derived } from 'svelte/store';
 import { browser } from '$app/env';
-import { userDB } from '$login/userDB';
+import { userDB } from '$login/users';
 
 export const user = setUpUser();
 

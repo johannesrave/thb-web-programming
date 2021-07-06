@@ -1,6 +1,7 @@
 <script lang="ts">
     import ScrollableList from '$lib/ScrollableList.svelte';
-    import { contacts } from '$banking/contacts'
+    import { contacts } from '$banking/contacts';
+    import { user } from '$login/auth';
     import { bankingState, next, back } from '$banking/bankingState';
     import { transactionForm } from '$banking/bankingForm';
     import { goto, rootRelative } from '$util/navigation';
@@ -34,7 +35,7 @@
                 Neuer Empfänger
             </div>
 
-            {#each $contacts as contact}
+            {#each $contacts[$user] as contact}
                 <div on:click={() => {
                 selectedContact = contact;
                 $transactionForm.recipient = selectedContact.name;
