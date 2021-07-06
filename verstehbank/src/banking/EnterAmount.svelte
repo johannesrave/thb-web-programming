@@ -4,6 +4,7 @@
     import Input from '$lib/Input.svelte';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import FormLayout from '../lib/FormLayout.svelte';
+    import Button from '../lib/Button.svelte';
 </script>
 
 
@@ -16,8 +17,10 @@
     </form>
 
     <ButtonGroup slot="button-group">
-        <button type="button" on:click|preventDefault={back}>Zurück</button>
-        <button on:click|preventDefault={next}>Weiter</button>
+        <Button label="Zurück" on:click={back}/>
+        <Button label="Weiter" on:click={next}/>
+<!--        <button type="button" on:click|preventDefault={back}>Zurück</button>-->
+<!--        <button on:click|preventDefault={next}>Weiter</button>-->
     </ButtonGroup>
 
 </FormLayout>

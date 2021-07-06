@@ -4,6 +4,7 @@
     import { bankingState, back } from '$banking/bankingState';
     import { goto, rootRelative } from '$util/navigation';
     import FormLayout from '../lib/FormLayout.svelte';
+    import Button from '../lib/Button.svelte';
 
     let toDashboard = () => {
         $bankingState = 'selectRecipient';
@@ -21,7 +22,9 @@
         </div>
     </form>
     <ButtonGroup slot="button-group" column="true">
-        <button type="button" on:click|preventDefault={back}>Weitere Überweisung</button>
-        <button on:click|preventDefault={toDashboard}>Zurück zur Übersicht</button>
+        <Button label="Weitere Überweisung" on:click={back}/>
+        <Button label="Zurück zur Übersicht" on:click={toDashboard}/>
+<!--        <button type="button" on:click|preventDefault={back}>Weitere Überweisung</button>-->
+<!--        <button on:click|preventDefault={toDashboard}>Zurück zur Übersicht</button>-->
     </ButtonGroup>
 </FormLayout>

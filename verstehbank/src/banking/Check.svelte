@@ -4,6 +4,7 @@
     import { next, back } from '$banking/bankingState';
     import { transactionForm } from '$banking/bankingForm';
     import FormLayout from '../lib/FormLayout.svelte';
+    import Button from '../lib/Button.svelte';
 
 </script>
 
@@ -18,7 +19,9 @@
         </div>
     </form>
     <ButtonGroup slot="button-group">
-        <button type="button" on:click|preventDefault={back}>Zurück</button>
-        <button on:click|preventDefault={next}>Abschicken</button>
+        <Button label="Weitere Überweisung" on:click={back}/>
+        <Button label="Zurück zur Übersicht" on:click={next}/>
+<!--        <button type="button" on:click|preventDefault={back}>Zurück</button>-->
+<!--        <button on:click|preventDefault={next}>Abschicken</button>-->
     </ButtonGroup>
 </FormLayout>

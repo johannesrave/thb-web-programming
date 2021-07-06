@@ -17,32 +17,39 @@
 
 
 <header>
+    <nav>
     <a href="/">Übersicht</a>
-    <p>{$userName}</p>
     {#if $loggedIn}
-        <button on:click|preventDefault={logout}>
-            Abmelden
-        </button>
+        <button on:click|preventDefault={logout}>Abmelden</button>
     {/if}
+    </nav>
 </header>
 
 <style>
     header {
         justify-self: flex-start;
         align-self: flex-start;
+        width: 100%;
+        height: 4rem;
+
+        display: grid;
+        grid-auto-flow: column;
+
+        place-items: center;
+
+        font-size: var(--font-small);
 
         color: white;
-        /*border: white 1px solid;*/
-        display: flex;
-        /*flex: 1;*/
-        width: 100%;
-        height: 4em;
-        justify-content: space-around;
-        align-items: center;
-        /*gap: 16px;*/
-        padding: 8px;
+        background-color: var(--secondary-color);
+    }
 
-        background-color: dimgray;
+    nav {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        min-width: 280px;
+        width: 40vw;
+        max-width: 400px;
     }
 
     p {
@@ -50,7 +57,13 @@
     }
 
 
-    button {
+    a, button {
         background-color: unset;
+        border: none;
+        font: inherit;
+        font-family: Rubik,sans-serif;
+        font-weight: normal;
+        font-size: 1.2em;
+        color: var(--pure-white)
     }
 </style>

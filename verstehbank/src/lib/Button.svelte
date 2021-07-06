@@ -11,7 +11,7 @@
     button {
         width: 100%;
 
-        font-size: var(--font-large);
+        font-size: var(--font-medium);
         height: 4rem;
 
         color: white;

@@ -50,8 +50,10 @@
         </ScrollableList>
     </form>
     <ButtonGroup slot="button-group">
-        <button type="button" on:click|preventDefault={() => goto(rootRelative('/'))}>Abbruch</button>
-        <button on:click|preventDefault={goToAmount}>Weiter</button>
+        <Button label="Abbrechen" on:click={() => goto(rootRelative('/'))}/>
+        <Button label="Weiter" on:click={goToAmount}/>
+<!--        <button type="button" on:click|preventDefault={() => goto(rootRelative('/'))}>Abbruch</button>-->
+<!--        <button on:click|preventDefault={goToAmount}>Weiter</button>-->
     </ButtonGroup>
 </FormLayout>
 <style>

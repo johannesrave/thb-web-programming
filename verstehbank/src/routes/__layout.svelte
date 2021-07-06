@@ -35,31 +35,15 @@
         display: grid;
         height: 100%;
         width: 100%;
-        /*padding: 0 10%;*/
-
-        /*justify-content: center;*/
-        /*align-items: center;*/
-        /*align-content: center;*/
-        justify-items: center;
+        place-items: center;
+        grid-auto-rows: 64px auto;
 
     }
 
     h1 {
-        width: 100%;
-        text-align: center;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    section {
-        min-width: 320px;
-        min-height: 480px;
-
-        display: grid;
-        justify-items: center;
-
-        border: blue;
+        font-size: var(--font-medium);
+        font-weight: 520;
+        color: var(--muted-color);
+        align-self: end;
     }
 </style>

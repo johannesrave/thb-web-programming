@@ -11,6 +11,8 @@
         min-width: 320px;
         min-height: 480px;
 
+        width:360px;
+
         grid-template-rows:
                 [header] 4rem
                 [input] auto

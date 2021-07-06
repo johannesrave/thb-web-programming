@@ -7,6 +7,8 @@
     import { onMount } from 'svelte';
     import { pageTitle } from '../util/pageTitle';
     import { browser } from '$app/env';
+    import Button from '../lib/Button.svelte';
+    import FormLayout from '../lib/FormLayout.svelte';
 
     onMount(() => {
         $pageTitle = 'Anmeldung';
@@ -16,7 +18,7 @@
     let password: String;
 
     let attemptLogin = () => {
-        console.log("Trying to log in using " + password)
+        console.log('Trying to log in using ' + password)
         const passwordInDB = $userDB[username]['password']
 
         if (passwordInDB === password) {
@@ -31,11 +33,13 @@
 
 </script>
 
-<form on:submit|preventDefault={attemptLogin}>
-    <Input id="newUser" bind:value={username}>Benutzername</Input>
-    <Input id="password" type="password" bind:value={password}>Passwort</Input>
-
-    <ButtonGroup>
-        <button on:click|preventDefault={attemptLogin}>Anmelden</button>
+<FormLayout>
+    <h2 slot="subheader">Anmeldung</h2>
+    <form slot="input" on:submit|preventDefault={attemptLogin}>
+        <Input id="newUser" bind:value={username}>Benutzername</Input>
+        <Input id="password" bind:value={password} type="password">Passwort</Input>
+    </form>
+    <ButtonGroup slot="button-group">
+        <Button label="Anmelden" on:click={attemptLogin}/>
     </ButtonGroup>
-</form>
+</FormLayout>

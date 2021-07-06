@@ -23,7 +23,8 @@
         <h3>{$user}</h3>
     </form>
     <ButtonGroup slot="button-group" column="true">
-        <Button label="TESTBUTTON" on:click={gotoBanking}/>
-        <button on:click|preventDefault={gotoBanking}>Überweisung</button>
+        <Button label="Überweisung" on:click={gotoBanking}/>
+        <Button label="Umsätze" muted="true"/>
+<!--        <button on:click|preventDefault={gotoBanking}>Überweisung</button>-->
     </ButtonGroup>
 </FormLayout>
