@@ -37,7 +37,6 @@
         width: 100%;
         place-items: center;
         grid-auto-rows: 64px auto;
-
     }
 
     h1 {
