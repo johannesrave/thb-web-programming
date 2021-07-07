@@ -13,6 +13,7 @@ let initialUsers = {
         surName: 'Grünberg'
     }
 };
+export const emptyUser = { firstName: '', password: '', surName: '', username: '' };
 export const userDB = createUserDB();
 function createUserDB() {
     const { subscribe, set, update } = writable(initialUsers);

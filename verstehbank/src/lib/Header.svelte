@@ -1,13 +1,13 @@
 <script lang="ts">
     import { goto, rootRelative } from '$util/navigation';
-    import { user, userName, loggedIn } from '$login/auth'
+    import { user, loggedIn, logout } from '$login/auth'
     import { emptyTransaction, transactionForm } from '$banking/bankingForm';
     import { bankingState } from '$banking/bankingState';
 
     // TODO add icons to  buttons (where from?)
 
-    const logout = () => {
-        user.logout();
+    const logUserOut = () => {
+        logout();
         transactionForm.set(emptyTransaction);
         $bankingState = 'selectRecipient';
         goto(rootRelative('/'));
@@ -19,7 +19,7 @@
     <nav>
         <a href="/">Übersicht</a>
         {#if $loggedIn}
-            <button on:click|preventDefault={logout}>Abmelden</button>
+            <button on:click|preventDefault={logUserOut}>Abmelden</button>
         {/if}
     </nav>
 </header>

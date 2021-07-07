@@ -12,15 +12,12 @@
     <h2 slot="subheader">Betrag</h2>
 
     <form slot="input" on:submit|preventDefault={next}>
-        <!--    <Input bind:value={$transactionForm.amount}>Betrag</Input>-->
         <Input bind:value={$transactionForm.amount} id="amount" type="number" label="Betrag"/>
     </form>
 
     <ButtonGroup slot="button-group">
         <Button label="Zurück" on:click={back}/>
         <Button label="Weiter" on:click={next}/>
-<!--        <button type="button" on:click|preventDefault={back}>Zurück</button>-->
-<!--        <button on:click|preventDefault={next}>Weiter</button>-->
     </ButtonGroup>
 
 </FormLayout>

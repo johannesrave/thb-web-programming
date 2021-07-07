@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-type User =
+export type User =
     {
         username: string,
         password: string,
@@ -24,6 +24,8 @@ let initialUsers: UserDB = {
         surName : 'Grünberg'
     }
 }
+
+export const emptyUser: User = {firstName : '', password : '', surName : '', username : ''}
 
 export const userDB = createUserDB();
 

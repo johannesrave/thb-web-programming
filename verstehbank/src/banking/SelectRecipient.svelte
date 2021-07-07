@@ -42,7 +42,7 @@
                 Neuer Empfänger
             </div>
 
-            {#each $contacts[$user] as contact}
+            {#each $contacts[$user.username] as contact}
                 <div on:click={() => {
                 selectedContact = contact;
                 $transactionForm.recipient = selectedContact.name;

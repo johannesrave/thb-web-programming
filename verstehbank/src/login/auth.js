@@ -1,25 +1,31 @@
 import { writable, derived } from 'svelte/store';
 import { browser } from '$app/env';
-import { userDB } from '$login/users';
-export const user = setUpUser();
+import { emptyUser } from '$login/users';
+export const user = writable(emptyUser);
+// export const user = setUpUser();
 export let loggedIn = derived(user, ($user) => {
-    console.log($user + " logged " + ($user !== null ? "in" : "out"));
-    return $user !== null;
+    if ($user.username === '') {
+        console.log('logged out.');
+        return false;
+    }
+    else {
+        console.log($user.username + ' logged in');
+        return true;
+    }
 });
-export let userName = derived([user, userDB], ([$user, $userDB]) => {
-    if (!$user)
-        return "Bitte anmelden.";
-    const name = $userDB[$user];
-    return name.firstName + " " + name.surName;
-});
+// export let userName = derived([user, userDB], ([$user, $userDB]) => {
+//     // if (!$user) return 'Bitte anmelden.';
+//     // const name = $userDB[$user];
+//     return $user.firstName + ' ' + $user.surName;
+// });
 function setUpUser() {
     const { subscribe, set } = writable(null);
     return {
         subscribe,
-        login: (username) => {
+        login: (user) => {
             if (!browser)
                 return;
-            set(username);
+            set(user);
         },
         logout: () => {
             if (!browser)
@@ -30,5 +36,11 @@ function setUpUser() {
             set(content);
         }
     };
+}
+export function login(newUser) {
+    user.update(_ => newUser);
+}
+export function logout() {
+    user.update(_ => emptyUser);
 }
 //# sourceMappingURL=auth.js.map

@@ -15,7 +15,7 @@
     export let type: string = 'text';
     export let value: string = '';
     export let placeholder: string = '';
-    export let error;
+    export let error: string = '';
     export let title: string = 'Bitte füllen Sie dieses Feld aus.';
 
     export let rightJust: boolean = false;
