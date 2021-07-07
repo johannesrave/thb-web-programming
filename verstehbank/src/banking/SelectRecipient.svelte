@@ -8,6 +8,12 @@
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import FormLayout from '../lib/FormLayout.svelte';
     import Button from '../lib/Button.svelte';
+    import { onMount } from 'svelte';
+
+    let finishedMounting: boolean = false;
+    onMount(() => {
+        finishedMounting = true;
+    })
 
     let selectedContact = false;
 
@@ -25,6 +31,7 @@
 <FormLayout>
     <h2 slot="subheader">Empfänger</h2>
     <form slot="input" on:submit|preventDefault>
+        {#if finishedMounting}
         <ScrollableList>
             <div on:click={() => {
             selectedContact = false;
@@ -49,14 +56,14 @@
                 </div>
             {/each}
         </ScrollableList>
+        {/if}
     </form>
     <ButtonGroup slot="button-group">
         <Button label="Abbrechen" on:click={() => goto(rootRelative('/'))}/>
         <Button label="Weiter" on:click={goToAmount}/>
-<!--        <button type="button" on:click|preventDefault={() => goto(rootRelative('/'))}>Abbruch</button>-->
-<!--        <button on:click|preventDefault={goToAmount}>Weiter</button>-->
     </ButtonGroup>
 </FormLayout>
+
 <style>
     .option {
         height: 4em;

@@ -7,25 +7,41 @@
 </script>
 
 <script lang="ts">
+    import { onMount } from 'svelte';
+
+    let input: HTMLInputElement;
     export let label: string = '';
     export let id: string = 'input_' + idCounter++;
     export let type: string = 'text';
     export let value: string = '';
     export let placeholder: string = '';
+    export let error;
     export let title: string = 'Bitte füllen Sie dieses Feld aus.';
 
     export let rightJust: boolean = false;
 
+    let finishedMounting: boolean = false;
+    onMount(() => {
+        finishedMounting = true;
+    })
+
     const handleInput = (event) => {
         value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+        // onChange(value);
     };
+
+    $:if(finishedMounting && error){
+        console.log(error)
+        input.setCustomValidity(error);
+        input.reportValidity();
+    }
 
 </script>
 
 <div>
     <label for={id}>{label}</label>
-    <input {id} {type} {title} {value} {placeholder} class:right-just={rightJust}
-           on:input={handleInput} on:change={handleInput}>
+    <input bind:this={input} {id} {type} {title} {value} {placeholder} {error} class:right-just={rightJust}
+           on:input={handleInput} on:change={handleInput} on:blur>
 </div>
 
 

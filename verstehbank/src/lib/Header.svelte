@@ -17,17 +17,15 @@
 
 <header>
     <nav>
-    <a href="/">Übersicht</a>
-    {#if $loggedIn}
-        <button on:click|preventDefault={logout}>Abmelden</button>
-    {/if}
+        <a href="/">Übersicht</a>
+        {#if $loggedIn}
+            <button on:click|preventDefault={logout}>Abmelden</button>
+        {/if}
     </nav>
 </header>
 
 <style>
     header {
-        justify-self: flex-start;
-        align-self: flex-start;
         width: 100%;
         height: 4rem;
 
@@ -36,7 +34,6 @@
 
         place-items: center;
 
-        font-size: var(--font-small);
 
         color: white;
         background-color: var(--secondary-color);
@@ -49,18 +46,14 @@
         min-width: 280px;
         width: 40vw;
         max-width: 400px;
+        font-size: var(--font-small);
     }
-
-    p {
-        color: white;
-    }
-
 
     a, button {
         background-color: unset;
         border: none;
         font: inherit;
-        font-family: Rubik,sans-serif;
+        font-family: Rubik, sans-serif;
         font-weight: normal;
         font-size: 1.2em;
         color: var(--pure-white)
