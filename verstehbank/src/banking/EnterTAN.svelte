@@ -41,6 +41,6 @@
     </form>
     <ButtonGroup slot="button-group">
         <Button label="Zurück" on:click={back}/>
-        <Button label="Weiter" on:click={validate}/>
+        <Button label="Absenden" on:click={validate}/>
     </ButtonGroup>
 </FormLayout>

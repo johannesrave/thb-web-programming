@@ -30,14 +30,14 @@ const bankingNav = {
     },
     enterAmount: {
         back: 'enterRecipient',
-        next: 'enterTAN',
-    },
-    enterTAN: {
-        back: 'enterAmount',
         next: 'check',
     },
     check: {
-        back: 'enterTAN',
+        back: 'enterAmount',
+        next: 'enterTAN',
+    },
+    enterTAN: {
+        back: 'check',
         next: 'success',
     },
     success: {
