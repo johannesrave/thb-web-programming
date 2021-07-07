@@ -8,12 +8,29 @@
     import { back } from '$banking/bankingState';
     import FormLayout from '../lib/FormLayout.svelte';
     import Button from '../lib/Button.svelte';
+    import { accountDB, Transaction } from '$banking/accounts';
+    import { user } from '$login/auth';
+
 
     let generatedTAN: number = null;
 
     let validate = () => {
         if ($transactionForm.tan.toString() === generatedTAN.toString()) {
             console.log('TANs match, proceeding.')
+            accountDB.update(accountDB => {
+                    const newTrans: Transaction = {
+                        amount : $transactionForm.amount,
+                        comment : '',
+                        contact : {
+                            name : $transactionForm.recipient,
+                            iban : $transactionForm.iban,
+                            bank : 'olle bank'
+                        }
+                    }
+                    accountDB[$user.username].transactions.push(newTrans);
+                    return accountDB;
+                }
+            )
             next();
         }
     }
@@ -35,7 +52,7 @@
             Eine TAN ist ein Einmal-Passwort, das nur aus Zahlen besteht.
         </div>
         <ButtonGroup>
-            <Button label="TAN anfordern" on:click={generateTAN} />
+            <Button label="TAN anfordern" on:click={generateTAN}/>
         </ButtonGroup>
         <Input bind:value={$transactionForm.tan} id="tan" type="text" label="TAN" rightJust="true"/>
     </form>

@@ -1,8 +1,8 @@
-import { derived, Readable, get, writable, Writable } from 'svelte/store';
+import { derived, Readable, writable } from 'svelte/store';
 import type { Contact } from '$banking/contacts';
-import { loggedIn, user } from '$login/auth';
+import { user } from '$login/auth';
 
-type Transaction = {
+export type Transaction = {
     contact: Contact,
     amount: number,
     comment: string
@@ -42,10 +42,10 @@ const initialAccounts: AccountDB = {
         ]
     }
 }
-const accountDB = writable<AccountDB>(initialAccounts);
+export const accountDB = writable<AccountDB>(initialAccounts);
 export const account: Readable<Account> = derived([accountDB, user],
     ([$accountDB, $user]) => {
-        console.log("deriving account");
+        console.log('deriving account');
         console.log($accountDB);
         console.log($user);
         return $accountDB[$user.username];
@@ -53,8 +53,8 @@ export const account: Readable<Account> = derived([accountDB, user],
 
 export const balance = derived(account,
     ($account) => {
-        console.log("deriving balance")
-        if(!$account) return;
+        console.log('deriving balance')
+        if (!$account) return;
         console.log($account)
         return $account.transactions.map(trans => trans.amount).reduce((sum, n) => sum + n);
     });

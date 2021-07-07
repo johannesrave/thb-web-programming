@@ -25,15 +25,15 @@ const initialAccounts = {
         ]
     }
 };
-const accountDB = writable(initialAccounts);
+export const accountDB = writable(initialAccounts);
 export const account = derived([accountDB, user], ([$accountDB, $user]) => {
-    console.log("deriving account");
+    console.log('deriving account');
     console.log($accountDB);
     console.log($user);
     return $accountDB[$user.username];
 });
 export const balance = derived(account, ($account) => {
-    console.log("deriving balance");
+    console.log('deriving balance');
     if (!$account)
         return;
     console.log($account);
