@@ -37,6 +37,10 @@ export const balance = derived(account, ($account) => {
     if (!$account)
         return;
     console.log($account);
-    return $account.transactions.map(trans => trans.amount).reduce((sum, n) => sum + n);
+    return $account.transactions.map(trans => trans.amount).reduce((sum, n) => {
+        console.log(`adding ${n} to ${sum}`);
+        console.log(`new sum: ${sum + n}`);
+        return sum + n;
+    });
 });
 //# sourceMappingURL=accounts.js.map

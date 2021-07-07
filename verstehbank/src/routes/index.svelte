@@ -18,8 +18,8 @@
         goto(rootRelative('/banking'));
     }
 
-    $: sign = ($balance < 0) ? '+' : '-';
-    $: formattedBalance = `${sign} ${$balance}€`;
+    // $: sign = ($balance < 0) ? '+' : '-';
+    $: formattedBalance = `${$balance}€`;
 
 </script>
 

@@ -4,11 +4,10 @@
     import { transactionForm } from '$banking/bankingForm';
     import Input from '$lib/Input.svelte';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
-
     import { back } from '$banking/bankingState';
-    import FormLayout from '../lib/FormLayout.svelte';
-    import Button from '../lib/Button.svelte';
-    import { accountDB, Transaction } from '$banking/accounts';
+    import FormLayout from '$lib/FormLayout.svelte';
+    import Button from '$lib/Button.svelte';
+    import { accountDB } from '$banking/accounts';
     import { user } from '$login/auth';
 
 
@@ -18,8 +17,8 @@
         if ($transactionForm.tan.toString() === generatedTAN.toString()) {
             console.log('TANs match, proceeding.')
             accountDB.update(accountDB => {
-                    const newTrans: Transaction = {
-                        amount : $transactionForm.amount,
+                    const newTrans = {
+                        amount : -$transactionForm.amount,
                         comment : '',
                         contact : {
                             name : $transactionForm.recipient,

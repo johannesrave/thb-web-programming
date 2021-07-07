@@ -25,7 +25,7 @@ export function initialize(){
 
     function subscribeAllStores() {
         for (let [key, store] of Object.entries(persistentData)) {
-            console.log(`persistence subscribing to ${key}`);
+            // console.log(`persistence subscribing to ${key}`);
             store.subscribe((updatedStore) => {
                 localStorage.setItem(key, JSON.stringify(updatedStore));
                 console.log(`saving ${key} to localStorage`);
