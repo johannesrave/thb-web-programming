@@ -23,13 +23,13 @@
     <slot/>
 </main>
 
-
 <style>
     main {
         display: grid;
         height: 100vh;
         width: 100vw;
-        place-items: center;
-        grid-auto-rows: 64px auto;
+        align-items: end;
+        justify-items: center;
+        grid-template-rows: auto min-content;
     }
 </style>

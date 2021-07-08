@@ -3,6 +3,7 @@
     import { onMount } from 'svelte';
     import { pageTitle } from '$util/pageTitle';
     import Nav from '$lib/Nav.svelte';
+    import Layout from '../lib/Layout.svelte';
 
     onMount(() => {
         $pageTitle = 'Überweisung';
@@ -11,7 +12,8 @@
 
     $:console.log('bankingState changed to:' + $bankingState);
 </script>
-
-<h1>Überweisung</h1>
-<svelte:component this={bankingStates[$bankingState]}/>
+<Layout>
+    <h1>Überweisung</h1>
+    <svelte:component this={bankingStates[$bankingState]}/>
+</Layout>
 <Nav/>

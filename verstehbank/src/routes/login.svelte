@@ -8,7 +8,7 @@
     import { pageTitle } from '$util/pageTitle';
     import { browser } from '$app/env';
     import Button from '$lib/Button.svelte';
-    import FormLayout from '$lib/FormLayout.svelte';
+    import Layout from '../lib/Layout.svelte';
 
     let mounted = false;
 
@@ -45,14 +45,14 @@
 
 </script>
 
-<h1>Online-Banking</h1>
-<FormLayout>
-    <h2 slot="subheader">Anmeldung</h2>
-    <form slot="input" on:submit|preventDefault={attemptLogin}>
+<Layout>
+    <h1>Online-Banking</h1>
+    <h2>Anmeldung</h2>
+    <form on:submit|preventDefault={attemptLogin}>
         <Input bind:value={username} id="newUser" label="Benutzername"/>
         <Input bind:value={password} id="password" label="Passwort" type="password"/>
     </form>
-    <ButtonGroup slot="button-group">
+    <ButtonGroup>
         <Button label="Anmelden" on:click={attemptLogin}/>
     </ButtonGroup>
-</FormLayout>
+</Layout>

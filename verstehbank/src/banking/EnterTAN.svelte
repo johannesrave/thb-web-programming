@@ -5,7 +5,6 @@
     import Input from '$lib/Input.svelte';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import { back } from '$banking/bankingState';
-    import FormLayout from '$lib/FormLayout.svelte';
     import Button from '$lib/Button.svelte';
     import { accountDB } from '$banking/accounts';
     import { user } from '$login/auth';
@@ -43,20 +42,18 @@
     }
 </script>
 
-<FormLayout>
-    <h2 slot="subheader">Freigabe</h2>
-    <form slot="input" on:submit|preventDefault={validate}>
-        <div class="explanation">
-            Info:
-            Eine TAN ist ein Einmal-Passwort, das nur aus Zahlen besteht.
-        </div>
-        <ButtonGroup>
-            <Button label="TAN anfordern" on:click={generateTAN}/>
-        </ButtonGroup>
-        <Input bind:value={$transactionForm.tan} id="tan" type="text" label="TAN" rightJust="true"/>
-    </form>
-    <ButtonGroup slot="button-group">
-        <Button label="Zurück" on:click={back}/>
-        <Button label="Absenden" on:click={validate}/>
+<h2>Freigabe</h2>
+<form on:submit|preventDefault={validate}>
+    <div class="explanation">
+        Info:
+        Eine TAN ist ein Einmal-Passwort, das nur aus Zahlen besteht.
+    </div>
+    <ButtonGroup>
+        <Button label="TAN anfordern" on:click={generateTAN}/>
     </ButtonGroup>
-</FormLayout>
+    <Input bind:value={$transactionForm.tan} id="tan" type="text" label="TAN" rightJust="true"/>
+</form>
+<ButtonGroup>
+    <Button label="Zurück" on:click={back}/>
+    <Button label="Absenden" on:click={validate}/>
+</ButtonGroup>

@@ -3,7 +3,7 @@
     import { transactionForm } from '$banking/bankingForm';
     import Input from '$lib/Input.svelte';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
-    import FormLayout from '$lib/FormLayout.svelte';
+    import Layout from '$lib/Layout.svelte';
     import Button from '$lib/Button.svelte';
     // imported https://github.com/koblas/ibankit-js to validate IBANs
     import { IBAN } from 'ibankit';
@@ -40,27 +40,24 @@
     }
 
     const submit = () => {
+        validateRecpient();
+        validateIBAN();
         if (recipientError === '' && ibanError === ''){
             $transactionForm.recipient = recipient;
             $transactionForm.iban = iban;
             next();
         }
     }
-
 </script>
 
-<FormLayout>
-    <h2 slot="subheader">Empfänger</h2>
-
-    <form slot="input" on:submit|preventDefault={submit}>
-        <Input bind:value={recipient} on:blur={validateRecpient} error={recipientError}
-               id="recipient" label="Empfänger"/>
-        <Input bind:value={iban} on:blur={validateIBAN} error={ibanError}
-               id="iban" label="IBAN"/>
-<!--        <Input bind:value={$transactionForm.iban} on:blur={validateIBAN} id="iban" label="IBAN"/>-->
-    </form>
-    <ButtonGroup slot="button-group">
-        <Button label="Zurück" on:click={back}/>
-        <Button label="Weiter" on:click={submit}/>
-    </ButtonGroup>
-</FormLayout>
+<h2>Empfänger</h2>
+<form on:submit|preventDefault={submit}>
+    <Input bind:value={recipient} on:blur={validateRecpient} error={recipientError}
+           id="recipient" label="Empfänger"/>
+    <Input bind:value={iban} on:blur={validateIBAN} error={ibanError}
+           id="iban" label="IBAN"/>
+</form>
+<ButtonGroup>
+    <Button label="Zurück" on:click={back}/>
+    <Button label="Weiter" on:click={submit}/>
+</ButtonGroup>

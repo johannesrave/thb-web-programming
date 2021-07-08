@@ -3,7 +3,7 @@
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import { onMount } from 'svelte';
     import { pageTitle } from '$util/pageTitle';
-    import FormLayout from '$lib/FormLayout.svelte';
+    import Layout from '../lib/Layout.svelte';
     import Button from '$lib/Button.svelte';
     import { balance } from '$banking/accounts';
     import Nav from '$lib/Nav.svelte';
@@ -26,16 +26,15 @@
 
 </script>
 
-<h1>Übersicht</h1>
-<FormLayout>
-    <h2 slot="subheader">Ihr Kontostand</h2>
-
-    <p slot="input" class:euro={true}>{formattedBalance}</p>
-    <ButtonGroup slot="button-group" column="true">
+<Layout>
+    <h1>Übersicht</h1>
+    <h2>Ihr Kontostand</h2>
+    <p class:euro={true}>{formattedBalance}</p>
+    <ButtonGroup column="true">
         <Button label="Überweisung" on:click={gotoBanking}/>
         <Button label="Umsätze" muted="true"/>
     </ButtonGroup>
-</FormLayout>
+</Layout>
 <Nav/>
 
 <style>

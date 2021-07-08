@@ -2,12 +2,11 @@
     import ScrollableList from '$lib/ScrollableList.svelte';
     import { contacts } from '$banking/contacts';
     import { user } from '$login/auth';
-    import { bankingState, next, back } from '$banking/bankingState';
+    import { bankingState, next } from '$banking/bankingState';
     import { transactionForm } from '$banking/bankingForm';
     import { goto, rootRelative } from '$util/navigation';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
-    import FormLayout from '../lib/FormLayout.svelte';
-    import Button from '../lib/Button.svelte';
+    import Button from '$lib/Button.svelte';
     import { onMount } from 'svelte';
 
     let finishedMounting: boolean = false;
@@ -28,10 +27,9 @@
     }
 </script>
 
-<FormLayout>
-    <h2 slot="subheader">Empfänger</h2>
-    <form slot="input" on:submit|preventDefault>
-        {#if finishedMounting}
+<h2>Empfänger</h2>
+<form on:submit|preventDefault>
+    {#if finishedMounting}
         <ScrollableList>
             <div on:click={() => {
             selectedContact = false;
@@ -56,13 +54,12 @@
                 </div>
             {/each}
         </ScrollableList>
-        {/if}
-    </form>
-    <ButtonGroup slot="button-group">
-        <Button label="Abbrechen" on:click={() => goto(rootRelative('/'))}/>
-        <Button label="Weiter" on:click={goToAmount}/>
-    </ButtonGroup>
-</FormLayout>
+    {/if}
+</form>
+<ButtonGroup>
+    <Button label="Abbrechen" on:click={() => goto(rootRelative('/'))}/>
+    <Button label="Weiter" on:click={goToAmount}/>
+</ButtonGroup>
 
 <style>
     .option {

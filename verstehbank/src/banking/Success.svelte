@@ -3,7 +3,6 @@
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import { bankingState, back } from '$banking/bankingState';
     import { goto, rootRelative } from '$util/navigation';
-    import FormLayout from '../lib/FormLayout.svelte';
     import Button from '../lib/Button.svelte';
 
     let toDashboard = () => {
@@ -13,18 +12,14 @@
 
 </script>
 
-<FormLayout>
-    <h2 slot="subheader">Erfolg</h2>
-    <form slot="input" on:submit|preventDefault>
-        <div>
-            Ihre Überweisung wurde abgeschickt.<br>
-            Möchten Sie eine weitere Überweisung tätigen?
-        </div>
-    </form>
-    <ButtonGroup slot="button-group" column="true">
-        <Button label="Weitere Überweisung" on:click={back}/>
-        <Button label="Zurück zur Übersicht" on:click={toDashboard}/>
-<!--        <button type="button" on:click|preventDefault={back}>Weitere Überweisung</button>-->
-<!--        <button on:click|preventDefault={toDashboard}>Zurück zur Übersicht</button>-->
-    </ButtonGroup>
-</FormLayout>
+<h2>Erfolg</h2>
+<form on:submit|preventDefault>
+    <div>
+        Ihre Überweisung wurde abgeschickt.<br>
+        Möchten Sie eine weitere Überweisung tätigen?
+    </div>
+</form>
+<ButtonGroup slot="button-group" column="true">
+    <Button label="Weitere Überweisung" on:click={back}/>
+    <Button label="Zurück zur Übersicht" on:click={toDashboard}/>
+</ButtonGroup>
