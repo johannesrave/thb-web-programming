@@ -13,7 +13,5 @@
         height: 100vh;
         width: 100%;
         place-items: center;
-        /*grid-auto-rows: 64px auto;*/
     }
-
 </style>

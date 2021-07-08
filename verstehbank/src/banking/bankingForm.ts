@@ -1,7 +1,4 @@
-// imported https://github.com/koblas/ibankit-js to validate IBANs
-
 import { writable } from 'svelte/store';
-import { IBAN } from 'ibankit';
 
 type Transaction = {
     recipient: string,

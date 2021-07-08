@@ -50,12 +50,34 @@
     }
 
     a, button {
+        cursor: pointer;
         background-color: unset;
         border: none;
         font: inherit;
         font-family: Rubik, sans-serif;
         font-weight: normal;
         font-size: 1.2em;
+        text-decoration: underline;
         color: var(--pure-white)
+    }
+
+    button {
+        /*position: relative;*/
+        /*overflow: hidden;*/
+        /*transition: background 400ms;*/
+
+        /*width: 100%;*/
+        /**/
+        /*font-size: var(--font-medium);*/
+        /*height: 4rem;*/
+        /**/
+        /*color: white;*/
+        /*background-color: var(--primary-color);*/
+        /*border: none;*/
+        /*border-radius: var(--radius-small);*/
+    }
+
+    a:hover, button:hover {
+        box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.05);
     }
 </style>

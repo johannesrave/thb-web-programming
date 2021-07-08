@@ -50,8 +50,6 @@
     <form slot="input" on:submit|preventDefault={attemptLogin}>
         <Input bind:value={username} id="newUser" label="Benutzername"/>
         <Input bind:value={password} id="password" label="Passwort" type="password"/>
-<!--        <Input id="newUser" bind:value={username}>Benutzername</Input>-->
-<!--        <Input id="password" bind:value={password} type="password">Passwort</Input>-->
     </form>
     <ButtonGroup slot="button-group">
         <Button label="Anmelden" on:click={attemptLogin}/>

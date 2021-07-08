@@ -8,12 +8,10 @@
 
 <style>
     section {
-        min-width: 320px;
+        min-width: 280px;
         min-height: 480px;
-        width:360px;
-
-        /*margin: 10px;*/
-
+        width: 320px;
+        max-width: 90vh;
         grid-template-rows:
                 [header] 4rem
                 [input] auto
@@ -25,9 +23,5 @@
         place-items: center;
 
         border: blue;
-    }
-
-    nav {
-
     }
 </style>

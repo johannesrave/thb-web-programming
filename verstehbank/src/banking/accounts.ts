@@ -2,21 +2,6 @@ import { derived, Readable, writable } from 'svelte/store';
 import type { Contact } from '$banking/contacts';
 import { user } from '$login/auth';
 
-export type Transaction = {
-    contact: Contact,
-    amount: number,
-    comment: string
-}
-
-type Account = {
-    transactions: Transaction[],
-    iban: string
-}
-
-type AccountDB = {
-    [username: string]: Account
-}
-
 const initialAccounts: AccountDB = {
     beateweber : {
         iban : 'DE16500105177714498372',
@@ -51,7 +36,7 @@ export const account: Readable<Account> = derived([accountDB, user],
         return $accountDB[$user.username];
     });
 
-export const balance = derived(account,
+export const balance: Readable<number> = derived(account,
     ($account) => {
         console.log('deriving balance')
         if (!$account) return;
@@ -62,3 +47,18 @@ export const balance = derived(account,
             return sum + n;
         });
     });
+
+export type Transaction = {
+    contact: Contact,
+    amount: number,
+    comment: string
+}
+
+type Account = {
+    transactions: Transaction[],
+    iban: string
+}
+
+type AccountDB = {
+    [username: string]: Account
+}

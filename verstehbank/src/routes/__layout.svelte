@@ -21,19 +21,19 @@
     }
 </script>
 
-<Header/>
 <main>
     <h1>{$pageTitle}</h1>
 
     <slot/>
 
+    <Header/>
 </main>
 
 
 <style>
     main {
         display: grid;
-        height: 100%;
+        height: 100vh;
         width: 100%;
         place-items: center;
         grid-auto-rows: 64px auto;

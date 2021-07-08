@@ -1,16 +1,5 @@
 import { writable } from 'svelte/store';
 
-export type Contact = {
-    name: string,
-    iban: string,
-    bank: string
-}
-
-type ContactDB = {
-    [username: string]: Contact[]
-}
-
-
 const initialContacts = {
     beateweber : [
         {
@@ -69,3 +58,13 @@ const initialContacts = {
 };
 
 export const contacts = writable<ContactDB>(initialContacts);
+
+export type Contact = {
+    name: string,
+    iban: string,
+    bank: string
+}
+
+type ContactDB = {
+    [username: string]: Contact[]
+}

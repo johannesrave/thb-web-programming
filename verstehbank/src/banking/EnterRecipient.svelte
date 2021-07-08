@@ -1,4 +1,3 @@
-<!--suppress JSUndeclaredVariable, JSUndeclaredVariable -->
 <script lang="ts">
     import { next, back } from '$banking/bankingState';
     import { transactionForm } from '$banking/bankingForm';
@@ -6,6 +5,7 @@
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import FormLayout from '$lib/FormLayout.svelte';
     import Button from '$lib/Button.svelte';
+    // imported https://github.com/koblas/ibankit-js to validate IBANs
     import { IBAN } from 'ibankit';
 
     let recipient: string = '';

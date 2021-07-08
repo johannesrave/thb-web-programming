@@ -8,7 +8,12 @@
     import { balance } from '$banking/accounts';
 
     let sign;
+    const euroFormat = new Intl.NumberFormat('de-DE', {style: 'currency',currency: 'EUR',});
     let formattedBalance;
+
+    // formattierung in Euro inspiriert von
+    // https://stackoverflow.com/questions/149055/how-to-format-numbers-as-currency-strings
+    $: formattedBalance = euroFormat.format($balance);
 
     onMount(() => {
         $pageTitle = 'Übersicht';
@@ -18,17 +23,12 @@
         goto(rootRelative('/banking'));
     }
 
-    // $: sign = ($balance < 0) ? '+' : '-';
-    $: formattedBalance = `${$balance}€`;
-
 </script>
 
 <FormLayout>
     <h2 slot="subheader">Ihr Kontostand</h2>
 
-    <form slot="input" on:submit|preventDefault>
-        <p class:euro={true}>{formattedBalance}</p>
-    </form>
+    <p slot="input" class:euro={true}>{formattedBalance}</p>
     <ButtonGroup slot="button-group" column="true">
         <Button label="Überweisung" on:click={gotoBanking}/>
         <Button label="Umsätze" muted="true"/>
@@ -40,5 +40,4 @@
         font-size: var(--font-large);
         font-weight: bold;
     }
-
 </style>
