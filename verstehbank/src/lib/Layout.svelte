@@ -13,7 +13,7 @@
         gap:16px;
         display: grid;
         place-items: center;
-        grid-template-rows: min-content min-content auto min-content;
+        grid-template-rows: min-content min-content 320px min-content;
     }
 
 </style>

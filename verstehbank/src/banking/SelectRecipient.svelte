@@ -29,32 +29,30 @@
 
 <h2>Empfänger</h2>
 <form on:submit|preventDefault>
-    {#if finishedMounting}
-        <ScrollableList>
-            <div on:click={() => {
+    <ScrollableList>
+        <div on:click={() => {
             selectedContact = false;
             $transactionForm.recipient = '';
             $transactionForm.iban = '';
 
         }} class="option" class:selected={!selectedContact}>
-                Neuer Empfänger
-            </div>
+            Neuer Empfänger
+        </div>
 
-            {#each $contacts[$user.username] as contact}
-                <div on:click={() => {
+        {#each $contacts[$user.username] as contact}
+            <div on:click={() => {
                 selectedContact = contact;
                 $transactionForm.recipient = selectedContact.name;
                 $transactionForm.iban = selectedContact.iban;
 
             }} class="option" class:selected={contact.name === selectedContact.name}>
 
-                    {contact.name}<br>
-                    {contact.bank}<br>
-                    {contact.iban}
-                </div>
-            {/each}
-        </ScrollableList>
-    {/if}
+                {contact.name}<br>
+                {contact.bank}<br>
+                {contact.iban}
+            </div>
+        {/each}
+    </ScrollableList>
 </form>
 <ButtonGroup>
     <Button label="Abbrechen" on:click={() => goto(rootRelative('/'))}/>
