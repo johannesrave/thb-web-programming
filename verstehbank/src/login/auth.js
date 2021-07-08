@@ -2,7 +2,7 @@ import { writable, derived } from 'svelte/store';
 import { emptyUser } from '$login/users';
 export const user = writable(emptyUser);
 export let loggedIn = derived(user, ($user) => {
-    if ($user.username === '') {
+    if ($user.username === undefined || $user.username === '') {
         console.log('logged out.');
         return false;
     }

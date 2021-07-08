@@ -7,12 +7,6 @@
     import { goto, rootRelative } from '$util/navigation';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import Button from '$lib/Button.svelte';
-    import { onMount } from 'svelte';
-
-    let finishedMounting: boolean = false;
-    onMount(() => {
-        finishedMounting = true;
-    })
 
     let selectedContact = false;
 
@@ -29,6 +23,7 @@
 
 <h2>Empfänger</h2>
 <form on:submit|preventDefault>
+    {#if ($contacts[$user.username])}
     <ScrollableList>
         <div on:click={() => {
             selectedContact = false;
@@ -53,6 +48,7 @@
             </div>
         {/each}
     </ScrollableList>
+    {/if}
 </form>
 <ButtonGroup>
     <Button label="Abbrechen" on:click={() => goto(rootRelative('/'))}/>

@@ -4,7 +4,7 @@ import { User, emptyUser } from '$login/users';
 export const user = writable<User>(emptyUser);
 
 export let loggedIn = derived(user, ($user) => {
-    if ($user.username === '') {
+    if ($user.username === undefined || $user.username === '') {
         console.log('logged out.')
         return false;
     } else {

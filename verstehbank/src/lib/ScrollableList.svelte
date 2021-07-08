@@ -11,6 +11,8 @@
         border-radius: var(--radius-medium);
         border: solid 1px var(--muted-color);
         height: 18rem;
+        max-height:100%;
+        background-color: white;
     }
 
     .scroll-box {

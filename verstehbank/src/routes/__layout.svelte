@@ -30,6 +30,7 @@
         width: 100vw;
         align-items: end;
         justify-items: center;
-        grid-template-rows: auto min-content;
+        grid-template-rows: 1fr min-content;
+
     }
 </style>
