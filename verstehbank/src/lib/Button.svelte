@@ -1,11 +1,13 @@
 <script lang="ts">
     export let label: string;
+    export let form: string = '';
+
     export let muted: boolean = false;
     export let look: 'primary' | 'secondary' | 'cancel' = 'primary';
 </script>
 
 
-<button type="button" on:click|preventDefault class:muted={muted}>
+<button type="button" on:click|preventDefault class:muted={muted} {form}>
     {label}
 </button>
 

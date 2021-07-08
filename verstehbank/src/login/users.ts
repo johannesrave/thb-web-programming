@@ -1,15 +1,5 @@
 import { writable } from 'svelte/store';
 
-export type User =
-    {
-        username: string,
-        password: string,
-        firstName: string,
-        surName: string
-    }
-
-type UserDB = { [username: string]: User };
-
 let initialUsers: UserDB = {
     beateweber : {
         username : 'beateweber',
@@ -34,7 +24,6 @@ function createUserDB() {
 
     return {
         subscribe,
-        // Einen user zum users-store hinzufügen.
         addUser : (newUser: string, userDetails: User) => update(userDB => {
                 userDB[newUser] = userDetails;
                 return userDB;
@@ -45,3 +34,13 @@ function createUserDB() {
         }
     };
 }
+
+export type User =
+    {
+        username: string,
+        password: string,
+        firstName: string,
+        surName: string
+    }
+
+type UserDB = { [username: string]: User };

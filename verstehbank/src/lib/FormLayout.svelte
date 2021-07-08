@@ -19,9 +19,7 @@
                 [progress] min-content;
 
         display: grid;
-        justify-items: center;
+        /*justify-items: center;*/
         place-items: center;
-
-        border: blue;
     }
 </style>

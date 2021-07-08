@@ -6,9 +6,10 @@
     import FormLayout from '$lib/FormLayout.svelte';
     import Button from '$lib/Button.svelte';
     import { balance } from '$banking/accounts';
+    import Nav from '$lib/Nav.svelte';
 
     let sign;
-    const euroFormat = new Intl.NumberFormat('de-DE', {style: 'currency',currency: 'EUR',});
+    const euroFormat = new Intl.NumberFormat('de-DE', {style : 'currency', currency : 'EUR',});
     let formattedBalance;
 
     // formattierung in Euro inspiriert von
@@ -25,6 +26,7 @@
 
 </script>
 
+<h1>Übersicht</h1>
 <FormLayout>
     <h2 slot="subheader">Ihr Kontostand</h2>
 
@@ -34,6 +36,7 @@
         <Button label="Umsätze" muted="true"/>
     </ButtonGroup>
 </FormLayout>
+<Nav/>
 
 <style>
     .euro {
