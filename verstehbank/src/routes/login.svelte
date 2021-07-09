@@ -21,9 +21,15 @@
     let username: String;
     let password: String;
 
+    // TODO: username custom validity etc
+    // TODO: also, validity for other form fields on other pages
+    // TODO: styling buttons with shadows and icons
+    // TODO: style Check-screen
+    // TODO: nice to have: Tansaction history-page
+    // TODO: move list-item styles to component
+
 
     let attemptLogin = () => {
-
         if($userDB[username]) {
             const userToLogin = $userDB[username];
             console.log(userToLogin);
