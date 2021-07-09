@@ -7,6 +7,7 @@
     import { goto, rootRelative } from '$util/navigation';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import Button from '$lib/Button.svelte';
+    import SelectableItem from '../lib/SelectableItem.svelte';
 
     let selectedContact = false;
 
@@ -19,54 +20,32 @@
         }
         bankingState.set('enterAmount');
     }
+
+    function selectItem(contact){
+        selectedContact = contact;
+        $transactionForm.recipient = selectedContact.name;
+        $transactionForm.iban = selectedContact.iban;
+    }
 </script>
 
 <h2>Empfänger</h2>
 <form on:submit|preventDefault>
     {#if ($contacts[$user.username])}
-    <ScrollableList>
-        <div on:click={() => {
-            selectedContact = false;
-            $transactionForm.recipient = '';
-            $transactionForm.iban = '';
-
-        }} class="option" class:selected={!selectedContact}>
-            Neuer Empfänger
-        </div>
-
-        {#each $contacts[$user.username] as contact}
-            <div on:click={() => {
-                selectedContact = contact;
-                $transactionForm.recipient = selectedContact.name;
-                $transactionForm.iban = selectedContact.iban;
-
-            }} class="option" class:selected={contact.name === selectedContact.name}>
-
-                {contact.name}<br>
-                {contact.bank}<br>
-                {contact.iban}
-            </div>
-        {/each}
-    </ScrollableList>
+        <ScrollableList>
+            <SelectableItem on:click={() => selectItem({name:'', bank:'', iban:''})} selected={'' === selectedContact.name}>
+                <svelte:fragment slot="itemName">Neuen Empfänger anlegen</svelte:fragment>
+            </SelectableItem>
+            {#each $contacts[$user.username] as contact}
+                <SelectableItem on:click={() => selectItem(contact)} selected={contact.name === selectedContact.name}>
+                    <svelte:fragment slot="itemName">{contact.name}</svelte:fragment>
+                    <svelte:fragment slot="line1">{contact.iban}</svelte:fragment>
+                    <svelte:fragment slot="line2">{contact.bank}</svelte:fragment>
+                </SelectableItem>
+            {/each}
+        </ScrollableList>
     {/if}
 </form>
 <ButtonGroup>
     <Button label="Abbrechen" on:click={() => goto(rootRelative('/'))}/>
     <Button label="Weiter" on:click={goToAmount}/>
 </ButtonGroup>
-
-<style>
-    .option {
-        height: 4em;
-        display: flex;
-        flex-flow: column;
-        justify-content: center;
-
-        border: 1px dotted var(--primary-color);
-    }
-
-    .selected {
-        color: white;
-        background-color: var(--primary-color);
-    }
-</style>

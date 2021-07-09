@@ -62,10 +62,12 @@ body {
 
 h1,
 h2,
+h3,
 p {
 	font-weight: 400;
-	color: var(--heading-color);
+	/*color: var(--heading-color);*/
 	margin: 0;
+	padding: 0;
 }
 
 p {
