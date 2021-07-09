@@ -3,10 +3,13 @@
 @import '@fontsource/fira-mono';
 
 /* TODO
-    define font sitzes like suggested in
+    define font sizes like suggested in
     https://css-tricks.com/rems-ems/
     px size in html selector, rem in components, em in subcomponents
     (probably don't need the last one)
+    */
+/* TODO
+    use this file for resets, and define forms in Form component?
     */
 
 :root {
@@ -20,7 +23,7 @@
 	--tertiary-color: #424053;
 	--muted-color: #848484;
 
-	--accent-color: #11d954;
+	--accent-color: #e55b65;
 	--heading-color: rgba(0, 0, 0, 0.7);
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
@@ -28,7 +31,7 @@
 	--column-margin-top: 4rem;
 
 	--font-small: 20px;
-	--font-medium: 28px;
+	--font-medium: 32px;
 	--font-large: 40px;
 
 	--radius-small: 8px;
@@ -48,13 +51,11 @@ html {
 
 body {
 	min-height: 100vh;
-	/*max-height: 100vh;*/
 	margin: 0;
 }
 
 #svelte {
 	min-height: 100vh;
-	/*max-height: 100vh;*/
 	display: flex;
 	flex-direction: column;
 }
@@ -71,19 +72,8 @@ p {
 	line-height: 1.5;
 }
 
-a {
-	/*color: var(--accent-color);*/
-	/*text-decoration: none;*/
-}
-
 a:hover {
 	text-decoration: underline;
-}
-
-input,
-button, button:focus {
-	/*font-size: inherit;*/
-	/*font-family: inherit;*/
 }
 
 button:focus:not(:focus-visible) {
@@ -103,7 +93,14 @@ form {
 	max-height: 100%;
 }
 
+h1 {
+	color: var(--muted-color);
+	font-size: var(--font-medium);
+	font-weight: 700;
+}
+
 h2 {
 	font-size: var(--font-large);
-	font-weight: 600;
+	font-weight: 700;
+	line-height: 1.4rem;
 }

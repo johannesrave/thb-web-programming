@@ -1,21 +1,28 @@
 <section>
-    <slot/>
+    <div>
+        <slot/>
+    </div>
 </section>
 
 <style>
     section {
-        min-width: 280px;
-        min-height: 420px;
         height: 100%;
-        width: 320px;
-        max-width: 90vh;
+        width: 360px;
+        max-width: 100vh;
+        display: flex;
+        flex-flow: column;
+        place-content: center;
+        background-color: #ebebeb;
+    }
+
+    div {
         padding: 16px;
-        gap:16px;
+        min-height: 540px;
+        max-height: 600px;
+        gap: 16px;
         display: grid;
         place-items: center;
         grid-template-rows: min-content min-content auto min-content;
-
-        background-color: #ebebeb;
     }
 
 </style>

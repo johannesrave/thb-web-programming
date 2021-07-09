@@ -32,5 +32,8 @@
         justify-items: center;
         grid-template-rows: 1fr min-content;
 
+        background-image: url("../img/pexels-neosiam-601798.jpg");
+        background-repeat:no-repeat;
+        background-position: center center;
     }
 </style>

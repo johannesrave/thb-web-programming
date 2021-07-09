@@ -61,22 +61,6 @@
         color: var(--pure-white)
     }
 
-    button {
-        /*position: relative;*/
-        /*overflow: hidden;*/
-        /*transition: background 400ms;*/
-
-        /*width: 100%;*/
-        /**/
-        /*font-size: var(--font-medium);*/
-        /*height: 4rem;*/
-        /**/
-        /*color: white;*/
-        /*background-color: var(--primary-color);*/
-        /*border: none;*/
-        /*border-radius: var(--radius-small);*/
-    }
-
     a:hover, button:hover {
         box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.05);
     }
