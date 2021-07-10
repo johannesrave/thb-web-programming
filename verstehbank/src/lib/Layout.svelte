@@ -1,11 +1,14 @@
 <script>
-    import Nav from "$lib/Nav.svelte";
+    import Nav from '$lib/Nav.svelte';
+    import {page} from '$app/stores';
 </script>
-<section>
+<section class="shadow-big">
     <div>
         <slot/>
     </div>
-    <Nav/>
+    {#if $page.path !== '/login'}
+        <Nav/>
+    {/if}
 </section>
 
 <style>
@@ -15,12 +18,12 @@
         max-width: 100vh;
         display: flex;
         flex-flow: column;
-        place-content: center;
+        place-content: end;
         background-color: #ebebeb;
     }
 
     div {
-        padding: 16px;
+        padding: 16px 16px 32px;
         min-height: 540px;
         max-height: 600px;
         gap: 16px;

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { goto, rootRelative } from '$util/navigation';
-    import { loggedIn, logout } from '$login/auth'
+    import { logout } from '$login/auth'
     import { emptyTransaction, transactionForm } from '$banking/bankingForm';
     import { bankingState } from '$banking/bankingState';
 
@@ -18,14 +18,13 @@
 <nav>
     <div>
         <a href="/">Übersicht</a>
-        {#if $loggedIn}
-            <button on:click|preventDefault={logUserOut}>Abmelden</button>
-        {/if}
+        <button on:click|preventDefault={logUserOut}>Abmelden</button>
     </div>
 </nav>
 
 <style>
     nav {
+        justify-self: end;
         align-self: end;
         width: 100%;
         height: 4rem;
@@ -58,7 +57,8 @@
         font-weight: normal;
         font-size: 1.2em;
         text-decoration: underline;
-        color: var(--pure-white)
+        color: var(--pure-white);
+        display: block;
     }
 
     a:hover, button:hover {

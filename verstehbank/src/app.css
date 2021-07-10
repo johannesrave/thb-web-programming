@@ -116,6 +116,11 @@ h2 {
 	filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
 }
 
+.shadow-big {
+	filter: drop-shadow(0 16px 16px rgba(0,0,0,0.3));
+}
+
+
 .card {
 	width: 100%;
 	background-color: white;
