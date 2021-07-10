@@ -29,7 +29,7 @@ function createUserDB() {
                 return userDB;
             }
         ),
-        set : (content) => {
+        set : (content:UserDB) => {
             set(content)
         }
     };

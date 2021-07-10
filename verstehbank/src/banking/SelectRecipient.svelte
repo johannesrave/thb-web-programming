@@ -8,9 +8,8 @@
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import Button from '$lib/Button.svelte';
     import SelectableItem from '$lib/SelectableItem.svelte';
-    import { slide, fly } from 'svelte/transition'
 
-    let selectedContact = false;
+    let selectedContact: Contact = {name : '', bank : '', iban : ''};
 
     let goToAmount = () => {
 
@@ -22,11 +21,13 @@
         bankingState.set('enterAmount');
     }
 
-    function selectItem(contact) {
+    function selectItem(contact: Contact) {
         selectedContact = contact;
-        // $transactionForm.recipient = selectedContact.name;
-        // $transactionForm.iban = selectedContact.iban;
+        $transactionForm.recipient = selectedContact.name;
+        $transactionForm.iban = selectedContact.iban;
     }
+
+    type Contact = { name: string, bank: string, iban: string }
 </script>
 
 <h2>Empfänger</h2>

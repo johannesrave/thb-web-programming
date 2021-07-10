@@ -1,5 +1,5 @@
 import { userDB } from "$login/users";
-import { loggedIn, user } from '$login/auth';
+import { user } from '$login/auth';
 import { browser } from "$app/env";
 
 
@@ -26,7 +26,7 @@ export function initialize(){
     function subscribeAllStores() {
         for (let [key, store] of Object.entries(persistentData)) {
             // console.log(`persistence subscribing to ${key}`);
-            store.subscribe((updatedStore) => {
+            store.subscribe((updatedStore:any) => {
                 localStorage.setItem(key, JSON.stringify(updatedStore));
                 console.log(`saving ${key} to localStorage`);
             })

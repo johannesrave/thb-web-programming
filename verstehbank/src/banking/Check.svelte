@@ -1,12 +1,12 @@
 <!--suppress JSUndeclaredVariable, JSUndeclaredVariable -->
 <script lang="ts">
     import ButtonGroup from '$lib/ButtonGroup.svelte';
-    import { next, back } from '$banking/bankingState';
+    import { back, next } from '$banking/bankingState';
     import { transactionForm } from '$banking/bankingForm';
     import Button from '$lib/Button.svelte';
 
     const euroFormat = new Intl.NumberFormat('de-DE', {style : 'currency', currency : 'EUR',});
-    let formattedAmount;
+    let formattedAmount: string;
 
     // formattierung in Euro inspiriert von
     // https://stackoverflow.com/questions/149055/how-to-format-numbers-as-currency-strings

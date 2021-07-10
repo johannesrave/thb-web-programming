@@ -25,7 +25,7 @@
         finishedMounting = true;
     })
 
-    const handleInput = (event) => {
+    const handleInput = (event:any) => {
         value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
         // onChange(value);
     };

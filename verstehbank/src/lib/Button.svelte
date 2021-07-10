@@ -7,7 +7,7 @@
 </script>
 
 
-<button type="button" on:click|preventDefault class:muted={muted} {form}
+<button type="button" on:click|preventDefault class:muted={muted} {form} {look}
 class="shadow-medium">
     {label}
 </button>

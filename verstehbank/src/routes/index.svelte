@@ -6,11 +6,10 @@
     import Layout from '../lib/Layout.svelte';
     import Button from '$lib/Button.svelte';
     import { balance } from '$banking/accounts';
-    import Nav from '$lib/Nav.svelte';
+    // import Nav from '$lib/Nav.svelte';
 
-    let sign;
     const euroFormat = new Intl.NumberFormat('de-DE', {style : 'currency', currency : 'EUR',});
-    let formattedBalance;
+    let formattedBalance: string;
 
     // formattierung in Euro inspiriert von
     // https://stackoverflow.com/questions/149055/how-to-format-numbers-as-currency-strings
@@ -34,6 +33,6 @@
         <Button label="Überweisung" on:click={gotoBanking}/>
         <Button label="Umsätze" muted="true"/>
     </ButtonGroup>
-<!--    <Nav/>-->
+    <!--    <Nav/>-->
 </Layout>
 

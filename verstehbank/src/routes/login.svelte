@@ -10,16 +10,12 @@
     import Button from '$lib/Button.svelte';
     import Layout from '../lib/Layout.svelte';
 
-    let mounted = false;
-
-
     onMount(() => {
-        mounted = true;
         $pageTitle = 'Anmeldung';
     })
 
-    let username: String;
-    let password: String;
+    let username: string;
+    let password: string;
 
     // TODO: username custom validity etc
     // TODO: also, validity for other form fields on other pages
@@ -31,11 +27,11 @@
     // TODO: try out putting the header into the main bar
 
     let attemptLogin = () => {
-        if($userDB[username]) {
+        if ($userDB[username]) {
             const userToLogin = $userDB[username];
             console.log(userToLogin);
             console.log(`Trying to log in ${userToLogin.username} using ${password}`)
-            const passwordInDB = $userDB[username]['password']
+            const passwordInDB = $userDB[username].password
 
             if (passwordInDB === password) {
                 console.log(`Logging in ${userToLogin.username}`)
@@ -45,7 +41,7 @@
         }
     }
 
-    $: if($loggedIn && browser) {
+    $: if ($loggedIn && browser) {
         console.log(`logged in: ${$loggedIn} going back to dashboard`)
         goto(rootRelative('/'));
     }

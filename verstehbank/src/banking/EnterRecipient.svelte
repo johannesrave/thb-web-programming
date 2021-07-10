@@ -3,7 +3,6 @@
     import { transactionForm } from '$banking/bankingForm';
     import Input from '$lib/Input.svelte';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
-    import Layout from '$lib/Layout.svelte';
     import Button from '$lib/Button.svelte';
     // imported https://github.com/koblas/ibankit-js to validate IBANs
     import { IBAN } from 'ibankit';
