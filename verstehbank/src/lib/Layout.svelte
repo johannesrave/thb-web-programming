@@ -16,9 +16,9 @@
         height: 100%;
         width: 360px;
         max-width: 100vh;
-        display: flex;
-        flex-flow: column;
-        place-content: end;
+        display: grid;
+        /*flex-flow: column;*/
+        /*place-content: end;*/
         background-color: #ebebeb;
     }
 
