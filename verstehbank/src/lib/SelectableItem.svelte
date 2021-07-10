@@ -22,6 +22,7 @@
         display: flex;
         flex-flow: column;
         justify-content: center;
+        width: 100%;
         border: 1px solid var(--muted-color);
         min-height: 4rem;
 
@@ -31,7 +32,7 @@
         margin: 8px;
         display: flex;
         flex-flow: column;
-        gap: 4px;
+        gap: 8px;
     }
 
     .selected, .selected > * {

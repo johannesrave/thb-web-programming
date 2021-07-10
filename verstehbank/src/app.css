@@ -18,7 +18,7 @@
 	--font-mono: 'Fira Mono', monospace;
 	--pure-white: #ffffff;
 
-	--primary-color: #365189;
+	--primary-color: #426ab4;
 	--secondary-color: #494949;
 	--tertiary-color: #424053;
 	--muted-color: #848484;
@@ -105,4 +105,23 @@ h2 {
 	font-size: var(--font-large);
 	font-weight: 700;
 	line-height: 1.4rem;
+}
+
+/* UTLITY CLASSES */
+.shadow-small {
+	filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+}
+
+.shadow-medium {
+	filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+}
+
+.card {
+	width: 100%;
+	background-color: white;
+	border-radius: var(--radius-small);
+	padding: 16px;
+	display: flex;
+	flex-flow: column;
+	gap: 16px;
 }

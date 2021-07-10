@@ -27,7 +27,8 @@
     // TODO: style Check-screen
     // TODO: nice to have: Tansaction history-page
     // TODO: move list-item styles to component
-
+    // TODO: move amount formatting to appropriate package
+    // TODO: try out putting the header into the main bar
 
     let attemptLogin = () => {
         if($userDB[username]) {

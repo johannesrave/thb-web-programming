@@ -6,13 +6,14 @@
 
 <style>
     .container {
-        overflow: hidden;
+        box-sizing: border-box;
+        max-height:100%;
         width: 100%;
         border-radius: var(--radius-medium);
         border: solid 1px var(--muted-color);
         height: 18rem;
-        max-height:100%;
         background-color: white;
+        overflow: hidden;
     }
 
     .scroll-box {

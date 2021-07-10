@@ -38,7 +38,7 @@
 
 </script>
 
-<div>
+<div class="shadow-small">
     <label for={id}>{label}</label>
     <input bind:this={input} {id} {type} {title} {value} {placeholder} {error} class:right-just={rightJust}
            on:input={handleInput} on:change={handleInput} on:blur>

@@ -46,6 +46,6 @@
     {/if}
 </form>
 <ButtonGroup>
-    <Button label="Abbrechen" on:click={() => goto(rootRelative('/'))}/>
+    <Button label="Abbruch" on:click={() => goto(rootRelative('/'))}/>
     <Button label="Weiter" on:click={goToAmount}/>
 </ButtonGroup>

@@ -7,7 +7,8 @@
 </script>
 
 
-<button type="button" on:click|preventDefault class:muted={muted} {form}>
+<button type="button" on:click|preventDefault class:muted={muted} {form}
+class="shadow-medium">
     {label}
 </button>
 
@@ -27,6 +28,7 @@
         background-color: var(--primary-color);
         border: none;
         border-radius: var(--radius-small);
+
     }
 
     .muted {

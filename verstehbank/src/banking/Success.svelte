@@ -14,7 +14,7 @@
 
 <h2>Erfolg</h2>
 <form on:submit|preventDefault>
-    <div>
+    <div class="card">
         Ihre Überweisung wurde abgeschickt.<br>
         Möchten Sie eine weitere Überweisung tätigen?
     </div>
