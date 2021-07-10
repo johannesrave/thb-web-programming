@@ -34,12 +34,6 @@
         <Button label="Überweisung" on:click={gotoBanking}/>
         <Button label="Umsätze" muted="true"/>
     </ButtonGroup>
+<!--    <Nav/>-->
 </Layout>
-<Nav/>
 
-<style>
-    .euro {
-        font-size: var(--font-large);
-        font-weight: bold;
-    }
-</style>

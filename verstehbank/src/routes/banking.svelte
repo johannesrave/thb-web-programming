@@ -4,6 +4,8 @@
     import { pageTitle } from '$util/pageTitle';
     import Nav from '$lib/Nav.svelte';
     import Layout from '../lib/Layout.svelte';
+    import { slide, fly } from 'svelte/transition';
+
 
     onMount(() => {
         $pageTitle = 'Überweisung';
@@ -14,6 +16,6 @@
 </script>
 <Layout>
     <h1>Überweisung</h1>
-    <svelte:component this={bankingStates[$bankingState]}/>
+    <svelte:component out:fly="{{delay: 300, duration: 300}}" this={bankingStates[$bankingState]}/>
+<!--    <Nav/>-->
 </Layout>
-<Nav/>

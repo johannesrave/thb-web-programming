@@ -1,7 +1,12 @@
+<script>
+    import Nav from "./Nav.svelte";
+</script>
+
 <section>
     <div>
         <slot/>
     </div>
+<!--    <Nav/>-->
 </section>
 
 <style>

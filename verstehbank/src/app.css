@@ -125,3 +125,8 @@ h2 {
 	flex-flow: column;
 	gap: 16px;
 }
+
+.euro {
+	 font-size: var(--font-large);
+	 font-weight: bold;
+ }

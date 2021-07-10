@@ -7,7 +7,8 @@
     import { goto, rootRelative } from '$util/navigation';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import Button from '$lib/Button.svelte';
-    import SelectableItem from '../lib/SelectableItem.svelte';
+    import SelectableItem from '$lib/SelectableItem.svelte';
+    import { slide, fly } from 'svelte/transition'
 
     let selectedContact = false;
 
@@ -21,10 +22,10 @@
         bankingState.set('enterAmount');
     }
 
-    function selectItem(contact){
+    function selectItem(contact) {
         selectedContact = contact;
-        $transactionForm.recipient = selectedContact.name;
-        $transactionForm.iban = selectedContact.iban;
+        // $transactionForm.recipient = selectedContact.name;
+        // $transactionForm.iban = selectedContact.iban;
     }
 </script>
 
@@ -32,7 +33,8 @@
 <form on:submit|preventDefault>
     {#if ($contacts[$user.username])}
         <ScrollableList>
-            <SelectableItem on:click={() => selectItem({name:'', bank:'', iban:''})} selected={'' === selectedContact.name}>
+            <SelectableItem on:click={() => selectItem({name:'', bank:'', iban:''})}
+                            selected={'' === selectedContact.name}>
                 <svelte:fragment slot="itemName">Neuen Empfänger anlegen</svelte:fragment>
             </SelectableItem>
             {#each $contacts[$user.username] as contact}

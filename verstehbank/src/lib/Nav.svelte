@@ -15,17 +15,18 @@
 </script>
 
 
-<header>
-    <nav>
+<nav>
+    <div>
         <a href="/">Übersicht</a>
         {#if $loggedIn}
             <button on:click|preventDefault={logUserOut}>Abmelden</button>
         {/if}
-    </nav>
-</header>
+    </div>
+</nav>
 
 <style>
-    header {
+    nav {
+        align-self: end;
         width: 100%;
         height: 4rem;
 
@@ -39,17 +40,16 @@
         background-color: var(--secondary-color);
     }
 
-    nav {
+    div {
         display: flex;
+        place-items: center;
         justify-content: space-between;
         flex: 1;
-        min-width: 280px;
-        width: 40vw;
-        max-width: 400px;
         font-size: var(--font-small);
     }
 
     a, button {
+        height: 100%;
         cursor: pointer;
         background-color: unset;
         border: none;
