@@ -1,6 +1,6 @@
 <script lang="ts">
     import { goto, rootRelative } from '$util/navigation';
-    import { loggedIn, logout } from '$login/auth'
+    import { logout } from '$login/auth'
     import { emptyTransaction, transactionForm } from '$banking/bankingForm';
     import { bankingState } from '$banking/bankingState';
 
@@ -18,15 +18,13 @@
 <nav>
     <div>
         <a href="/">Übersicht</a>
-        {#if $loggedIn}
-            <button on:click|preventDefault={logUserOut}>Abmelden</button>
-        {/if}
+        <button on:click|preventDefault={logUserOut}>Abmelden</button>
     </div>
 </nav>
 
 <style>
     nav {
-        align-self: end;
+        place-self: end;
         width: 100%;
         height: 4rem;
 
@@ -43,7 +41,7 @@
     div {
         display: flex;
         place-items: center;
-        justify-content: space-between;
+        justify-content: space-around;
         flex: 1;
         font-size: var(--font-small);
     }

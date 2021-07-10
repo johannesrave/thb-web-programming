@@ -1,11 +1,14 @@
 <script>
-    import Nav from "$lib/Nav.svelte";
+    import Nav from '$lib/Nav.svelte';
+    import {page} from '$app/stores';
 </script>
 <section>
     <div>
         <slot/>
     </div>
-    <Nav/>
+    {#if $page.path !== '/login'}
+        <Nav/>
+    {/if}
 </section>
 
 <style>
