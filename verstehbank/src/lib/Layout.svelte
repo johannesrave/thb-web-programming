@@ -1,12 +1,11 @@
 <script>
-    import Nav from "./Nav.svelte";
+    import Nav from "$lib/Nav.svelte";
 </script>
-
 <section>
     <div>
         <slot/>
     </div>
-<!--    <Nav/>-->
+    <Nav/>
 </section>
 
 <style>

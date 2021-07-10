@@ -1,6 +1,6 @@
 <script lang="ts">
     import { goto, rootRelative } from '$util/navigation';
-    import { user, loggedIn, logout } from '$login/auth'
+    import { loggedIn, logout } from '$login/auth'
     import { emptyTransaction, transactionForm } from '$banking/bankingForm';
     import { bankingState } from '$banking/bankingState';
 
