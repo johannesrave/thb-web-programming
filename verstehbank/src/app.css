@@ -1,47 +1,57 @@
+/*@import url("rubik-font.css");*/
+@import "https://fonts.googleapis.com/css2?family=Rubik:wght@300..900";
 @import '@fontsource/fira-mono';
 
+/* TODO
+    define font sizes like suggested in
+    https://css-tricks.com/rems-ems/
+    px size in html selector, rem in components, em in subcomponents
+    (probably don't need the last one)
+    */
+/* TODO
+    use this file for resets, and define forms in Form component?
+    */
+
 :root {
-	font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+	font-family: Rubik, Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-mono: 'Fira Mono', monospace;
 	--pure-white: #ffffff;
-	--primary-color: #b9c6d2;
-	--secondary-color: #d0dde9;
-	--tertiary-color: #edf0f8;
-	--accent-color: #ff3e00;
+
+	--primary-color: #224a95;
+	--secondary-color: #494949;
+	--tertiary-color: #424053;
+	--muted-color: #848484;
+
+	--accent-color: #e55b65;
 	--heading-color: rgba(0, 0, 0, 0.7);
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
+
+	--font-small: 20px;
+	--font-medium: 32px;
+	--font-large: 40px;
+
+	--radius-small: 8px;
+	--radius-medium: 16px;
+	--radius-big: 32px;
+
 }
+
+/* box-sizing reset from https://css-tricks.com/box-sizing/ */
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
 
 body {
 	min-height: 100vh;
 	margin: 0;
-	background-color: var(--primary-color);
-	background: linear-gradient(
-		180deg,
-		var(--primary-color) 0%,
-		var(--secondary-color) 10.45%,
-		var(--tertiary-color) 41.35%
-	);
-}
-
-body::before {
-	content: '';
-	width: 80vw;
-	height: 100vh;
-	position: absolute;
-	top: 0;
-	left: 10vw;
-	z-index: -1;
-	background: radial-gradient(
-		50% 50% at 50% 50%,
-		var(--pure-white) 0%,
-		rgba(255, 255, 255, 0) 100%
-	);
-	opacity: 0.05;
 }
 
 #svelte {
@@ -52,57 +62,71 @@ body::before {
 
 h1,
 h2,
+h3,
 p {
 	font-weight: 400;
-	color: var(--heading-color);
+	/*color: var(--heading-color);*/
+	margin: 0;
+	padding: 0;
 }
 
 p {
 	line-height: 1.5;
 }
 
-a {
-	color: var(--accent-color);
-	text-decoration: none;
-}
-
 a:hover {
 	text-decoration: underline;
-}
-
-h1 {
-	font-size: 2rem;
-	margin-bottom: 0 0 1em 0;
-	text-align: center;
-}
-
-h2 {
-	font-size: 1rem;
-}
-
-pre {
-	font-size: 16px;
-	font-family: var(--font-mono);
-	background-color: rgba(255, 255, 255, 0.45);
-	border-radius: 3px;
-	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-	padding: 0.5em;
-	overflow-x: auto;
-	color: var(--text-color);
-}
-
-input,
-button {
-	font-size: inherit;
-	font-family: inherit;
 }
 
 button:focus:not(:focus-visible) {
 	outline: none;
 }
 
-@media (min-width: 720px) {
-	h1 {
-		font-size: 2.4rem;
-	}
+form {
+	display: flex;
+	flex-flow: column;
+
+	align-items: center;
+	justify-content: center;
+
+	gap: 32px;
+	width: 100%;
+	height: 100%;
+	max-height: 100%;
 }
+
+h1 {
+	color: var(--muted-color);
+	font-size: var(--font-medium);
+	font-weight: 700;
+}
+
+h2 {
+	font-size: var(--font-large);
+	font-weight: 700;
+	line-height: 1.4rem;
+}
+
+/* UTLITY CLASSES */
+.shadow-small {
+	filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
+}
+
+.shadow-medium {
+	filter: drop-shadow(0 4px 4px rgba(0,0,0,0.3));
+}
+
+.card {
+	width: 100%;
+	background-color: white;
+	border-radius: var(--radius-small);
+	padding: 16px;
+	display: flex;
+	flex-flow: column;
+	gap: 16px;
+}
+
+.euro {
+	 font-size: var(--font-large);
+	 font-weight: bold;
+ }

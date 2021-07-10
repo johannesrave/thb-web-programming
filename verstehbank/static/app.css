@@ -1,0 +1,106 @@
+/*@import url("rubik-font.css");*/
+@import "https://fonts.googleapis.com/css2?family=Rubik:wght@300..900";
+@import '@fontsource/fira-mono';
+
+/* TODO
+    define font sitzes like suggested in
+    https://css-tricks.com/rems-ems/
+    px size in html selector, rem in components, em in subcomponents
+    (probably don't need the last one)
+    */
+
+:root {
+	font-family: Rubik, Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--font-mono: 'Fira Mono', monospace;
+	--pure-white: #ffffff;
+
+	--primary-color: #365189;
+	--secondary-color: #494949;
+	--tertiary-color: #424053;
+	--muted-color: #848484;
+
+	--accent-color: #11d954;
+	--heading-color: rgba(0, 0, 0, 0.7);
+	--text-color: #444444;
+	--background-without-opacity: rgba(255, 255, 255, 0.7);
+	--column-width: 42rem;
+	--column-margin-top: 4rem;
+
+	--font-small: 20px;
+	--font-medium: 28px;
+	--font-large: 40px;
+
+	--radius-small: 8px;
+	--radius-medium: 16px;
+	--radius-big: 32px;
+
+}
+
+/* box-sizing reset from https://css-tricks.com/box-sizing/ */
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+
+body {
+	min-height: 100vh;
+	margin: 0;
+}
+
+#svelte {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+p {
+	font-weight: 400;
+	color: var(--heading-color);
+	margin: 0;
+}
+
+p {
+	line-height: 1.5;
+}
+
+a {
+	/*color: var(--accent-color);*/
+	/*text-decoration: none;*/
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+input,
+button, button:focus {
+	/*font-size: inherit;*/
+	/*font-family: inherit;*/
+}
+
+button:focus:not(:focus-visible) {
+	outline: none;
+}
+
+form {
+	display: flex;
+	flex-flow: column;
+
+	align-items: center;
+	justify-content: center;
+
+	gap: 32px;
+	width: 100%;
+	height: 100%;
+}
+
+h2 {
+	font-size: var(--font-large);
+	font-weight: 600;
+}

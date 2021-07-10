@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--suppress HtmlRequiredTitleElement -->
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		
+
+		
+
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/start-5f98912d.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/vendor-ddb7f2f5.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/paths-7dc55c62.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/pages/__layout.svelte-cc7df5e2.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/navigation-793afac5.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/pages/login.svelte-31b52725.js">
+		<link rel="modulepreload" href="/~rave/verstehbank/build/_app/chunks/Input-74bf9cf5.js">
+		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/start-a8cd1609.css">
+		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/pages/__layout.svelte-cd152eaa.css">
+		<link rel="stylesheet" href="/~rave/verstehbank/build/_app/assets/Input-ac89ef62.css">
+
+		<script type="module">
+			import { start } from "/~rave/verstehbank/build/_app/start-5f98912d.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"/~rave/verstehbank/build","assets":"/~rave/verstehbank/build"},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/~rave/verstehbank/build/_app/pages/__layout.svelte-cc7df5e2.js"),
+						import("/~rave/verstehbank/build/_app/pages/login.svelte-31b52725.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/login",
+						query: new URLSearchParams(""),
+						params: {}
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div id="svelte">
+
+
+<main class="svelte-1wwgmux"><section class="svelte-1wuovun"><div class="svelte-1wuovun"><h1>Online-Banking</h1>
+    <h2>Anmeldung</h2>
+    <form>
+
+
+
+
+
+
+
+<div class="svelte-1jo6cl5"><label for="newUser" class="svelte-1jo6cl5">Benutzername</label>
+    <input id="newUser" type="text" title="Bitte füllen Sie dieses Feld aus." value="" placeholder="" error="" class="svelte-1jo6cl5">
+</div>
+        
+
+
+
+
+
+
+
+<div class="svelte-1jo6cl5"><label for="password" class="svelte-1jo6cl5">Passwort</label>
+    <input id="password" type="password" title="Bitte füllen Sie dieses Feld aus." value="" placeholder="" error="" class="svelte-1jo6cl5">
+</div></form>
+    <div class="svelte-pio5zw row"><button type="button" form="" class="svelte-16nbzrc">Anmelden
+</button>
+</div></div>
+</section>
+</main>
+
+
+
+	
+</div>
+	</body>
+</html>

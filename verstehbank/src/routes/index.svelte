@@ -1,59 +1,39 @@
-<script context="module" lang="ts">
-	export const prerender = true;
-</script>
-
 <script lang="ts">
-	import Counter from '$lib/Counter/index.svelte';
+    import { goto, rootRelative } from '$util/navigation';
+    import ButtonGroup from '$lib/ButtonGroup.svelte';
+    import { onMount } from 'svelte';
+    import { pageTitle } from '$util/pageTitle';
+    import Layout from '../lib/Layout.svelte';
+    import Button from '$lib/Button.svelte';
+    import { balance } from '$banking/accounts';
+    import Nav from '$lib/Nav.svelte';
+
+    let sign;
+    const euroFormat = new Intl.NumberFormat('de-DE', {style : 'currency', currency : 'EUR',});
+    let formattedBalance;
+
+    // formattierung in Euro inspiriert von
+    // https://stackoverflow.com/questions/149055/how-to-format-numbers-as-currency-strings
+    $: formattedBalance = euroFormat.format($balance);
+
+    onMount(() => {
+        $pageTitle = 'Übersicht';
+    })
+
+    const gotoBanking = () => {
+        goto(rootRelative('/banking'));
+    }
+
 </script>
 
-<svelte:head>
-	<title>Home</title>
-</svelte:head>
+<Layout>
+    <h1>Übersicht</h1>
+    <h2>Ihr Kontostand</h2>
+    <p class:euro={true}>{formattedBalance}</p>
+    <ButtonGroup column="true">
+        <Button label="Überweisung" on:click={gotoBanking}/>
+        <Button label="Umsätze" muted="true"/>
+    </ButtonGroup>
+<!--    <Nav/>-->
+</Layout>
 
-<section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>

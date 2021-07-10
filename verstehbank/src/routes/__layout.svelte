@@ -1,45 +1,39 @@
 <script lang="ts">
-	import Header from '$lib/Header/index.svelte';
-	import '../app.css';
+    import '../app.css';
+    import { onMount } from 'svelte';
+    import { initialize } from '$util/persistence'
+    import { goto, rootRelative } from '$util/navigation';
+    import { loggedIn } from '$login/auth';
+    import { page } from '$app/stores';
+
+    let finishedMounting: boolean = false;
+
+    onMount(() => {
+        initialize();
+        finishedMounting = true;
+    })
+
+    $: if (finishedMounting && !$loggedIn && $page.path !== '/login') {
+        goto(rootRelative('/login'));
+        console.log('Not authenticated, going back to login.');
+    }
 </script>
 
-<Header />
-
 <main>
-	<slot />
+    <slot/>
 </main>
 
-<footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-</footer>
-
 <style>
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 1024px;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
+    main {
+        display: grid;
+        height: 100vh;
+        width: 100vw;
+        align-items: end;
+        justify-items: center;
+        grid-template-rows: 1fr min-content;
 
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 40px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 40px 0;
-		}
-	}
+        background-image: url("../img/pexels-neosiam-601798.jpg");
+        background-repeat:no-repeat;
+        background-position: center center;
+    }
 </style>
