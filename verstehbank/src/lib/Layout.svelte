@@ -19,7 +19,8 @@
         max-width: 100vh;
         display: grid;
         grid-template-rows: 1fr min-content;
-        background-color: #ebebeb;
+        /*background-color: #ebebeb;*/
+        background: radial-gradient(circle at bottom, rgb(203, 212, 219) 0%, rgb(245, 252, 255) 100%);
     }
 
     div {
