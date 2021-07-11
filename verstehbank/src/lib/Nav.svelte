@@ -36,7 +36,8 @@
 
 
         color: white;
-        background-color: var(--secondary-color);
+        /*background-color: var(--secondary-color);*/
+        background: radial-gradient(circle at bottom, rgb(54, 48, 48) 0%, rgb(53, 61, 66) 100%);
     }
 
     div {
