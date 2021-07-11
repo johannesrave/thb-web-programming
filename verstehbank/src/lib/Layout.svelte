@@ -15,7 +15,7 @@
     section {
         place-self: center;
         height: 100%;
-        width: 360px;
+        width: 100%;
         max-width: 100vh;
         display: grid;
         grid-template-rows: 1fr min-content;
@@ -30,8 +30,15 @@
         display: grid;
         place-items: center;
         grid-template-rows: min-content 3rem auto min-content;
-        max-width: 360px;
         margin: auto;
+        max-width: 360px;
+    }
+
+    @media screen and (min-width: 440px) and (min-height: 720px){
+        section {
+
+            width: 360px;
+        }
     }
 
 

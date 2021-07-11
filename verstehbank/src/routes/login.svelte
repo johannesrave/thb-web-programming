@@ -47,7 +47,7 @@
 </script>
 
 <Layout>
-    <Logo fill="gray"/>
+    <Logo fill="#365189"/>
 <!--    <h1>Online-Banking</h1>-->
     <h2>Anmeldung</h2>
     <form on:submit|preventDefault={attemptLogin}>

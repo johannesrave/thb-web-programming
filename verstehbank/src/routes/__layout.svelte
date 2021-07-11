@@ -33,5 +33,6 @@
         background-image: url("../img/pexels-douglas-kugler-4017228.jpg");
         background-repeat:no-repeat;
         background-position: center center;
+        background-size: cover;
     }
 </style>

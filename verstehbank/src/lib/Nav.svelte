@@ -4,6 +4,7 @@
     import { emptyTransaction, transactionForm } from '$banking/bankingForm';
     import { bankingState } from '$banking/bankingState';
     import Logo from '$lib/Logo.svelte';
+    import Icon from './Icon.svelte';
 
     // TODO add icons to  buttons (where from?)
 
@@ -18,8 +19,17 @@
 
 <nav>
     <div class="wrapper">
-        <a href="/"><div class="logo-wrapper"><Logo fill="white" small="true"/></div> Übersicht</a>
-        <button on:click|preventDefault={logUserOut}>Abmelden</button>
+        <a href="/">
+            <div class="logo-wrapper">
+                <Logo fill="white" small="true"/>
+            </div>
+            Übersicht</a>
+        <button on:click|preventDefault={logUserOut}>
+            Abmelden
+            <div class="icon-wrapper">
+                <Icon icon="log-out-outline"/>
+            </div>
+        </button>
     </div>
 </nav>
 
@@ -56,8 +66,6 @@
         font-size: 1.2em;
         text-decoration: none;
         color: var(--pure-white);
-    }
-    a {
         display: flex;
         gap: 12px;
         place-items: center;
@@ -69,7 +77,14 @@
         box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.05);
     }
 
-    .logo-wrapper{
+    .logo-wrapper {
         width: 1.6rem;
+    }
+    .icon-wrapper {
+        width: 2rem;
+        fill: white;
+        display: flex;
+        place-items: center;
+        place-content: center;
     }
 </style>

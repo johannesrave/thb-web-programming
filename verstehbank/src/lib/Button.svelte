@@ -81,6 +81,10 @@
         background-color: var(--muted-color);
     }
 
+    .cancel {
+        background-color: var(--cancel-color);
+    }
+
     button:hover {
         box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.05);
     }
