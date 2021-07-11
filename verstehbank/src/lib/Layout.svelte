@@ -19,7 +19,6 @@
         max-width: 100vh;
         display: grid;
         grid-template-rows: 1fr min-content;
-        /*background-color: #ebebeb;*/
         background: radial-gradient(circle at bottom, rgb(203, 212, 219) 0%, rgb(245, 252, 255) 100%);
     }
 
@@ -30,16 +29,23 @@
         gap: 16px;
         display: grid;
         place-items: center;
-        grid-template-rows: min-content min-content auto min-content;
+        grid-template-rows: min-content 3rem auto min-content;
         max-width: 360px;
         margin: auto;
     }
 
 
-    @media (min-width: 600px) {
+    @media screen and (min-width: 600px) and (min-height: 720px){
         section {
             height: 85vh;
             width: 60%;
+        }
+    }
+
+    @media (min-width: 960px) and (min-height: 720px) {
+        section {
+            height: 85vh;
+            width: 660px;
         }
     }
 

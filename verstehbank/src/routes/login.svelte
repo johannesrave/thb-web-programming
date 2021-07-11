@@ -9,6 +9,7 @@
     import { browser } from '$app/env';
     import Button from '$lib/Button.svelte';
     import Layout from '$lib/Layout.svelte';
+    import Logo from '../lib/Logo.svelte';
 
     onMount(() => {
         $pageTitle = 'Anmeldung';
@@ -46,7 +47,8 @@
 </script>
 
 <Layout>
-    <h1>Online-Banking</h1>
+    <Logo fill="gray"/>
+<!--    <h1>Online-Banking</h1>-->
     <h2>Anmeldung</h2>
     <form on:submit|preventDefault={attemptLogin}>
         <Input bind:value={username} id="newUser" label="Benutzername"/>

@@ -18,7 +18,7 @@
 	--font-mono: 'Fira Mono', monospace;
 	--pure-white: #ffffff;
 
-	--primary-color: #426ab4;
+	--primary-color: #2c60bb;
 	--secondary-color: #494949;
 	--tertiary-color: #424053;
 	--muted-color: #848484;
@@ -65,7 +65,7 @@ h2,
 h3,
 p {
 	font-weight: 400;
-	/*color: var(--heading-color);*/
+	color: var(--heading-color);
 	margin: 0;
 	padding: 0;
 }
@@ -103,7 +103,7 @@ h1 {
 
 h2 {
 	font-size: var(--font-large);
-	font-weight: 700;
+	font-weight: 600;
 	line-height: 1.4rem;
 }
 
