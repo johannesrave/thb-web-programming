@@ -30,8 +30,8 @@
     <h2>Ihr Kontostand</h2>
     <p class:euro={true}>{formattedBalance}</p>
     <ButtonGroup column="true">
-        <Button label="Überweisung" on:click={gotoBanking}/>
-        <Button label="Umsätze" muted="true"/>
+        <Button label="Überweisung" on:click={gotoBanking} icon="paper-plane"/>
+        <Button label="Umsätze" muted="true" icon="edit-2"/>
     </ButtonGroup>
     <!--    <Nav/>-->
 </Layout>

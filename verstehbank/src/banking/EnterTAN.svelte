@@ -49,11 +49,11 @@
         Eine TAN ist ein Einmal-Passwort, das nur aus Zahlen besteht.
     </div>
     <ButtonGroup>
-        <Button label="TAN anfordern" on:click={generateTAN}/>
+        <Button label="TAN anfordern" on:click={generateTAN} icon="keypad"/>
     </ButtonGroup>
     <Input bind:value={$transactionForm.tan} id="tan" type="text" label="TAN" rightJust="true"/>
 </form>
 <ButtonGroup>
-    <Button label="Zurück" on:click={back}/>
-    <Button label="Absenden" on:click={validate}/>
+    <Button label="Zurück" on:click={back} icon="arrow-left" loc="l"/>
+    <Button label="Senden" on:click={validate} icon="checkmark-circle-outline"/>
 </ButtonGroup>

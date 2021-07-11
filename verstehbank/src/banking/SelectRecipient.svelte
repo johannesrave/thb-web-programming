@@ -49,6 +49,6 @@
     {/if}
 </form>
 <ButtonGroup>
-    <Button label="Abbruch" on:click={() => goto(rootRelative('/'))}/>
+    <Button label="Abbruch" on:click={() => goto(rootRelative('/'))} icon="undo-outline" loc="l"/>
     <Button label="Weiter" on:click={goToAmount}/>
 </ButtonGroup>

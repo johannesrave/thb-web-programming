@@ -4,6 +4,7 @@
     import { bankingState, back } from '$banking/bankingState';
     import { goto, rootRelative } from '$util/navigation';
     import Button from '../lib/Button.svelte';
+    import Icon from '../lib/Icon.svelte';
 
     let toDashboard = () => {
         $bankingState = 'selectRecipient';
@@ -14,12 +15,18 @@
 
 <h2>Erfolg</h2>
 <form on:submit|preventDefault>
-    <div class="card">
-        Ihre Überweisung wurde abgeschickt.<br>
-        Möchten Sie eine weitere Überweisung tätigen?
+    <div>
+        <Icon icon="checkmark-circle-outline"/>
     </div>
 </form>
 <ButtonGroup slot="button-group" column="true">
-    <Button label="Weitere Überweisung" on:click={back}/>
-    <Button label="Zurück zur Übersicht" on:click={toDashboard}/>
+    <Button label="Neue Überweisung" on:click={back} icon="repeat-outline" loc="l"/>
+    <Button label="Zur Übersicht" on:click={toDashboard} icon="corner-right-up-outline"/>
 </ButtonGroup>
+
+
+<style>
+    div {
+        fill: #7fcb6b;
+    }
+</style>

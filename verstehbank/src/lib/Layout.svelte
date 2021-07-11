@@ -31,7 +31,7 @@
         place-items: center;
         grid-template-rows: min-content 3rem auto min-content;
         margin: auto;
-        max-width: 360px;
+        width: 340px;
     }
 
     @media screen and (min-width: 440px) and (min-height: 720px){
