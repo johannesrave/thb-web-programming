@@ -13,17 +13,19 @@
 
 <style>
     section {
+        place-self: center;
         height: 100%;
         width: 360px;
         max-width: 100vh;
         display: grid;
+        grid-template-rows: 1fr min-content;
         background-color: #ebebeb;
     }
 
     div {
         padding: 16px 16px 32px;
-        min-height: 540px;
-        max-height: 600px;
+        height: 540px;
+        min-height: 480px;
         gap: 16px;
         display: grid;
         place-items: center;
@@ -33,10 +35,10 @@
     }
 
 
-    @media (min-width: 900px) {
+    @media (min-width: 600px) {
         section {
-            height: 80%;
-            width: 40vw;
+            height: 85vh;
+            width: 60%;
         }
     }
 

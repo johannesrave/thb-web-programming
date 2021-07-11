@@ -25,14 +25,10 @@
 
 <style>
     main {
-        display: flex;
+        display: grid;
         height: 100vh;
         width: 100vw;
-        place-content: center;
-        place-items: center;
-        /*align-items: end;*/
-        /*justify-items: center;*/
-        grid-template-rows: 1fr min-content;
+        justify-items: center;
 
         background-image: url("../img/pexels-douglas-kugler-4017228.jpg");
         background-repeat:no-repeat;
