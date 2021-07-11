@@ -37,7 +37,6 @@
 
     @media screen and (min-width: 440px) and (min-height: 720px) {
         section {
-
             width: 360px;
         }
     }

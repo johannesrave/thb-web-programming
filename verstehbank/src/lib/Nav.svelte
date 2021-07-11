@@ -18,20 +18,18 @@
 
 
 <nav>
-    <div class="wrapper">
-        <a href={rootRelative('/')}>
-            <div class="logo-wrapper">
-                <Logo fill="white" small="true"/>
-            </div>
-            Übersicht
-        </a>
-        <button on:click|preventDefault={logUserOut}>
-            Abmelden
-            <div class="icon-wrapper">
-                <Icon icon="log-out-outline"/>
-            </div>
-        </button>
-    </div>
+    <a href={rootRelative('/')}>
+        <div class="logo-wrapper">
+            <Logo fill="white" small="true"/>
+        </div>
+        Übersicht
+    </a>
+    <button on:click|preventDefault={logUserOut}>
+        Abmelden
+        <div class="icon-wrapper">
+            <Icon icon="log-out-outline"/>
+        </div>
+    </button>
 </nav>
 
 <style>
@@ -40,21 +38,11 @@
         align-self: end;
         width: 100%;
         display: grid;
-        grid-auto-flow: column;
+        grid-template-columns: 1fr 1fr;
         place-items: center;
         background: radial-gradient(circle at bottom, rgb(54, 48, 48) 0%, rgb(53, 61, 66) 100%);
-    }
-
-    .wrapper {
-        width: 80%;
-        /*height: 100%;*/
         height: 4rem;
-        display: grid;
-        grid-auto-columns: 1fr;
-        grid-auto-flow: column;
-        align-content: center;
-        gap: 32px;
-        font-size: var(--font-small);
+        fill: white;
     }
 
     a, button {
@@ -64,13 +52,19 @@
         font: inherit;
         font-family: Rubik, sans-serif;
         font-weight: normal;
-        font-size: 1.2em;
+    }
+
+    a, button {
+        width: 100%;
+        height: 100%;
+        font-size: 1.4em;
         text-decoration: none;
         color: var(--pure-white);
         display: flex;
         gap: 12px;
         place-items: center;
         place-content: center;
+        /*white-space: nowrap;*/
     }
 
     a:hover, button:hover {
@@ -79,12 +73,12 @@
     }
 
     .logo-wrapper {
+        display: inline-block;
         width: 1.6rem;
     }
 
     .icon-wrapper {
         width: 2rem;
-        fill: white;
         display: flex;
         place-items: center;
         place-content: center;
