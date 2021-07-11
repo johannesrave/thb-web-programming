@@ -21,21 +21,19 @@
     .option {
         display: flex;
         flex-flow: column;
-        justify-content: center;
-        width: 100%;
         border: 1px solid var(--muted-color);
         min-height: 4rem;
 
     }
 
     .wrapper {
-        margin: 8px;
+        margin: 8px 16px;
         display: flex;
         flex-flow: column;
         gap: 8px;
     }
 
-    .selected, .selected > * {
+    .selected, .selected * {
         color: white;
         background-color: var(--primary-color);
     }
