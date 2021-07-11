@@ -1,8 +1,9 @@
 <script lang="ts">
     import Icon from '$lib/Icon.svelte';
+    import type { Icons } from '$lib/Icon.svelte';
 
     export let label: string;
-    export let icon: string;
+    export let icon: Icons =  "arrow-right";
     export let loc: 'r' | 'l' | 't' | 'b' = 'r';
 
     export let form: string = '';
@@ -44,6 +45,7 @@
                 ". t ." 1fr
                 "l c r" auto
                 ". b ." 1fr / 1fr auto 1fr;
+        gap: 8px;
     }
 
     .label {

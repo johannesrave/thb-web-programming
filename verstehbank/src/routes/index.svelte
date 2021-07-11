@@ -3,7 +3,7 @@
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import { onMount } from 'svelte';
     import { pageTitle } from '$util/pageTitle';
-    import Layout from '../lib/Layout.svelte';
+    import Layout from '$lib/Layout.svelte';
     import Button from '$lib/Button.svelte';
     import { balance } from '$banking/accounts';
     // import Nav from '$lib/Nav.svelte';

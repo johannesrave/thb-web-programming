@@ -1,5 +1,5 @@
 <script lang="ts">
-    export let icon: Icon = "arrow-right";
+    export let icon: Icons = "arrow-right";
 
     import ArrowBack from '$lib/icons/arrow-ios-back-outline.svelte';
     import ArrowForward from '$lib/icons/arrow-ios-forward-outline.svelte';
@@ -32,7 +32,7 @@
      "upload":Upload,
     }
 
-    type Icon = keyof typeof icons;
+    export type Icons = keyof typeof icons;
 </script>
 
 <svelte:component this={icons[icon]}/>

@@ -8,7 +8,7 @@
     import { pageTitle } from '$util/pageTitle';
     import { browser } from '$app/env';
     import Button from '$lib/Button.svelte';
-    import Layout from '../lib/Layout.svelte';
+    import Layout from '$lib/Layout.svelte';
 
     onMount(() => {
         $pageTitle = 'Anmeldung';
@@ -20,11 +20,8 @@
     // TODO: username custom validity etc
     // TODO: also, validity for other form fields on other pages
     // TODO: styling buttons with shadows and icons
-    // TODO: style Check-screen
     // TODO: nice to have: Tansaction history-page
-    // TODO: move list-item styles to component
     // TODO: move amount formatting to appropriate package
-    // TODO: try out putting the header into the main bar
 
     let attemptLogin = () => {
         if ($userDB[username]) {
@@ -56,6 +53,6 @@
         <Input bind:value={password} id="password" label="Passwort" type="password"/>
     </form>
     <ButtonGroup>
-        <Button label="Anmelden" on:click={attemptLogin}/>
+        <Button label="Anmelden" on:click={attemptLogin} loc="r" icon="log-in-outline"/>
     </ButtonGroup>
 </Layout>
