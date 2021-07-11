@@ -40,10 +40,14 @@
     }
 
     div {
-        display: flex;
-        place-items: center;
-        justify-content: space-between;
-        flex: 1;
+        width: 80%;
+        height: 100%;
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-auto-flow: column;
+        align-content: center;
+        justify-items: center;
+        gap: 32px;
         font-size: var(--font-small);
     }
 
@@ -58,7 +62,6 @@
         font-size: 1.2em;
         text-decoration: underline;
         color: var(--pure-white);
-        display: block;
     }
 
     a:hover, button:hover {

@@ -17,8 +17,6 @@
         width: 360px;
         max-width: 100vh;
         display: grid;
-        /*flex-flow: column;*/
-        /*place-content: end;*/
         background-color: #ebebeb;
     }
 
@@ -30,6 +28,16 @@
         display: grid;
         place-items: center;
         grid-template-rows: min-content min-content auto min-content;
+        max-width: 360px;
+        margin: auto;
+    }
+
+
+    @media (min-width: 900px) {
+        section {
+            height: 80%;
+            width: 40vw;
+        }
     }
 
 </style>

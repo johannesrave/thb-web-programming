@@ -25,14 +25,16 @@
 
 <style>
     main {
-        display: grid;
+        display: flex;
         height: 100vh;
         width: 100vw;
-        align-items: end;
-        justify-items: center;
+        place-content: center;
+        place-items: center;
+        /*align-items: end;*/
+        /*justify-items: center;*/
         grid-template-rows: 1fr min-content;
 
-        background-image: url("../img/pexels-neosiam-601798.jpg");
+        background-image: url("../img/pexels-douglas-kugler-4017228.jpg");
         background-repeat:no-repeat;
         background-position: center center;
     }
