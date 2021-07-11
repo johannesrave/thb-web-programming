@@ -27,10 +27,10 @@
         padding: 16px 16px 32px;
         height: 540px;
         min-height: 480px;
-        gap: 16px;
+        gap: 32px;
         display: grid;
         place-items: center;
-        grid-template-rows: min-content 3rem auto min-content;
+        grid-template-rows: min-content 3rem 1fr min-content;
         margin: auto;
         width: 340px;
     }
