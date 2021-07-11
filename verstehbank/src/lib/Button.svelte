@@ -13,7 +13,7 @@
 </script>
 
 
-<button class="shadow-medium {look}" class:muted={muted} {form} on:click|preventDefault
+<button class="shadow-medium {look}" {form} on:click|preventDefault
         type="button">
     <div class="icon {loc}">
         <Icon {icon}/>
@@ -32,7 +32,7 @@
 
         width: 100%;
 
-        font-size: 28px;
+        font-size: 24px;
         height: 4rem;
 
         color: white;
@@ -75,6 +75,10 @@
 
     .b {
         grid-area: b;
+    }
+
+    .primary {
+        background-color: var(--primary-color);
     }
 
     .muted {

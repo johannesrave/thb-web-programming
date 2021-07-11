@@ -19,11 +19,12 @@
 
 <nav>
     <div class="wrapper">
-        <a href="/">
+        <a href={rootRelative('/')}>
             <div class="logo-wrapper">
                 <Logo fill="white" small="true"/>
             </div>
-            Übersicht</a>
+            Übersicht
+        </a>
         <button on:click|preventDefault={logUserOut}>
             Abmelden
             <div class="icon-wrapper">
@@ -80,6 +81,7 @@
     .logo-wrapper {
         width: 1.6rem;
     }
+
     .icon-wrapper {
         width: 2rem;
         fill: white;

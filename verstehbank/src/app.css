@@ -1,6 +1,4 @@
-/*@import url("rubik-font.css");*/
 @import "https://fonts.googleapis.com/css2?family=Rubik:wght@300..900";
-/*@import '@fontsource/fira-mono';*/
 
 /* TODO
     define font sizes like suggested in
@@ -31,7 +29,7 @@
 	--column-margin-top: 4rem;
 
 	--font-small: 20px;
-	--font-medium: 32px;
+	--font-medium: 28px;
 	--font-large: 40px;
 
 	--radius-small: 8px;

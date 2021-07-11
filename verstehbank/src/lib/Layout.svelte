@@ -2,6 +2,7 @@
     import Nav from '$lib/Nav.svelte';
     import {page} from '$app/stores';
 </script>
+
 <section class="shadow-big">
     <div>
         <slot/>
@@ -34,15 +35,14 @@
         width: 340px;
     }
 
-    @media screen and (min-width: 440px) and (min-height: 720px){
+    @media screen and (min-width: 440px) and (min-height: 720px) {
         section {
 
             width: 360px;
         }
     }
 
-
-    @media screen and (min-width: 600px) and (min-height: 720px){
+    @media screen and (min-width: 600px) and (min-height: 720px) {
         section {
             height: 85vh;
             width: 60%;

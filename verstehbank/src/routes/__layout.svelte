@@ -5,6 +5,8 @@
     import { goto, rootRelative } from '$util/navigation';
     import { loggedIn } from '$login/auth';
     import { page } from '$app/stores';
+    import background from '$lib/assets/pexels-douglas-kugler-4017228.jpg';
+
 
     let finishedMounting: boolean = false;
 
@@ -21,6 +23,7 @@
 
 <main>
     <slot/>
+    <img src="{background}" alt="Ein Bild vom vom blauen Himmel mit Wolken">
 </main>
 
 <style>
@@ -30,9 +33,14 @@
         width: 100vw;
         justify-items: center;
 
-        background-image: url("/img/pexels-douglas-kugler-4017228.jpg");
-        background-repeat:no-repeat;
-        background-position: center center;
-        background-size: cover;
+    }
+
+    img {
+        object-fit: cover;
+        position: fixed;
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        z-index: -5;
     }
 </style>

@@ -23,6 +23,9 @@ const config = {
         paths: {
             base: base
         },
+        files:{
+            assets: 'static'
+        },
         vite: {
             resolve: {
                 alias: {
