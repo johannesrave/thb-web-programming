@@ -1,5 +1,10 @@
 <script lang="ts">
+    import Icon from '$lib/Icon.svelte';
+
     export let label: string;
+    export let icon: string;
+    export let loc: 'r' | 'l' | 't' | 'b' = 'r';
+
     export let form: string = '';
 
     export let muted: boolean = false;
@@ -7,9 +12,14 @@
 </script>
 
 
-<button type="button" on:click|preventDefault class:muted={muted} {form} {look}
-class="shadow-medium">
-    {label}
+<button class="shadow-medium {look}" class:muted={muted} {form} on:click|preventDefault
+        type="button">
+    <div class="icon {loc}">
+        <Icon {icon}/>
+    </div>
+    <div class="label">
+        {label}
+    </div>
 </button>
 
 <style>
@@ -29,6 +39,40 @@ class="shadow-medium">
         border: none;
         border-radius: var(--radius-small);
 
+        display: grid;
+        grid-template:
+                ". t ." 1fr
+                "l c r" auto
+                ". b ." 1fr / 1fr auto 1fr;
+    }
+
+    .label {
+        grid-area: c;
+    }
+
+    .icon {
+        /*display: flex;*/
+        height: 2rem;
+        width: 2rem;
+        fill: white;
+    }
+
+    .r {
+        grid-area: r;
+        justify-self: left;
+    }
+
+    .l {
+        grid-area: l;
+        justify-self: right;
+    }
+
+    .t {
+        grid-area: t;
+    }
+
+    .b {
+        grid-area: b;
     }
 
     .muted {
