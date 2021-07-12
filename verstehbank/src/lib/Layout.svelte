@@ -24,25 +24,27 @@
     }
 
     div {
+        /*width: 100%;*/
         padding: 32px 16px 64px;
         gap: 32px;
         display: grid;
         grid-template-rows: min-content 3rem 1fr min-content;
-        grid-template-columns: 340px;
+        grid-template-columns: 330px;
         place-items: center;
         place-content: center;
+        margin: 0 auto;
     }
 
     @media screen and (min-width: 440px) and (min-height: 720px) {
         section {
-            width: 360px;
+            width: 380px;
         }
     }
 
     @media screen and (min-width: 600px) and (min-height: 720px) {
         section {
             height: 85vh;
-            width: 60%;
+            width: 60vw;
         }
     }
 

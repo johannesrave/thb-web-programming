@@ -1,11 +1,9 @@
 <script lang="ts">
     import { goto, rootRelative } from '$util/navigation';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
-    import { onMount } from 'svelte';
     import Layout from '$lib/Layout.svelte';
     import Button from '$lib/Button.svelte';
     import { balance } from '$banking/accounts';
-    // import Nav from '$lib/Nav.svelte';
 
     const euroFormat = new Intl.NumberFormat('de-DE', {style : 'currency', currency : 'EUR',});
     let formattedBalance: string;
