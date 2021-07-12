@@ -20,13 +20,15 @@
     </div>
 </form>
 <ButtonGroup slot="button-group" column="true">
-    <Button label="Neue Überweisung" on:click={back} icon="repeat-outline" loc="l"/>
-    <Button label="Zur Übersicht" on:click={toDashboard} icon="corner-right-up-outline"/>
+    <Button label="Neue Überweisung" on:click={back} icon="repeat-outline"/>
+    <Button label="Zur Übersicht" on:click={toDashboard} icon="corner-right-up-outline" look="muted"/>
 </ButtonGroup>
 
 
 <style>
     div {
         fill: #7fcb6b;
+        width: 200px;
+        height: auto;
     }
 </style>

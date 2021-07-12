@@ -26,8 +26,7 @@
     <p class:euro={true}>{formattedBalance}</p>
     <ButtonGroup column="true">
         <Button label="Überweisung" on:click={gotoBanking} icon="paper-plane"/>
-        <Button label="Umsätze" muted="true" icon="edit-2"/>
+        <Button label="Umsätze" muted="true" icon="edit-2" look="muted"/>
     </ButtonGroup>
-    <!--    <Nav/>-->
 </Layout>
 

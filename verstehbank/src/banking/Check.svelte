@@ -16,7 +16,7 @@
 
 <h2>Kontrolle</h2>
 <form on:submit|preventDefault>
-    <p>Sind diese Angaben korrekt?</p>
+<!--    <p>Sind diese Angaben korrekt?</p>-->
     <div class="shadow-small card">
         <div>
             <p class="header">Empfänger:</p>
@@ -33,7 +33,7 @@
     </div>
 </form>
 <ButtonGroup>
-    <Button label="Zurück" on:click={back} icon="arrow-left" loc="l"/>
+    <Button label="Zurück" on:click={back} icon="arrow-left" loc="l" look="muted"/>
     <Button label="Weiter" on:click={next}/>
 </ButtonGroup>
 

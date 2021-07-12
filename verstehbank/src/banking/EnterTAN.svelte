@@ -54,6 +54,6 @@
     <Input bind:value={$transactionForm.tan} id="tan" type="text" label="TAN" rightJust="true"/>
 </form>
 <ButtonGroup>
-    <Button label="Zurück" on:click={back} icon="arrow-left" loc="l"/>
+    <Button label="Zurück" on:click={back} icon="arrow-left" loc="l" look="muted"/>
     <Button label="Senden" on:click={validate} icon="checkmark-circle-outline"/>
 </ButtonGroup>

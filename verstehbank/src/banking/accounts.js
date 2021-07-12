@@ -94,10 +94,12 @@ export const contacts = derived(account, ($account) => {
     if (!$account)
         return;
     console.log($account);
-    return $account.transactions.map(trans => trans.contact).reduce((contacts, contact) => {
-        contacts.push(contact);
+    return $account.transactions
+        .map(trans => trans.contact)
+        .reduce((contacts, contact) => {
+        contacts.add(contact);
         console.log(`adding ${contact} to ${contacts}`);
         return contacts;
-    }, []);
+    }, new Set());
 });
 //# sourceMappingURL=accounts.js.map

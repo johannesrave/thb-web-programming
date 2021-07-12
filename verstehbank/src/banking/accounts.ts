@@ -94,15 +94,17 @@ export const balance: Readable<number> = derived(account,
         });
     });
 
-export const contacts: Readable<Contact[]> = derived(account,
+export const contacts: Readable<Set<Contact>> = derived(account,
     ($account) => {
         console.log('deriving contacts')
         if (!$account) return;
         console.log($account);
-        return $account.transactions.map(trans => trans.contact).reduce((contacts: Contact[], contact) => {contacts.push(contact)
+        return $account.transactions
+            .map(trans => trans.contact)
+            .reduce((contacts: Set<Contact>, contact) => {contacts.add(contact)
             console.log(`adding ${contact} to ${contacts}`)
             return contacts;
-        }, []);
+        }, new Set<Contact>());
     });
 
 export type Transaction = {

@@ -19,7 +19,8 @@
 	--primary-color: #2c60bb;
 	--secondary-color: #494949;
 	--tertiary-color: #424053;
-	--muted-color: #848484;
+	--muted-color: #454545;
+	--cancel-color: #c25252;
 
 	--accent-color: #e55b65;
 	--heading-color: rgba(0, 0, 0, 0.7);
@@ -27,6 +28,7 @@
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
+	--font-color-muted: #7d7d7d;
 
 	--font-small: 20px;
 	--font-medium: 28px;
@@ -89,11 +91,12 @@ form {
 
 	gap: 32px;
 	width: 100%;
-	/*height: 100%;*/
+	max-width: 100%;
+	height: 100%;
 }
 
 h1 {
-	color: var(--muted-color);
+	color: var(--font-color-muted);
 	font-size: var(--font-medium);
 	font-weight: 550;
 }

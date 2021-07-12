@@ -1,13 +1,12 @@
 <script lang="ts">
-    import ScrollableList from '$lib/ScrollableList.svelte';
     import { contacts } from '$banking/accounts';
-    import { user } from '$login/auth';
-    import { bankingState, next } from '$banking/bankingState';
+    import { next } from '$banking/bankingState';
     import { transactionForm } from '$banking/bankingForm';
     import { goto, rootRelative } from '$util/navigation';
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import Button from '$lib/Button.svelte';
     import SelectableItem from '$lib/SelectableItem.svelte';
+    import ScrollableList from '$lib/ScrollableList.svelte';
 
     let selectedContact: Contact = {name : '', bank : '', iban : ''};
 
@@ -28,7 +27,7 @@
                             selected={'' === selectedContact.name}>
                 <svelte:fragment slot="itemName">Neuen Empfänger anlegen</svelte:fragment>
             </SelectableItem>
-            {#each $contacts as contact}
+            {#each [...$contacts] as contact}
                 <SelectableItem on:click={() => selectItem(contact)} selected={contact.name === selectedContact.name}>
                     <svelte:fragment slot="itemName">{contact.name}</svelte:fragment>
                     <svelte:fragment slot="line1">{contact.iban}</svelte:fragment>
@@ -39,6 +38,6 @@
     {/if}
 </form>
 <ButtonGroup>
-    <Button label="Abbruch" on:click={() => goto(rootRelative('/'))} icon="undo-outline" loc="l"/>
+    <Button label="Abbruch" on:click={() => goto(rootRelative('/'))} icon="undo-outline" loc="l" look="cancel"/>
     <Button label="Weiter" on:click={next}/>
 </ButtonGroup>

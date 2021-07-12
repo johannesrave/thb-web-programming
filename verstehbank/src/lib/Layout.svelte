@@ -24,15 +24,13 @@
     }
 
     div {
-        padding: 16px 16px 32px;
-        height: 540px;
-        min-height: 480px;
+        padding: 32px 16px 64px;
         gap: 32px;
         display: grid;
-        place-items: center;
         grid-template-rows: min-content 3rem 1fr min-content;
-        margin: auto;
-        width: 340px;
+        grid-template-columns: 340px;
+        place-items: center;
+        place-content: center;
     }
 
     @media screen and (min-width: 440px) and (min-height: 720px) {

@@ -58,6 +58,6 @@
            id="iban" label="IBAN"/>
 </form>
 <ButtonGroup>
-    <Button label="Zurück" on:click={back} icon="arrow-left" loc="l"/>
+    <Button label="Zurück" on:click={back} icon="arrow-left" loc="l" look="muted"/>
     <Button label="Weiter" on:click={submit}/>
 </ButtonGroup>
