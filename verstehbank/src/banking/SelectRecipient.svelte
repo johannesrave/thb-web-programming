@@ -11,6 +11,8 @@
 
     let selectedContact: Contact = {name : '', bank : '', iban : ''};
 
+    // TODO: make "select recipient" go to "enter recipient" anyway (instead of jumping to "enter amount") with prefilled fields
+
     let goToAmount = () => {
 
         if (!selectedContact) {

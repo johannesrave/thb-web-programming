@@ -7,16 +7,16 @@
     import { browser } from '$app/env';
     import Button from '$lib/Button.svelte';
     import Layout from '$lib/Layout.svelte';
-    import Logo from '../lib/Logo.svelte';
+    import Logo from '$lib/Logo.svelte';
 
     let username: string;
     let password: string;
 
     // TODO: username custom validity etc
     // TODO: also, validity for other form fields on other pages
-    // TODO: styling buttons with shadows and icons
     // TODO: nice to have: Tansaction history-page
     // TODO: move amount formatting to appropriate package
+    // TODO: derive contacts from transaction history
 
     let attemptLogin = () => {
         if ($userDB[username]) {

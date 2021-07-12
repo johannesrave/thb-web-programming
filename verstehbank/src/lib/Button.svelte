@@ -31,7 +31,6 @@
         cursor: pointer;
 
         width: 100%;
-
         font-size: 24px;
         height: 4rem;
 
@@ -46,6 +45,7 @@
                 "l c r" auto
                 ". b ." 1fr / 1fr auto 1fr;
         gap: 8px;
+        place-items: center;
     }
 
     .label {
@@ -53,7 +53,6 @@
     }
 
     .icon {
-        /*display: flex;*/
         height: 2rem;
         width: 2rem;
         fill: white;

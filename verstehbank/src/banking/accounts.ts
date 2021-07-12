@@ -40,12 +40,23 @@ export const balance: Readable<number> = derived(account,
     ($account) => {
         console.log('deriving balance')
         if (!$account) return;
-        console.log($account)
+        console.log($account);
         return $account.transactions.map(trans => trans.amount).reduce((sum, n) => {
             console.log(`adding ${n} to ${sum}`)
             console.log(`new sum: ${sum + n}`)
             return sum + n;
         });
+    });
+
+export const contacts: Readable<Contact[]> = derived(account,
+    ($account) => {
+        console.log('deriving contacts')
+        if (!$account) return;
+        console.log($account);
+        return $account.transactions.map(trans => trans.contact).reduce((contacts: Contact[], contact) => {contacts.push(contact)
+            console.log(`adding ${contact} to ${contacts}`)
+            return contacts;
+        }, []);
     });
 
 export type Transaction = {

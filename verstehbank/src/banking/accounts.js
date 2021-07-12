@@ -43,4 +43,15 @@ export const balance = derived(account, ($account) => {
         return sum + n;
     });
 });
+export const contacts = derived(account, ($account) => {
+    console.log('deriving contacts');
+    if (!$account)
+        return;
+    console.log($account);
+    return $account.transactions.map(trans => trans.contact).reduce((contacts, contact) => {
+        contacts.push(contact);
+        console.log(`adding ${contact} to ${contacts}`);
+        return contacts;
+    }, []);
+});
 //# sourceMappingURL=accounts.js.map

@@ -1,10 +1,12 @@
-import { userDB } from "$login/users";
+import { userDB } from '$login/users';
 import { user } from '$login/auth';
+import { accountDB } from '$banking/accounts';
 import { browser } from "$app/env";
 
 
 const persistentData = {
     "userDB" : userDB,
+    "accountDB" : accountDB,
     "user" : user
 }
 
