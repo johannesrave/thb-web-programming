@@ -1,3 +1,6 @@
+/** @deprecated Kontakte errechnen sich inzwischen stattdessen aus dem accounts-store.
+ *
+ */
 import { writable } from 'svelte/store';
 const initialContacts = {
     beateweber: [

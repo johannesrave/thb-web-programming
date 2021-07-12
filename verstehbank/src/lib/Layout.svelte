@@ -18,6 +18,7 @@
         height: 100%;
         width: 100%;
         max-width: 100vh;
+        /*max-height:720px;*/
         display: grid;
         grid-template-rows: 1fr min-content;
         background: radial-gradient(circle at bottom, rgb(203, 212, 219) 0%, rgb(245, 252, 255) 100%);
@@ -55,4 +56,11 @@
         }
     }
 
+
+    /*@media (min-height: 840px) {*/
+    /*    section {*/
+    /*        height: 720px;*/
+    /*        width: 660px;*/
+    /*    }*/
+    /*}*/
 </style>
