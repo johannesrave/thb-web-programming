@@ -7,9 +7,10 @@
     // imported https://github.com/koblas/ibankit-js to validate IBANs
     import { IBAN } from 'ibankit';
 
-    let recipient: string = '';
+    let recipient: string = $transactionForm.recipient;
+    let iban: string = $transactionForm.iban;
+
     let recipientError: string = 'Bitte geben Sie den Namen des Empfängers ein.';
-    let iban: string = '';
     let ibanError: string = 'Bitte geben Sie die IBAN des Empfängers ein.';
 
     const validateRecpient = () => {

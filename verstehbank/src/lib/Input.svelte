@@ -2,7 +2,7 @@
 <!--https://svelte.dev/repl/31ee5896ee5c4364bf6d73538c895bd5?version=3.14.1-->
 
 <!--suppress XmlInvalidId -->
-<script lang="ts" context="module">
+<script context="module" lang="ts">
     let idCounter: number = 0
 </script>
 
@@ -17,20 +17,21 @@
     export let placeholder: string = '';
     export let error: string = '';
     export let title: string = 'Bitte füllen Sie dieses Feld aus.';
+    export let currency: boolean = false;
 
     export let rightJust: boolean = false;
-
     let finishedMounting: boolean = false;
+
     onMount(() => {
         finishedMounting = true;
     })
 
-    const handleInput = (event:any) => {
+    const handleInput = (event: any) => {
         value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
         // onChange(value);
     };
 
-    $:if(finishedMounting && error){
+    $:if (finishedMounting && error) {
         console.log(error)
         input.setCustomValidity(error);
         input.reportValidity();
@@ -40,14 +41,23 @@
 
 <div class="shadow-small">
     <label for={id}>{label}</label>
-    <input bind:this={input} {id} {type} {title} {value} {placeholder} {error} class:right-just={rightJust}
-           on:input={handleInput} on:change={handleInput} on:blur>
+    {#if !currency}
+        <input bind:this={input} {id} {type} {title} {value} {placeholder} {error} class:right-just={rightJust}
+               on:input={handleInput} on:change={handleInput} on:blur>
+    {:else }
+        <span class="input-wrapper">
+        <input bind:this={input} {id} {type} {title} {value} {placeholder} {error} class:right-just={rightJust}
+               on:input={handleInput} on:change={handleInput} on:blur>
+            <span class="currency">€</span>
+        </span>
+    {/if  }
 </div>
 
 
 <style>
     div {
         display: grid;
+
         background-color: white;
         padding: 8px;
         border: solid var(--primary-color);
@@ -65,6 +75,17 @@
         background: transparent;
         border: none;
         outline-width: 0;
+    }
+
+    .input-wrapper {
+        display: grid;
+        grid-template-columns: 1fr min-content;
+        align-items: center;
+    }
+
+    .currency {
+        font-weight: inherit;
+        font-size: 1.6em;
     }
 
     .right-just {

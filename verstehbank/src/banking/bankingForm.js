@@ -2,6 +2,7 @@ import { writable } from 'svelte/store';
 export const emptyTransaction = {
     amount: 0,
     iban: '',
+    bank: '',
     recipient: '',
     tan: 0
 };

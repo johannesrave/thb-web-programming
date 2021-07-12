@@ -22,7 +22,7 @@
                         contact : {
                             name : $transactionForm.recipient,
                             iban : $transactionForm.iban,
-                            bank : 'olle bank'
+                            bank : ''
                         }
                     }
                     accountDB[$user.username].transactions.push(newTrans);

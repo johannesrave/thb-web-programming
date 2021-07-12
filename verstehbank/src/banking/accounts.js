@@ -1,4 +1,5 @@
 import { derived, writable } from 'svelte/store';
+// import type { Contact } from '$banking/contacts';
 import { user } from '$login/auth';
 const initialAccounts = {
     beateweber: {
@@ -12,6 +13,51 @@ const initialAccounts = {
                 },
                 amount: +2500,
                 comment: 'Gib nicht alles auf einmal aus.'
+            },
+            {
+                contact: {
+                    name: 'REWE Rosenheim',
+                    iban: 'DE16500105177715898372',
+                    bank: 'Sparkasse Rosenheim'
+                },
+                amount: -57,
+                comment: 'Danke für Ihren Einkauf.'
+            },
+            {
+                contact: {
+                    name: 'BetterLife GmbH',
+                    iban: 'DE57500105176332758532',
+                    bank: 'Int. Ltd. WorldWide'
+                },
+                amount: -120,
+                comment: 'Danke für Ihren Einkauf.'
+            },
+            {
+                contact: {
+                    name: 'Alexandra Mehlich',
+                    iban: 'DE26500105173512514931',
+                    bank: 'BLT Bank Nauen'
+                },
+                amount: +120,
+                comment: 'Es war wunderschön.'
+            },
+            {
+                contact: {
+                    name: 'BrownBag Inc.',
+                    iban: 'DE57500105176332758534',
+                    bank: 'Tom Hemp\'s Bank'
+                },
+                amount: -17,
+                comment: 'Danke für Ihren Einkauf.'
+            },
+            {
+                contact: {
+                    name: 'Lidl Düsseldorf',
+                    iban: 'DE16500105177715898373',
+                    bank: 'Sparkasse Düsseldorf'
+                },
+                amount: -82,
+                comment: 'Danke für Ihren Einkauf.'
             },
             {
                 contact: {
