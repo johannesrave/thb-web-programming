@@ -1,9 +1,8 @@
 /*@import url("rubik-font.css");*/
 @import "https://fonts.googleapis.com/css2?family=Rubik:wght@300..900";
-@import '@fontsource/fira-mono';
 
 /* TODO
-    define font sitzes like suggested in
+    define font sizes like suggested in
     https://css-tricks.com/rems-ems/
     px size in html selector, rem in components, em in subcomponents
     (probably don't need the last one)
@@ -35,7 +34,6 @@
 	--radius-small: 8px;
 	--radius-medium: 16px;
 	--radius-big: 32px;
-
 }
 
 /* box-sizing reset from https://css-tricks.com/box-sizing/ */
@@ -45,7 +43,6 @@ html {
 *, *:before, *:after {
 	box-sizing: inherit;
 }
-
 
 body {
 	min-height: 100vh;
@@ -70,19 +67,8 @@ p {
 	line-height: 1.5;
 }
 
-a {
-	/*color: var(--accent-color);*/
-	/*text-decoration: none;*/
-}
-
 a:hover {
 	text-decoration: underline;
-}
-
-input,
-button, button:focus {
-	/*font-size: inherit;*/
-	/*font-family: inherit;*/
 }
 
 button:focus:not(:focus-visible) {
