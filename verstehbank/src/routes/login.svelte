@@ -4,16 +4,10 @@
     import ButtonGroup from '$lib/ButtonGroup.svelte';
     import Input from '$lib/Input.svelte';
     import { goto, rootRelative } from '$util/navigation';
-    import { onMount } from 'svelte';
-    import { pageTitle } from '$util/pageTitle';
     import { browser } from '$app/env';
     import Button from '$lib/Button.svelte';
     import Layout from '$lib/Layout.svelte';
     import Logo from '../lib/Logo.svelte';
-
-    onMount(() => {
-        $pageTitle = 'Anmeldung';
-    })
 
     let username: string;
     let password: string;
