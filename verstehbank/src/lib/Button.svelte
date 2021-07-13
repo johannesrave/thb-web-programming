@@ -8,7 +8,6 @@
 
     export let form: string = '';
 
-    export let muted: boolean = false;
     export let look: 'primary' | 'secondary' | 'cancel' = 'primary';
 </script>
 
